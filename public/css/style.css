@@ -2,5 +2,13 @@ body{
     font-family: 'Titillium Web', sans-serif;
 }
 
+.navbar{
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0 ,0 , 0, .05);
+    min-height: 100px;
+}
 
+#imagen{
+    background-image: url(img/4.jpg)
+}
 
