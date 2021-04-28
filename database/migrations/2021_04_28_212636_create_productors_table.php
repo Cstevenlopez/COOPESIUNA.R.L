@@ -15,7 +15,7 @@ class CreateProductorsTable extends Migration
     {
         Schema::create('productors', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('finca_id')->constrained('finca');
+            $table->foreignId('finca_id')->constrained('fincas');
             $table->string('id_productor')->Unique();
             $table->string('nombres',50);
             $table->string('apellidos',50);
