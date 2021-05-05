@@ -1,10 +1,15 @@
-@extends('layouts.plantillabaseu');
+@extends('layouts.plantillabaseu')
+
+@section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+@endsection
 
 @section('contenido')
-<a href="usuarios/create" class="btn btn-primary">Crear nuevo usuario</a>
+<h4>Administrar usuarios</h4>
+<a href="usuarios/create" class="btn btn-primary mb-4">Crear nuevo usuario</a>
 
-<table class="table table-dark table-striped mt-4">
-    <thead>
+<table id="usuarios" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
+    <thead class="bg-primary text-white">
         <tr>
             <th scope="col">ID</th>
             <th scope="col">ID de usuario</th>
@@ -27,11 +32,29 @@
             <td>{{$users->usuario}}</td>
             <td>{{$users->perfil}}</td>
             <td>
-            <a class="btn btn-info">Editar</a>
-            <button class="btn btn-danger">Eliminar</button>
+            <form action="{{ route('usuarios.destroy',$users->id)}}" method="POST">
+            <a href="/usuarios/{{$users->id}}/edit" class="btn btn-outline-primary">Editar</a>
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+            </form>
             </td>
         </tr>
         @endforeach      
     </tbody>
 </table>
+
+@section('js')
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script> 
+
+<script>
+$(document).ready(function() {
+    $('#usuarios').DataTable({
+        "lengthMenu":[[5,10,50,-1], [5,10,50,"All"]]
+    });
+} );
+</script>
+@endsection
 @endsection
