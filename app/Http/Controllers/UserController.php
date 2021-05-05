@@ -67,7 +67,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuarios = User::find($id);
+        return view('usuarios.edit')->with('users',$usuarios);
+
     }
 
     /**
@@ -79,7 +81,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuarios = User::find($id);
+        $usuarios->id_usuario = $request->get('id_usuario');
+        $usuarios->name = $request->get('name');    
+        $usuarios->email = $request->get('email');
+        $usuarios->password = $request->get('password');
+        $usuarios->usuario = $request->get('usuario');
+        $usuarios->perfil = $request->get('perfil');
+        $usuarios->save();
+
+        return redirect('/usuarios');
     }
 
     /**
@@ -90,6 +101,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuarios = User::find($id);
+        $usuarios->delete();
+
+        return redirect('/usuarios');
     }
 }
