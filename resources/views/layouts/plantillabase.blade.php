@@ -37,19 +37,19 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Home</a>
+						<a class="nav-link" href="#">Inicio</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">About</a>
+						<a class="nav-link" href="#">Acerca</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Portfolio</a>
+						<a class="nav-link"  href="{{ route('contacto.index') }}">Login</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Services</a>
+						<a class="nav-link" href="#">Servicios</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ route('contacto.index') }}">Contacto</a>
+						<a class="nav-link" href="#">Contacto</a>
 					</li>
 				</ul>
 			</div>
