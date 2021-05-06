@@ -53,7 +53,7 @@
 				<div class="col-xs-12">
 					<h2 class="text-center text-titles">Ubicación geográfica</h2>
 					<div class="full-box" id="map-site">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d62023.12032236444!2d-89.24971365585169!3d13.69147573884228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ssv!4v1486427564395" frameborder="0" style="border:0; width: 100%; height: 500px;" allowfullscreen></iframe>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d1157.494979387684!2d-84.89910383877799!3d13.736065703590192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d13.727454799999999!2d-84.776799!4m5!1s0x8f12b30847bc8edd%3A0x4258180356c201a3!2scoopesiuna!3m2!1d13.7363793!2d-84.8998781!5e1!3m2!1ses!2sni!4v1615449834777!5m2!1ses!2sni" frameborder="0" style="border:0; width: 100%; height: 500px;" allowfullscreen></iframe>
 					</div>
 				</div>
 			</div>
