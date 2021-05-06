@@ -43,7 +43,7 @@
 						<a class="nav-link" href="#">Acerca</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link"  href="{{ route('contacto.index') }}">Login</a>
+						<a class="nav-link" href="{{ route('home') }}">Login</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Servicios</a>
