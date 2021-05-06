@@ -21,4 +21,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/contacto', [App\Http\Controllers\ContactoController::class, 'index'])->name('contacto');
-Route::resource('usuarios','App\Http\Controllers\UserController');
+Route::resource('/usuarios','App\Http\Controllers\UserController');
+Route::resource('/fincas','App\Http\Controllers\FincaController');
