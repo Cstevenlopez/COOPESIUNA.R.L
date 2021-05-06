@@ -15,7 +15,6 @@
             <th scope="col">ID de usuario</th>
             <th scope="col">Nombre</th>
             <th scope="col">E mail</th>
-            <th scope="col">Contraseña</th>
             <th scope="col">Usuario</th>
             <th scope="col">Perfil</th>
             <th scope="col">Acciones</th>
@@ -28,7 +27,6 @@
             <td>{{$users->id_usuario}}</td>
             <td>{{$users->name}}</td>
             <td>{{$users->email}}</td>
-            <td>{{$users->password}}</td>
             <td>{{$users->usuario}}</td>
             <td>{{$users->perfil}}</td>
             <td>
