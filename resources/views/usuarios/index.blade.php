@@ -1,15 +1,48 @@
-@extends('layouts.plantillabaseu')
+@extends('adminlte::page')
 
-@section('css')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
-@endsection
+@section('title', 'Administrar usuarios')
 
-@section('contenido')
-<h4>Administrar usuarios</h4>
-<a href="usuarios/create" class="btn btn-primary mb-4">Crear nuevo usuario</a>
+@section('content_header')
+    <h3>Administrar usuarios</h3>
+@stop
+
+@section('content')
+<!-- ENTRADA PARA EL MODAL DE USUARIOS -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar usuarios</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- CRUD DE USUARIOS -->
+    <a href="usuarios/create" class="btn btn-dark mb-4">Crear nuevo usuario</a>
 
 <table id="usuarios" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
-    <thead class="bg-primary text-white">
+    <thead class="thead-dark text-white">
         <tr>
             <th scope="col">ID</th>
             <th scope="col">ID de usuario</th>
@@ -31,16 +64,21 @@
             <td>{{$users->perfil}}</td>
             <td>
             <form action="{{ route('usuarios.destroy',$users->id)}}" method="POST">
-            <a href="/usuarios/{{$users->id}}/edit" class="btn btn-outline-primary">Editar</a>
+            <a href="/usuarios/{{$users->id}}/edit" class="btn btn-success">Editar</a>
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
             </form>
             </td>
         </tr>
         @endforeach      
     </tbody>
 </table>
+@stop
+
+@section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+@stop
 
 @section('js')
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -54,5 +92,4 @@ $(document).ready(function() {
     });
 } );
 </script>
-@endsection
-@endsection
+@stop

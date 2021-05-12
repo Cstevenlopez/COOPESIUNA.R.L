@@ -6,39 +6,33 @@
 
 @section('contenido')
 <h4>Administrar fincas</h4>
-<a href="fincas/create" class="btn btn-primary mb-4">Añadir otra finca</a>
+<a href="/fincas/create" class="btn btn-primary mb-4">Añadir otra finca</a>
 
 <table id="finc" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
     <thead class="bg-primary text-white">
         <tr>
-            <th scope="col">ID_finca</th>
+            <th scope="col">ID</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Legalidad</th>
-            <th scope="col">CC.</th>
+            <th scope="col">Legalidad</th>  
+            <th scope="col">Comunidad.</th>
             <th scope="col">Mpio.</th>
             <th scope="col">Dpto.</th>
             <th scope="col">Pais</th>
-            <th scope="col">Lat.</th>
-            <th scope="col">Long.</th>
-            <th scope="col">Alt</th>
-            <th scope="col">Disp.de energia</th>
-            <th scope="col">Disp.de agua</th>
+            <th scope="col">Energia</th>
+            <th scope="col">Agua</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>
     <tbody>
         @foreach($fincas as $fincas)
         <tr>
-            <td>{{$fincas->id_finca}}</td>
+            <td>{{$fincas->id}}</td>
             <td>{{$fincas->nombre}}</td>
             <td>{{$fincas->legalidad}}</td>
             <td>{{$fincas->comunidad}}</td>
             <td>{{$fincas->municipio}}</td>
             <td>{{$fincas->departamento}}</td>
             <td>{{$fincas->pais}}</td>
-            <td>{{$fincas->latitud}}</td>
-            <td>{{$fincas->longitud}}</td>
-            <td>{{$fincas->altitud}}</td>
             <td>{{$fincas->disponibilidad_energia}}</td>
             <td>{{$fincas->disponibilidad_agua}}</td>
             <td>
@@ -46,7 +40,7 @@
             <a href="/fincas/{{$fincas->id}}/edit" class="btn btn-primary">Editar</a>
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <button type="submit" class="btn btn-danger formulario-eliminar">Eliminar</button>
             </form>
             </td>
         </tr>    
@@ -67,6 +61,4 @@ $(document).ready(function() {
 </script>
 @endsection
 @endsection
-
-
 
