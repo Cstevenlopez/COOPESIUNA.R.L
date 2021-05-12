@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<Form action="/usuarios" method="POST">
+<Form action="/usuarios/{{$users->id}}" method="POST">
 @csrf()
 <div class="mb-3">
         <label for="" class="form-label">ID de usuario</label>

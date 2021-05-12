@@ -5,9 +5,8 @@
 @section('content_header')
     <h1>Editar usuarios</h1>
 @stop
-
 @section('content')
-    <Form action="/usuarios/{{$users->id}}" method="POST">
+<Form action="/usuarios/{{$users->id}}" method="POST">
 @csrf
 @method('PUT')
 <div class="mb-3">
