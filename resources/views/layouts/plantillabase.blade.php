@@ -7,8 +7,16 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-
+	<!-- Normalize V8.0.1 -->
+	<link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
+	<!-- MDBootstrap V5 -->
+	<link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
+	<!-- ont Awesome V5.15.1 -->
+	<link rel="stylesheet" href="{{ asset('css/all.css') }}">
+	<!-- General Styles -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -22,39 +30,10 @@
   <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Responsive Homepage design with Bootstrap 4 and Animate css</title>
-	<link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet">
-	<link href="style.css" rel="stylesheet">
+	
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="#">Creativo</a> <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">Inicio</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Acerca</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ route('home') }}">Login</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Servicios</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ route('contacto') }}">Contacto</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+<body id="main-body">
+
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
 	</script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
@@ -63,9 +42,14 @@
 	</script> 
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
 	</script>
+	<!-- MDBootstrap V5 -->
+	<script src="{{ asset('js/mdb.min.js') }}"></script>
+	<!-- MDBootstrap V5 -->
+	<script src="{{ asset('js/main.js') }}"></script>
+
+
 </body>
 </html>
-
 
 
 

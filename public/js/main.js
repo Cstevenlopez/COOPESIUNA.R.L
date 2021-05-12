@@ -1,17 +1,12 @@
-$(document).on('ready', function(){
-	$('.btn-mobile-menu').on('click', function(){
-		var menu=$('.NavBar-navigation');
-		if(menu.hasClass('show-menu-mobile')){
-			menu.removeClass('show-menu-mobile');
-		}else{
-			menu.addClass('show-menu-mobile');
-		}
-	});
-	$('.option-service').click(function(){
-		var seccion=$(this).attr('data-href');
-		$('body,html').animate({
-		  scrollTop:$(seccion).offset().top-70
-		},1000);
-		return false; 
-	});
-});
+/*  Show/Hidden menu mobile */
+function show_menu_mobile(){
+	let header_navbar = document.querySelector(".header-navbar");
+	let body = document.getElementById('main-body');
+	if(header_navbar.classList.contains('active')){
+		header_navbar.classList.remove('active');
+		body.classList.remove('blocked');
+	}else{
+		header_navbar.classList.add('active');
+		body.classList.add('blocked');
+	}
+}
