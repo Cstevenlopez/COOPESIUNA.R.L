@@ -1,24 +1,32 @@
 @extends('layouts.plantillabase')
+	<!-- Header -->
+	<header class="header full-box bg-white">
+	    <div class="header-brand full-box">
+	        <a href="index.html">
+	            <img src="./assets/img/logo.png" alt="Designlopers" class="img-fluid">
+	        </a>
+	    </div>
+
+	    <div class="header-options full-box">
+	        <nav class="header-navbar full-box poppins-regular font-weight-bold scroll" onclick="show_menu_mobile()" >
+	            <ul class="list-unstyled full-box" >
+	                <li>
+	                    <a href="" >Inicio</a>
+	                </li>
+	                <li>
+	                    <a href="">Servicios</a>
+	                </li>
+	                <li>
+	                    <a href="{{ route('home') }}">Login</a>
+	                </li>
+	                <li>
+	                    <a href="{{ route('contacto') }}">Contacto</a>
+	                </li>
+	            </ul>
+	        </nav>
+	    </div>
+	</header>	
 <body>
-	<nav class="full-box NavBar">
-		<div class="full-box NavBar-logo">
-			<figure class="full-box">
-				<img src="assets/img/logo.png" alt="Acodjar" class="img-responsive">
-			</figure>	
-		</div>
-		<ul class="full-box list-unstyled text-right NavBar-navigation">
-			<li>
-				<a href="index.html" class="text-condensed">INICIO</a>
-			</li>
-			<li>
-				<a href="servicios.html" class="text-condensed">SERVICIOS</a>
-			</li>
-			<li>
-				<a href="contactenos.html" class="text-condensed">CONTÁCTENOS</a>
-			</li>
-		</ul>
-		<span class="glyphicon glyphicon-option-vertical visible-xs btn-mobile-menu" aria-hidden="true"></span>
-	</nav>
 	<section class="full-box section">
 		<div class="container">
 			<div class="row">
@@ -59,45 +67,43 @@
 			</div>
 		</div>
 	</section>
-	<footer class="full-box footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<ul class="list-unstyled text-center social-icons">
-						<li>
-							<a href="#!">
-								<i class="fa fa-facebook" aria-hidden="true" style="background-color: #2B3990;"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#!">
-								<i class="fa fa-twitter" aria-hidden="true" style="background-color: #26A9E0;"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#!">
-								<i class="fa fa-youtube" aria-hidden="true" style="background-color: #EC1B23"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#!">
-								<i class="fa fa-instagram" aria-hidden="true" style="background-color: #32689C"></i>
-							</a>
-						</li>
-						<li>
-							<a href="#!" aria-hidden="true" style="background-color: #BE1D2C"></i>
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-xs-12">
-					<p class="text-center text-condensed">
-						Copyright &copy; 2017 Carlos Alfaro
-					</p>
-				</div>
-			</div>
-		</div>
+	<!-- Footer -->
+	<footer class="footer">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-12 col-md-4">
+	                <ul class="list-unstyled" >
+	                    <li><h5 class="font-weight-bold" ><i class="far fa-copyright"></i> Csteven, TonyNavas</h5></li>
+	                    <li> Todos los derechos reservados </li>
+	                </ul>
+	            </div>
+	            <div class="col-12 col-md-4">
+	                <ul class="list-unstyled" >
+	                    <li><h5 class="font-weight-bold" >Nicaragua</h5></li>
+	                    <li><i class="fas fa-map-marker-alt fa-fw"></i> El hormigero, Nicargua, Centro América</li>
+	                </ul>
+	            </div>
+	            <div class="col-12 col-md-4">
+	                <ul class="list-unstyled" >
+	                    <li><h5 class="font-weight-bold" >Siguenos en:</h5> </li>
+	                    <li>
+	                        <a href="https://www.facebook.com/TonyNavas27" class="footer-link" target="_blank" >
+	                            <i class="fab fa-facebook fa-fw"></i> Facebook
+	                        </a>
+	                    </li>
+
+	                    <li>
+	                        <a href="https://www.youtube.com/c/CarlosAlfaro007" class="footer-link" target="_blank" >
+	                            <i class="fab fa-youtube fa-fw"></i>
+	                                Youtube
+	                        </a>
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
 	</footer>
+
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
 	<script src="js/bootstrap.min.js"></script>
