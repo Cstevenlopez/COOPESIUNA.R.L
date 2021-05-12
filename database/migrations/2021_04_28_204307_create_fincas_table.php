@@ -22,9 +22,6 @@ class CreateFincasTable extends Migration
             $table->string('municipio',50);
             $table->string('departamento',50);
             $table->string('pais',50);
-            $table->string('latitud',50);
-            $table->string('longitud',50);
-            $table->string('altitud',50);
             $table->string('disponibilidad_energia',50);
             $table->string('disponibilidad_agua',50);
             $table->timestamps();
