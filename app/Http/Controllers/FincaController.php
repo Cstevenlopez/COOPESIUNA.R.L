@@ -15,8 +15,8 @@ class FincaController extends Controller
     
     public function index()
     {
-        $finc = Finca::all();
-        return view('finca.index')->with('fincas',$finc);
+        $fincas = Finca::all();
+        return view('fincas.index')->with('fincas',$fincas);
     }
 
     /**
@@ -26,7 +26,7 @@ class FincaController extends Controller
      */
     public function create()
     {
-        return view('finca.create');
+        return view('fincas.create');
     }
 
     /**
@@ -37,7 +37,19 @@ class FincaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fincas = new Finca();
+        $fincas->id_finca = $request->get('id_finca');
+        $fincas->nombre = $request->get('nombre');
+        $fincas->legalidad = $request->get('legalidad');
+        $fincas->comunidad = $request->get('comunidad');
+        $fincas->municipio = $request->get('municipio');
+        $fincas->departamento = $request->get('departamento');
+        $fincas->pais = $request->get('pais');
+        $fincas->disponibilidad_energia = $request->get('disponibilidad_energia');
+        $fincas->disponibilidad_agua = $request->get('disponibilidad_agua');
+        $fincas->save();
+
+         return redirect('/fincas');
     }
 
     /**
@@ -59,7 +71,8 @@ class FincaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $fincas = Finca::find($id);
+        return view('fincas.edit')->with('fincas',$fincas);
     }
 
     /**
@@ -71,7 +84,19 @@ class FincaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $fincas = Finca::find($id);
+        $fincas->id_finca = $request->get('id_finca');
+        $fincas->nombre = $request->get('nombre');
+        $fincas->legalidad = $request->get('legalidad');
+        $fincas->comunidad = $request->get('comunidad');
+        $fincas->municipio = $request->get('municipio');
+        $fincas->departamento = $request->get('departamento');
+        $fincas->pais = $request->get('pais');
+        $fincas->disponibilidad_energia = $request->get('disponibilidad_energia');
+        $fincas->disponibilidad_agua = $request->get('disponibilidad_agua');
+        $fincas->save();
+
+         return redirect('/fincas');
     }
 
     /**
