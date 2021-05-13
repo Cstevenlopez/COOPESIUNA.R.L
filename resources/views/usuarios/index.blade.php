@@ -33,9 +33,15 @@
     <label for="" class="form-label">Usuario</label>
     <input type="text" id="usuario" name="usuario" class="form-control" tabindex="4" placeholder="Juan01">
     </div>
+    <!-- SELECT PERFIL -->
     <div class="mb-3">
-    <label for="" class="form-label">Perfil</label>
-    <input type="text" id="perfil" name="perfil" class="form-control" tabindex="4" placeholder="Juan01">
+    <label for="" class="form-label">Perfil de usuario</label>
+    <select name="perfil" class="form-select form-control" tabindex="4" aria-label="Default select example">
+    <option selected >Elija un perfil</option>
+    <option value="Administrador">Administrador</option>
+    <option value="Tecnico">Tecnico</option>
+    </select>
+    <!-- FIN DEL SELECT -->
     </div>
     <div class="mb-3">
     <label for="" class="form-label">E mail</label>
