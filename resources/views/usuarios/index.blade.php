@@ -33,12 +33,10 @@
     <label for="" class="form-label">Usuario</label>
     <input type="text" id="usuario" name="usuario" class="form-control" tabindex="4" placeholder="Juan01">
     </div>
-    <label for="" class="form-label">Perfil de usuario</label>
-    <select class="form-select form-control mb-3" tabindex="4" aria-label="Default select example">
-    <option selected>Elija un perfil</option>
-    <option value="Administrador">Administrador</option>
-    <option value="Técnico">Técnico</option>
-    </select>
+    <div class="mb-3">
+    <label for="" class="form-label">Perfil</label>
+    <input type="text" id="perfil" name="perfil" class="form-control" tabindex="4" placeholder="Juan01">
+    </div>
     <div class="mb-3">
     <label for="" class="form-label">E mail</label>
     <input type="email" id="email" name="email" class="form-control" tabindex="4" placeholder="ejemplo@gmail.com">
@@ -72,7 +70,7 @@
 <tbody>
     @foreach($users as $users)
     <tr>
-        <td id="id">{{$users->id}}</td>
+        <td>{{$users->id}}</td>
         <td>{{$users->id_usuario}}</td>
         <td>{{$users->name}}</td>
         <td>{{$users->email}}</td>
