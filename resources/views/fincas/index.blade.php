@@ -9,7 +9,7 @@
 @section('content')
 <a href="/fincas/create" class="btn btn-dark mb-4">Añadir otra finca</a>
 
-<table id="finc" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
+<table id="fincas" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
     <thead class="thead-dark text-white">
         <tr>
             <th scope="col">Nombre</th>
@@ -58,7 +58,7 @@
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script> 
 <script>
 $(document).ready(function() {
-    $('#finc').DataTable({
+    $('#fincas').DataTable({
         "lengthMenu":[[5,10,50,-1], [5,10,50,"All"]]
     });
 } );

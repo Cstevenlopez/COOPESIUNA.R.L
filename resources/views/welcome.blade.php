@@ -34,7 +34,15 @@
 	        <p>Somos una cooperativa Cacaotera, organizada y comprometida con mejorar la calidad de vida de sus asociados,brindadando servicios y productos de calidad.</p>
 	    </div>
 	</div>
-
+	@section('js')
+<scritp>
+Swal.fire(
+  'The Internet?',
+  'That thing is still around?',
+  'question'
+)
+</scritp>
+@stop
 	<!-- Footer -->
 	<footer class="footer">
 	    <div class="container">
