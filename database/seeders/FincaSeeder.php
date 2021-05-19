@@ -2,20 +2,21 @@
 
 namespace Database\Seeders;
 
+use App\Models\Finca;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class FincaSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-    //     \App\Models\User::factory(40)->create();
-    //     users::create(
+    //     \App\Models\Finca::factory(40)->create();
+    //     Finca::create(
     //         [ ]
     // );
-}
+    }
 }
