@@ -12,11 +12,20 @@ class FincaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $fincas = Finca::all();
         return view('fincas.index')->with('fincas',$fincas);
+
+        $fincas = Finca::all();
+        return response()->json([
+            'res' => true,
+            'fincas' => $fincas
+        ]);
     }
 
     /**
