@@ -9,6 +9,7 @@
 <Form action="/usuarios/{{$users->id}}" method="POST">
 @csrf
 @method('PUT')
+<h1>Prueba</h1>
 <div class="mb-3">
         <label for="" class="form-label">ID de usuario</label>
         <input type="text" id="id_usuario" name="id_usuario" value="{{$users->id_usuario}}" class="form-control" tabindex="1">
