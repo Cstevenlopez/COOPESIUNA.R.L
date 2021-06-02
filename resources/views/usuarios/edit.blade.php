@@ -11,7 +11,6 @@
 
 @csrf()
 @method('PUT')
-
 <div class="form-row ml-5">
     <div class="ml-5 col-md-3 mb-2">
     <label class="text-info">ID de usuario</label>
