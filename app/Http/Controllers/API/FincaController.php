@@ -29,14 +29,12 @@ class FincaController extends Controller
      */
     public function store(GuardarFincaRequest $request)
     {
-        Finca::create($request -> all());
-
+        Finca::create($request->all());
         return response()->json([
-            'res' => true,
-            'fincas' => 'Nueva finca añadida con exito'
-        ]);
+            'res'=>true,
+            'mensaje'=>'Finca guardado exitosamente'
+        ]);   
     }
-
     /**
      * Display the specified resource.
      *
@@ -46,11 +44,10 @@ class FincaController extends Controller
     public function show(Finca $fincas)
     {
         return response()->json([
-            'res' => true,
-            'fincas' => $fincas
-        ]);
+            'res'=>true,
+            'data'=>$fincas
+        ]); 
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -62,9 +59,10 @@ class FincaController extends Controller
     {
         $fincas->update($request->all());
         return response()->json([
-            'res' => true,
-            'fincas' => 'finca actualizada con exito.'
-        ], 200);
+            'res'=>true,
+            'mensaje'=>'Finca actualizada exitosamente'
+        ],200); 
+
     }
     /**
      * Remove the specified resource from storage.
@@ -76,8 +74,8 @@ class FincaController extends Controller
     {
         $fincas->delete();
         return response()->json([
-            'res' => true,
-            'fincas' => 'fincas eliminado con exito.'
+            'res'=>true,
+            'mensaje'=>'Finca Eliminada exitosamente'
         ]);
     }
 }

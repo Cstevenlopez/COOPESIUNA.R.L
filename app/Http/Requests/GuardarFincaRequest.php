@@ -13,7 +13,7 @@ class GuardarFincaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class GuardarFincaRequest extends FormRequest
     {
         return [
                 //
-                "id_finca"=>"required | unique:fincas, id_finca",
+                "id_finca"=>"required|unique:fincas,id_finca",
                 "nombre"=>"required",
                 "legalidad"=>"required",
                 "comunidad"=>"required",
