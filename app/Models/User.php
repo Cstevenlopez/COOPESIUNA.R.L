@@ -42,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Relacion uno a muchos
+    // public  function vitacora(){
+    //     return $this->hasMany('App/Models/Vitacora_asistencia');
+    // }
 }

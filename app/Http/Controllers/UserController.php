@@ -42,6 +42,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'id_usuario' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'usuario' => 'required',
+            'perfil' => 'required'
+        ]);
         $usuarios = new User();
         $usuarios->id_usuario = $request->get('id_usuario');
         $usuarios->name = $request->get('name');    
@@ -110,6 +118,6 @@ class UserController extends Controller
         $usuarios = User::find($id);
         $usuarios->delete();
 
-        return redirect('/usuarios');
+        return redirect('/usuarios')->with('eliminar','ok');
     }
 }

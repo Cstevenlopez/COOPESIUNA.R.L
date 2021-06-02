@@ -15,8 +15,8 @@ class CreateUsoDeTierrasTable extends Migration
     {
         Schema::create('uso_de_tierras', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('finca_id')->constrained('fincas');
-            $table->string('id_uso')->unique();
+            $table->string('finca_id');
+            $table->foreign('finca_id')->references('id_finca')->on('fincas');
             $table->string('area_total',50);
             $table->string('boque_primario',50);
             $table->string('bosque_secundario',50);
@@ -24,7 +24,6 @@ class CreateUsoDeTierrasTable extends Migration
             $table->string('plantaciones_forestales',50);
             $table->string('areas_pasto_abierto',50);
             $table->string('areas_pasto_arboles',50);
-            $table->string('cultivos_perennes');
             $table->timestamps();
         });
     }

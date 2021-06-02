@@ -24,7 +24,7 @@ class CreateVitacoraAsistenciasTable extends Migration
             $table->string('recomendaciones',100);
             $table->date('fecha');
             $table->date('siguiente_visita');
-            $table->foreignId('usuario_id')->constrained('users');
+            $table->foreignId('usuario_id')->constrained('users');           
             $table->timestamps();
         });
     }

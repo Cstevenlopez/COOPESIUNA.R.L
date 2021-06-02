@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Productor extends Model
 {
     use HasFactory;
+
+    //Relacion uno a muchos
+
+    // public function vitacora(){
+    //     return $this->hasMany('App/Models/Vitacora_asistencia');
+    // }
 }

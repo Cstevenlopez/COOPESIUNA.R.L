@@ -3,14 +3,93 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Administrar fincas</h1>
 @stop
 
 @section('content')
-<a href="/fincas/create" class="btn btn-dark mb-4">Añadir otra finca</a>
+
+<!-- ENTRADA PARA EL MODAL DE FINCAS -->
+<div class="text-center">
+<a href="" class="btn btn-default bg-info btn-rounded" data-toggle="modal" data-target="#modalFincas">Nuevo registro  <i class="fas fa-clipboard"></i></a>
+</div>
+    <div class="modal fade" id="modalFincas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header bg-info">
+    <h5 class="modal-title" id="exampleModalLabel">Agregar nueva finca</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+    <Form action="/fincas" method="POST">
+    @csrf()
+    <div class="mb-3">
+    <label for="" class="form-label">Codigo de finca</label>
+    <input type="text" id="id_finca" name="id_finca" class="form-control" tabindex="1" placeholder="CONTABILIDAD-01">
+    </div>
+    <div class="mb-3">
+    <label for="" class="form-label">Nombre de la finca</label>
+    <input type="text" id="nombre" name="nombre" class="form-control" tabindex="4" placeholder="Nombre de la finca">
+    </div>
+    <!-- SELECT LEGALIDAD -->
+    <div class="mb-3">
+    <label for="" class="form-label">Tipo de legalidad</label>
+    <select name="legalidad" class="form-select form-control" tabindex="4" aria-label="Default select example">
+    <option selected >Elija un tipo</option>
+    <option value="Escritura">Escritura</option>
+    <option value="Contrato">Contrato</option>
+    </select>
+    </div>
+    <!-- FIN DEL SELECT -->
+    <div class="mb-3">
+    <label for="" class="form-label">Comunidad</label>
+    <input type="text" id="comunidad" name="comunidad" class="form-control" tabindex="4" placeholder="Comunidad de la finca" require>
+    </div>
+    <div class="mb-3">
+    <label for="" class="form-label">Municipio</label>
+    <input type="text" id="municipio" name="municipio" class="form-control" tabindex="4" placeholder="Municipio de la finca" require>
+    </div>
+    <div class="mb-3">
+    <label for="" class="form-label">Departamento</label>
+    <input type="text" id="departamento" name="departamento" class="form-control" tabindex="4" placeholder="Departamento" require>
+    </div>
+    <div class="mb-3">
+    <label for="" class="form-label">Pais</label>
+    <input type="text" id="pais" name="pais" class="form-control" tabindex="4" placeholder="Pais" require>
+    </div>
+    <!-- SELECT ENERGIA -->
+    <div class="mb-3">
+    <label for="" class="form-label">Disponibilidad de energia</label>
+    <select name="disponibilidad_energia" class="form-select form-control" tabindex="4" aria-label="Default select example" require>
+    <option selected >Seleccione</option>
+    <option value="si">Si</option>
+    <option value="no">No</option>
+    </select>
+    </div>
+    <!-- FIN DEL SELECT -->
+    <!-- SELECT AGUA -->
+    <div class="mb-5">
+    <label for="" class="form-label">Disponibilidad de agua</label>
+    <select name="disponibilidad_agua" class="form-select form-control" tabindex="4" aria-label="Default select example" require>
+    <option selected >Seleccione</option>
+    <option value="si">Si</option>
+    <option value="no">No</option>
+    </select>
+    </div>
+    <!-- FIN DEL SELECT -->
+    <button type="submit" class="btn btn-primary" tabindex="4">Guardar  <i class="fas fa-save"></i></button>
+    <a href="/fincas" class="btn btn-secondary" tabindex="5">Cancelar  <i class="fas fa-reply-all"></i></a>
+    </Form>
+    </div>
+    </div>
+    </div>
+    </div>
+<!-- FIN DEL MODAL DE FINCAS -->
+
+<!-- <a href="/fincas/create" class="btn btn-dark mb-4">Añadir otra finca</a> -->
 
 <table id="fincas" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
-    <thead class="thead-dark text-white">
+    <thead class="bg-info text-white">
         <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Legalidad</th>  
@@ -36,10 +115,10 @@
             <td>{{$fincas->disponibilidad_agua}}</td>
             <td>
             <form action="{{ route('fincas.destroy',$fincas->id)}}" method="POST">
-            <a href="/fincas/{{$fincas->id}}/edit" class="btn btn-success">Editar</a>
+            <a href="/fincas/{{$fincas->id}}/edit" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger formulario-eliminar">Eliminar</button>
+            <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-eraser"></i></button>
             </form>
             </td>
         </tr>    
@@ -53,6 +132,7 @@
 @stop
 
 @section('js')
+<script src="https://unpkg.com/ionicons@5.5.1/dist/ionicons.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script> 
