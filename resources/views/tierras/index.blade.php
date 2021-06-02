@@ -79,7 +79,14 @@
 <!-- FIN DEL MODAL DE TIERRAS -->
 
 <!-- CRUD DE TIERRAS -->
-<table id="usuarios" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
+
+<!-- <style>
+        tr:hover {
+        background-color: DodgerBlue;
+        color:white;
+        }
+</style> -->
+<table id="usuarios"  class="table table-hover table-striped table-bordered shadow-lg mt-4" style="width:100%">
 <thead class="bg-info text-white">
     <tr>
         <th scope="col">Finca</th>
@@ -87,7 +94,7 @@
         <th scope="col">Bosque.N°1</th>
         <th scope="col">Bosque.N°2</th>
         <th scope="col">Cult.Anuales</th>
-        <th scope="col">Plant.Forest</th>
+        <th scope="col">P-Forest</th>
         <th scope="col">A.Pasto</th>
         <th scope="col">A.Árboles</th>
         <th scope="col">Acciones</th>
@@ -105,7 +112,7 @@
         <td>{{$uso_de_tierras->areas_pasto_abierto}}</td>
         <td>{{$uso_de_tierras->areas_pasto_arboles}}</td>
         <td>
-        <form action="{{ route('tierras.destroy',$uso_de_tierras->id)}}" method="POST">
+        <form action="{{ route('tierras.destroy',$uso_de_tierras->id)}}" class="formulario-eliminar" method="POST">
         <a href="/tierras/{{$uso_de_tierras->id}}/edit" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
         @csrf
         @method('DELETE')
@@ -131,6 +138,38 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script> 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session('eliminar')=== 'ok')
+<script>
+    Swal.fire(
+    'Eliminado!',
+    'El registro ha sido eliminado correctamente.',
+    'success'
+)
+</script>
+@endif
+
+<script>
+$('.formulario-eliminar').submit(function(e){
+    e.preventDefault();
+
+    Swal.fire({
+    title: 'Estas seguro?',
+    text: "No podrás revertir esto!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, borrar esto!'
+}).then((result) => {
+if (result.isConfirmed) {
+    this.submit();
+}
+})
+
+});
+</script>
 
 <script>
 $(document).ready(function() {

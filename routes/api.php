@@ -23,4 +23,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('fincas', [FincaController::class, 'index']);
+// Route::get('fincas', [FincaController::class, 'update']);
+// Route::get('fincas', [FincaController::class, 'store']);
+// Route::get('fincas', [FincaController::class, 'destroy']);
+// Route::get('fincas', [FincaController::class, 'show']);
 

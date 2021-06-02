@@ -71,7 +71,7 @@ class UsoTierraController extends Controller
     public function edit($id)
     {
         $Tierras = Uso_de_tierra::find($id);
-        return view('tierras.edit')->with('uso_de_tierrad',$Tierras);
+        return view('tierras.edit')->with('uso_de_tierras',$Tierras);
     }
 
     /**
@@ -108,6 +108,6 @@ class UsoTierraController extends Controller
         $Tierras = Uso_de_tierra::find($id);
         $Tierras->delete();
 
-        return redirect('/tierras');
+        return redirect('/tierras')->with('eliminar','ok');
     }
 }
