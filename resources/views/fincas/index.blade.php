@@ -23,17 +23,29 @@
     <div class="modal-body">
     <Form action="/fincas" method="POST">
     @csrf()
+
     <div class="mb-3">
-    <label for="" class="form-label">Codigo de finca</label>
+    <label for="" class="form-label">Codigo de finca</label><br>
+    @error('id_finca')
+    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+    @enderror
     <input type="text" id="id_finca" name="id_finca" class="form-control" tabindex="1" placeholder="CONTABILIDAD-01">
     </div>
+
     <div class="mb-3">
-    <label for="" class="form-label">Nombre de la finca</label>
+    <label for="" class="form-label">Nombre de la finca</label><br>
+    @error('nombre')
+    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+    @enderror
     <input type="text" id="nombre" name="nombre" class="form-control" tabindex="4" placeholder="Nombre de la finca">
     </div>
+
     <!-- SELECT LEGALIDAD -->
     <div class="mb-3">
-    <label for="" class="form-label">Tipo de legalidad</label>
+    <label for="" class="form-label">Tipo de legalidad</label><br>
+    @error('legalidad')
+    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+    @enderror
     <select name="legalidad" class="form-select form-control" tabindex="4" aria-label="Default select example">
     <option selected >Elija un tipo</option>
     <option value="Escritura">Escritura</option>
@@ -41,25 +53,45 @@
     </select>
     </div>
     <!-- FIN DEL SELECT -->
+
     <div class="mb-3">
-    <label for="" class="form-label">Comunidad</label>
+    <label for="" class="form-label">Comunidad</label><br>
+    @error('comunidad')
+    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+    @enderror
     <input type="text" id="comunidad" name="comunidad" class="form-control" tabindex="4" placeholder="Comunidad de la finca" require>
     </div>
+
     <div class="mb-3">
-    <label for="" class="form-label">Municipio</label>
+    <label for="" class="form-label">Municipio</label><br>
+    @error('municipio')
+    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+    @enderror
     <input type="text" id="municipio" name="municipio" class="form-control" tabindex="4" placeholder="Municipio de la finca" require>
     </div>
+
     <div class="mb-3">
-    <label for="" class="form-label">Departamento</label>
+    <label for="" class="form-label">Departamento</label><br>
+    @error('departamento')
+    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+    @enderror
     <input type="text" id="departamento" name="departamento" class="form-control" tabindex="4" placeholder="Departamento" require>
     </div>
+
     <div class="mb-3">
-    <label for="" class="form-label">Pais</label>
+    <label for="" class="form-label">Pais</label><br>
+    @error('pais')
+    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+    @enderror
     <input type="text" id="pais" name="pais" class="form-control" tabindex="4" placeholder="Pais" require>
     </div>
+
     <!-- SELECT ENERGIA -->
     <div class="mb-3">
-    <label for="" class="form-label">Disponibilidad de energia</label>
+    <label for="" class="form-label">Disponibilidad de energia</label><br>
+    @error('disponibilidad_energia')
+    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+    @enderror
     <select name="disponibilidad_energia" class="form-select form-control" tabindex="4" aria-label="Default select example" require>
     <option selected >Seleccione</option>
     <option value="si">Si</option>
@@ -69,7 +101,10 @@
     <!-- FIN DEL SELECT -->
     <!-- SELECT AGUA -->
     <div class="mb-5">
-    <label for="" class="form-label">Disponibilidad de agua</label>
+    <label for="" class="form-label">Disponibilidad de agua</label><br>
+    @error('disponibilidad_agua')
+    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+    @enderror<br>
     <select name="disponibilidad_agua" class="form-select form-control" tabindex="4" aria-label="Default select example" require>
     <option selected >Seleccione</option>
     <option value="si">Si</option>
@@ -114,7 +149,7 @@
             <td>{{$fincas->disponibilidad_energia}}</td>
             <td>{{$fincas->disponibilidad_agua}}</td>
             <td>
-            <form action="{{ route('fincas.destroy',$fincas->id)}}" method="POST">
+            <form action="{{ route('fincas.destroy',$fincas->id)}}" class="formulario-eliminar" method="POST">
             <a href="/fincas/{{$fincas->id}}/edit" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
             @csrf
             @method('DELETE')
@@ -136,6 +171,39 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script> 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session('eliminar')=== 'ok')
+<script>
+    Swal.fire(
+    'Eliminado!',
+    'El usuario ha sido eliminado correctamente.',
+    'success'
+)
+</script>
+@endif
+
+<script>
+$('.formulario-eliminar').submit(function(e){
+    e.preventDefault();
+
+    Swal.fire({
+    title: 'Estas seguro?',
+    text: "No podrás revertir esto!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, borrar esto!'
+}).then((result) => {
+if (result.isConfirmed) {
+    this.submit();
+}
+})
+
+});
+</script>
+
 <script>
 $(document).ready(function() {
     $('#fincas').DataTable({
