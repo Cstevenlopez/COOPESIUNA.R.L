@@ -37,6 +37,18 @@ class UsoTierraController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'finca_id' => 'required',
+            'area_total' => 'required',
+            'boque_primario' => 'required',
+            'bosque_secundario' => 'required',
+            'cultivos_anuales' => 'required',
+            'plantaciones_forestales' => 'required',
+            'areas_pasto_abierto' => 'required',
+            'areas_pasto_arboles' => 'required'
+        ]);
+
         $Tierras = new Uso_de_tierra();
         $Tierras->finca_id = $request->get('finca_id');
         $Tierras->area_total = $request->get('area_total');    
