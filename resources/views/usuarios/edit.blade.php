@@ -3,7 +3,7 @@
 @section('title', 'Editar usuarios')
 
 @section('content_header')
-    <h1>Editar usuarios</h1>
+<div class="w-max shadow-lg text-center p-3 bg-info">Editar usuarios</div>
 @stop
 @section('content')
 <Form action="/usuarios/{{$users->id}}" method="POST">

@@ -8,7 +8,7 @@
 @section('content')
 <!-- ENTRADA PARA EL MODAL DE USUARIOS -->
 <div class="text-center">
-<a href="" class="btn bg-info btn-default btn-rounded" data-toggle="modal" data-target="#modalUsuarios">Nuevo usuario  <i class="fas fa-clipboard"></i></a>
+<a href="" class="btn bg-info btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalUsuarios">Nuevo usuario  <i class="fas fa-clipboard"></i></a>
 </div>
     <div class="modal fade" id="modalUsuarios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -86,11 +86,12 @@
 <!-- FIN DEL MODAL DE USUARIOS -->
 
 <!-- CRUD DE USUARIOS -->
-<table id="usuarios" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
+<table id="usuarios" class="table table-responsive-md table-striped table-bordered shadow-lg mt-4" style="width:100%">
 <thead class="bg-info text-white">
     <tr>
-        <th scope="col">ID.Usuario</th>
-        <th scope="col">Nombre y apellido</th>
+    <th scope="col">ID</th>
+        <th scope="col">ID de usuario</th>
+        <th scope="col">Nombres y apellidos</th>
         <th scope="col">Correo electronico</th>
         <th scope="col">Usuario</th>
         <th scope="col">Perfil</th>
@@ -101,6 +102,7 @@
 <tbody>
     @foreach($users as $users)
     <tr>
+        <td>{{$users->id}}</td>
         <td>{{$users->id_usuario}}</td>
         <td>{{$users->name}}</td>
         <td>{{$users->email}}</td>

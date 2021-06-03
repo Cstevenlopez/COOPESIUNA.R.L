@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Administrar fincas')
 
 @section('content_header')
 @stop
@@ -9,7 +9,7 @@
 
 <!-- ENTRADA PARA EL MODAL DE FINCAS -->
 <div class="text-center">
-<a href="" class="btn btn-default bg-info btn-rounded" data-toggle="modal" data-target="#modalFincas">Nuevo registro  <i class="fas fa-clipboard"></i></a>
+<a href="" class="btn btn-default bg-info btn-rounded mb-4" data-toggle="modal" data-target="#modalFincas">Nuevo registro  <i class="fas fa-clipboard"></i></a>
 </div>
     <div class="modal fade" id="modalFincas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -123,17 +123,17 @@
 
 <!-- <a href="/fincas/create" class="btn btn-dark mb-4">Añadir otra finca</a> -->
 
-<table id="fincas" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
+<table id="fincas" class="table table-responsive-md table-striped table-bordered shadow-lg mt-4" style="width:100%">
     <thead class="bg-info text-white">
         <tr>
-            <th scope="col">Nombre</th>
+            <th scope="col">Nombre de la finca</th>
             <th scope="col">Legalidad</th>  
-            <th scope="col">Comunidad.</th>
-            <th scope="col">Mpio.</th>
-            <th scope="col">Dpto.</th>
+            <th scope="col">Comunidad</th>
+            <th scope="col">Municipio</th>
+            <th scope="col">Departamento</th>
             <th scope="col">Pais</th>
-            <th scope="col">Energia</th>
-            <th scope="col">Agua</th>
+            <th scope="col">Hay energia</th>
+            <th scope="col">Hay agua</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>

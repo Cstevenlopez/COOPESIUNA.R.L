@@ -3,93 +3,115 @@
 @section('title', 'Administrar productores')
 
 @section('content_header')
-    <h3>Administrar productores</h3>
 @stop
 
 @section('content')
-<!-- Entrada para el modal de productores -->
+<!-- ENTRADA PARA EL MODAL DE USUARIOS -->
 <div class="text-center">
-<a href="" class="btn bg-info btn-default btn-rounded" data-toggle="modal" data-target="#modalTierras">Nuevo registro  <i class="fas fa-clipboard"></i></a>
+<a href="" class="btn bg-info btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalUsuarios">Nuevo productor <i class="fas fa-clipboard"></i></a>
 </div>
-    <div class="modal fade" id="modalTierras" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalUsuarios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
     <div class="modal-content">
     <div class="modal-header bg-info">
-    <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo registro de tierras</h5>
+    <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo productor</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
     </button>
     </div>
+
     <div class="modal-body">
-    <Form action="/tierras" method="POST">
+    <Form action="/productores" method="POST">
     @csrf()
-    <!-- SELECT PERFIL -->
+
     <div class="mb-3">
-        <label for="" class="form-label">Finca</label>
-            <select name="finca_id" class="form-select form-control" tabindex="4" aria-label="Default select example" require>
+        <label for="" class="form-label">Finca</label><br>
+        @error('fincaid')
+            <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+        @enderror
+            <select  name="fincaid" class="form-select form-control" tabindex="4" aria-label="Default select example" require>
                 <option>--Seleccione--</option>
-                @foreach(App\Models\Finca::get() as $fincas)
-        <option value="{{$fincas->id_finca}}">{{$fincas->nombre}}</option>
+                @foreach(App\Models\uso_de_tierra::get() as $uso_de_tierra)
+        <option value="{{$uso_de_tierra->finca_id}}">{{$uso_de_tierra->finca_id}}</option>
             @endforeach
         </select>
     </div>
-    <!-- FIN DEL SELECT -->
 
     <div class="mb-3">
-        <label for="" class="form-label">Area total</label>
-        <input type="text" id="area_total" name="area_total" class="form-control" tabindex="4" placeholder="Area total de la finca" require>
+    <label for="" class="form-label">ID del productor</label><br>
+    @error('id_productor')
+    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+    @enderror
+    <input type="text" value="{{old('id_productor')}}" name="id_productor" class="form-control" tabindex="4" placeholder="Juan Benito Lopez Perez">
     </div>
 
     <div class="mb-3">
-        <label for="" class="form-label">Bosque primario</label>
-        <input type="text" id="boque_primario" name="boque_primario" class="form-control" tabindex="4" placeholder="Área del bosque primario" require>
+    <label for="" class="form-label">Nombre del productor</label><br>
+    @error('nombres')
+    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+    @enderror
+    <input type="text" value="{{old('nombres')}}" name="nombres" class="form-control" tabindex="4" placeholder="Juan01">
     </div>
 
     <div class="mb-3">
-    <label for="" class="form-label">Bosque secundario</label>
-    <input type="text" id="bosque_secundario" name="bosque_secundario" class="form-control" tabindex="4" placeholder="Área del bosque secundario" require>
+    <label for="" class="form-label">Apellido del productor</label><br>
+    @error('apellidos')
+    <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
+    @enderror
+    <input type="text" value="{{old('apellidos')}}"  name="apellidos" class="form-control" tabindex="4" placeholder="...">
     </div>
 
     <div class="mb-3">
-    <label for="" class="form-label">Cultivos anuales</label>
-    <input type="text" id="cultivos_anuales" name="cultivos_anuales" class="form-control" tabindex="4" placeholder="" require>
+    <label for="" class="form-label">Cedula</label><br>
+    @error('numero_cedula')
+    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+    @enderror
+    <input type="text" value="{{old('numero_cedula')}}" name="numero_cedula" class="form-control" tabindex="4" placeholder="ejemplo@gmail.com">
     </div>
 
     <div class="mb-3">
-    <label for="" class="form-label">Plantaciones forestales</label>
-    <input type="text" id="plantaciones_forestales" name="plantaciones_forestales" class="form-control" tabindex="4" placeholder="" require>
+    <label for="" class="form-label">Número de teléfono</label><br>
+    @error('numero_telefono')
+    <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
+    @enderror
+    <input type="text" value="{{old('numero_telefono')}}" name="numero_telefono" class="form-control" tabindex="4" placeholder="...">
     </div>
 
     <div class="mb-3">
-    <label for="" class="form-label">Áreas de pasto abierto</label>
-    <input type="text" id="areas_pasto_abierto" name="areas_pasto_abierto" class="form-control" tabindex="4" placeholder="" require>
+    <label for="" class="form-label">Comunidad</label><br>
+    @error('comunidad')
+    <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
+    @enderror
+    <input type="text" value="{{old('comunidad')}}" name="comunidad" class="form-control" tabindex="4" placeholder="...">
     </div>
 
     <div class="mb-3">
-    <label for="" class="form-label">Áreas de pasto con árboles</label>
-    <input type="text" id="areas_pasto_arboles" name="areas_pasto_arboles" class="form-control" tabindex="4" placeholder="" require>
+    <label for="" class="form-label">Municipio</label><br>
+    @error('municipio')
+    <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
+    @enderror
+    <input type="text" value="{{old('municipio')}}" name="municipio" class="form-control" tabindex="4" placeholder="...">
     </div>
 
-    <button type="submit" class="btn btn-info text-ligth bold border-0" tabindex="4">Guardar  <i class="fas fa-save"></i></button>
-    <a href="/tierras" class="btn btn-danger bold text-light border-0" tabindex="5">Cancelar  <i class="fas fa-reply-all"></i></a>
+    <button type="submit" class="btn btn-primary" tabindex="4">Guardar<i class="fas fa-save"></i></button>
+    <a href="/productores" class="btn btn-secondary" tabindex="5">Cancelar <i class="fas fa-reply-all"></i></a>
     </Form>
     </div>
     </div>
     </div>
     </div>
-<!-- FIN DEL MODAL DE TIERRAS -->
+<!-- FIN DEL MODAL DE PRODUCTORES -->
 
 <!-- CRUD DE PRODUCTORES -->
-<table id="usuarios" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
-<thead class="thead-dark text-white">
+<table id="usuarios" class="table table-responsive-md table-striped table-bordered shadow-lg mt-4 w-100">
+<thead class="bg-info text-white">
     <tr>
-        <th scope="col">Finca</th>
-        <th scope="col">ID Productor</th>
-        <th scope="col">Nombres</th>
-        <th scope="col">Apellidos</th>
+        <th scope="col">ID de la Finca</th>
+        <th scope="col">ID del Productor</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
         <th scope="col">Cedula</th>
         <th scope="col">Teléfono</th>
-        <th scope="col">Foto</th>
         <th scope="col">Comunidad</th>
         <th scope="col">Municipio</th>
         <th scope="col">Acciones</th>
@@ -98,21 +120,20 @@
 <tbody>
     @foreach($productors as $productors)
     <tr>
-        <td>{{$productors->finca_id}}</td>
+        <td>{{$productors->fincaid}}</td>
         <td>{{$productors->id_productor}}</td>
         <td>{{$productors->nombres}}</td>
         <td>{{$productors->apellidos}}</td>
         <td>{{$productors->numero_cedula}}</td>
         <td>{{$productors->numero_telefono}}</td>
-        <td>{{$productors->foto}}</td>
         <td>{{$productors->comunidad}}</td>
         <td>{{$productors->municipio}}</td>
         <td>
-        <form action="{{ route('productors.destroy',$productors->id)}}" method="POST">
-        <a href="/productores/{{$productors->id}}/edit" class="btn btn-success">Editar</a>
+        <form action="{{ route('productores.destroy',$productors->id)}}" class="formulario-eliminar" method="POST">
+        <a href="/productores/{{$productors->id}}/edit" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-eraser"></i></button>
         </form>
         </td>
     </tr>
@@ -129,6 +150,39 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script> 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session('eliminar')=== 'ok')
+<script>
+    Swal.fire(
+    'Eliminado!',
+    'El usuario ha sido eliminado correctamente.',
+    'success'
+)
+</script>
+@endif
+
+<script>
+$('.formulario-eliminar').submit(function(e){
+    e.preventDefault();
+
+    Swal.fire({
+    title: 'Estas seguro?',
+    text: "No podrás revertir esto!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, borrar esto!'
+}).then((result) => {
+if (result.isConfirmed) {
+    this.submit();
+}
+})
+
+});
+</script>
+
 
 <script>
 $(document).ready(function() {
