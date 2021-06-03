@@ -27,3 +27,15 @@ Route::post('fincas',[FincaController::class,'store']);
 Route::put('fincas/{fincas}',[FincaController::class,'update']);
 Route::get('fincas/{fincas}',[FincaController::class,'show']);
 Route::delete('fincas/{fincas}',[FincaController::class,'destroy']);
+
+
+
+Route::get('/fincas', 'FincaController@index');
+
+Route::put('/fincas/actualizar', 'FincaController@update');
+
+Route::post('/fincas/guardar', 'FincaController@store');
+
+Route::delete('/fincas/borrar/{id}', 'FincaController@destroy');
+
+Route::get('/fincas/buscar', 'FincaController@show');

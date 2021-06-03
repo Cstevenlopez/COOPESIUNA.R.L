@@ -41,11 +41,11 @@ class FincaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Finca $fincas)
+    public function show(Finca $finca)
     {
         return response()->json([
             'res'=>true,
-            'data'=>$fincas
+            'data'=>$finca
         ]); 
     }
     /**
@@ -55,9 +55,9 @@ class FincaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EditarFincaRequest $request,Finca $fincas)
+    public function update(EditarFincaRequest $request,Finca $finca)
     {
-        $fincas->update($request->all());
+        $finca->update($request->all());
         return response()->json([
             'res'=>true,
             'mensaje'=>'Finca actualizada exitosamente'
@@ -70,9 +70,9 @@ class FincaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Finca $fincas)
+    public function destroy(Finca $finca)
     {
-        $fincas->delete();
+        $finca->delete();
         return response()->json([
             'res'=>true,
             'mensaje'=>'Finca Eliminada exitosamente'
