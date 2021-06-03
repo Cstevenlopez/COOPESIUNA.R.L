@@ -46,6 +46,17 @@ class FincaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'id_finca' => 'required',
+            'nombre' => 'required',
+            'legalidad' => 'required',
+            'comunidad' => 'required',
+            'municipio' => 'required',
+            'departamento' => 'required',
+            'pais' => 'required',
+            'disponibilidad_energia' => 'required',
+            'disponibilidad_agua' => 'required'
+        ]);
         $fincas = new Finca();
         $fincas->id_finca = $request->get('id_finca');
         $fincas->nombre = $request->get('nombre');
@@ -58,7 +69,7 @@ class FincaController extends Controller
         $fincas->disponibilidad_agua = $request->get('disponibilidad_agua');
         $fincas->save();
 
-         return redirect('/fincas');
+        return redirect('/fincas');
     }
 
     /**
@@ -119,6 +130,6 @@ class FincaController extends Controller
         $finc = Finca::find($id);
         $finc->delete();
 
-        return redirect('/fincas');
+        return redirect('/fincas')->with('eliminar','ok');
     }
 }
