@@ -24,7 +24,7 @@ class EditarFincaRequest extends FormRequest
     public function rules()
     {
         return [
-            "id_finca"=>"required | unique:fincas,id_finca" .$this->route('fincas')->id,
+            "id_finca"=>"required|unique:fincas,id_finca,".$this->route('finca')->id,
             "nombre"=>"required",
             "legalidad"=>"required",
             "comunidad"=>"required",
@@ -32,7 +32,7 @@ class EditarFincaRequest extends FormRequest
             "departamento"=>"required",
             "pais"=>"required",
             "disponibilidad_energia"=>"required",
-            "disponibilidad_agua"=>"required",
+            "disponibilidad_agua"=>"required"
         ];
     }
 }

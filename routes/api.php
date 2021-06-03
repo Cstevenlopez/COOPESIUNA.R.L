@@ -24,9 +24,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('fincas',[FincaController::class,'index']);
 Route::post('fincas',[FincaController::class,'store']);
-Route::put('fincas/{fincas}',[FincaController::class,'update']);
-Route::get('fincas/{fincas}',[FincaController::class,'show']);
-Route::delete('fincas/{fincas}',[FincaController::class,'destroy']);
+Route::put('fincas/{finca}',[FincaController::class,'update']);
+Route::get('fincas/{finca}',[FincaController::class,'show']);
+Route::delete('fincas/{finca}',[FincaController::class,'destroy']);
 
 /*
 Route::get('/fincas', 'FincaController@index');
