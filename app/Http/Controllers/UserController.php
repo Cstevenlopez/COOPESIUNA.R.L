@@ -55,6 +55,7 @@ class UserController extends Controller
         $request->validate([
             'id_usuario' => 'required',
             'name' => 'required',
+            'foto' => 'required',
             'email' => 'required',
             'password' => 'required',
             'usuario' => 'required',
