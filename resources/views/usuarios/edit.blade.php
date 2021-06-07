@@ -39,18 +39,6 @@
     <input type="password" class="form-control p-3 bg-white shadow-sm rounded" value="{{$users->password}}" name="password" id="password" required>
     </div>
     </div>
-    <div class="form-row">
-    <div class="form-group col-md-6">
-    <label>Usuario</label>
-    <input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$users->usuario}}" name="usuario" id="usuario" placeholder=""required>
-    </div>
-
-    <div class="form-group col-md-6">
-    <label>Perfil de usuario</label>
-    <input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$users->perfil}}" name="perfil" id="perfil"required>
-    </div>
-
-    </div>
     <button type="submit" class="btn btn-success">Editar <i class="fas fa-edit"></i></button>
     <a href="/usuarios" class="btn btn-danger" tabindex="5">Cancelar <i class="fas fa-reply-all"></i></a>
     </Form>

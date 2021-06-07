@@ -47,20 +47,6 @@
 </div>
 </div>
 
-    <!-- SELECT PERFIL -->
-<div class="form-group row">
-    @error('perfil')
-    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
-    @enderror
-    <label for="perfil" class="col-md-4 col-form-label text-md-right">{{ __('Perfil de usuario') }}</label>
-    <select id="perfil" class="form-control @error('perfil') is-invalid @enderror" style="width: 345px;" name="perfil" value="{{ old('perfil') }}" required autocomplete="perfil" autofocus>
-    <option selected >Elija un perfil</option>
-    <option value="Administrador">Administrador</option>
-    <option value="Tecnico">Tecnico</option>
-    </select>
-    <!-- FIN DEL SELECT -->
-    </div>
-
 <div class="form-group row">
 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Dirección E-Mail') }}</label>
 
