@@ -36,18 +36,6 @@
 </div>
 
 <div class="form-group row">
-<label for="usuario" class="col-md-4 col-form-label text-md-right">{{ __('Usuario') }}</label>
-<div class="col-md-6">
-    <input id="usuario" type="text" class="form-control @error('usuario') is-invalid @enderror" name="usuario" value="{{ old('usuario') }}" required autocomplete="usuario" autofocus>
-    @error('usuario')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-    @enderror
-</div>
-</div>
-
-<div class="form-group row">
 <label for="foto" class="col-md-4 col-form-label text-md-right">{{ __('Foto') }}</label>
 <div class="col-md-6">
     <input id="foto" class="file" type="file" class="form-control @error('foto') is-invalid @enderror" name="foto" value="{{ old('foto') }}" required autocomplete="foto" autofocus>

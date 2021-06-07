@@ -102,7 +102,6 @@
         <th scope="col">Nombres</th>
         <th scope="col">Correo electronico</th>
         <th scope="col">Foto</th>
-        <th scope="col">Usuario</th>
         <th scope="col">Perfil</th>
         <th scope="col">Acciones</th>
 
@@ -115,7 +114,6 @@
         <td>{{$users->name}}</td>
         <td>{{$users->email}}</td>
         <td><img src="{{$users->foto}}" alt="" class="img-fluid img-thumbnail" width="45px"></td>
-        <td>{{$users->usuario}}</td>
         <td>{{$users->perfil}}</td>
         <td>
         <form action="{{ route('usuarios.destroy',$users->id)}}" class="formulario-eliminar" method="POST">
