@@ -39,20 +39,20 @@
     <input type="text" value="{{old('name')}}" id="name" name="name" class="form-control" tabindex="4" placeholder="Juan Benito Lopez Perez">
     </div>
 
-    <div class="mb-3">
+    <!-- <div class="mb-3">
     <label for="" class="form-label">Usuario</label><br>
     @error('usuario')
     <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
     @enderror
     <input type="text" value="{{old('usuario')}}" id="usuario" name="usuario" class="form-control" tabindex="4" placeholder="Juan01">
-    </div>
+    </div> -->
 
     <div class="mb-3">
     <label for="" class="form-label">Foto</label><br>
     <input type="file" value="{{old('foto')}}" id="foto" name="foto" class="file">
     </div>
 
-    <!-- SELECT PERFIL -->
+    <!-- SELECT PERFIL
     <div class="mb-3">
     @error('perfil')
     <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
@@ -63,8 +63,9 @@
     <option value="Administrador">Administrador</option>
     <option value="Tecnico">Tecnico</option>
     </select>
-    <!-- FIN DEL SELECT -->
+
     </div>
+        FIN DEL SELECT -->
 
     <div class="mb-3">
     <label for="" class="form-label">E mail</label><br>
@@ -99,11 +100,9 @@
 <thead class="">
     <tr>
         <th scope="col">Identificación</th>
-        <th scope="col">Nombres</th>
+        <th scope="col">Nombres y apellidos</th>
         <th scope="col">Correo electronico</th>
         <th scope="col">Foto</th>
-        <th scope="col">Usuario</th>
-        <th scope="col">Perfil</th>
         <th scope="col">Acciones</th>
 
     </tr>
@@ -115,8 +114,6 @@
         <td>{{$users->name}}</td>
         <td>{{$users->email}}</td>
         <td><img src="{{$users->foto}}" alt="" class="img-fluid img-thumbnail" width="45px"></td>
-        <td>{{$users->usuario}}</td>
-        <td>{{$users->perfil}}</td>
         <td>
         <form action="{{ route('usuarios.destroy',$users->id)}}" class="formulario-eliminar" method="POST">
         <a href="/usuarios/{{$users->id}}/edit" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
