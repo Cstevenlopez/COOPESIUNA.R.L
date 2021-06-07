@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Administrar usuarios')
+@section('title', 'Usuarios')
 
 @section('content_header')
 @stop
@@ -8,7 +8,7 @@
 @section('content')
 <!-- ENTRADA PARA EL MODAL DE USUARIOS -->
 <div class="text-center">
-<a href="" class="btn bg-info btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalUsuarios">Nuevo usuario  <i class="fas fa-clipboard"></i></a>
+<a href="" class="btn bg-info shadow mb-3 btn-rounded" data-toggle="modal" data-target="#modalUsuarios">Nuevo usuario  <i class="fas fa-clipboard"></i></a>
 </div>
     <div class="modal fade" id="modalUsuarios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -20,7 +20,7 @@
     </button>
     </div>
     <div class="modal-body">
-    <Form action="/usuarios" method="POST">
+    <Form action="/usuarios" method="POST" enctype="multipart/form-data">
     @csrf()
 
     <div class="mb-3">
@@ -45,6 +45,11 @@
     <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
     @enderror
     <input type="text" value="{{old('usuario')}}" id="usuario" name="usuario" class="form-control" tabindex="4" placeholder="Juan01">
+    </div>
+
+    <div class="mb-3">
+    <label for="" class="form-label">Foto</label><br>
+    <input type="file" value="{{old('foto')}}" id="foto" name="foto" class="file">
     </div>
 
     <!-- SELECT PERFIL -->
@@ -76,8 +81,8 @@
     @enderror
     <input type="password" value="{{old('password')}}" id="password" name="password" class="form-control" tabindex="4" placeholder="...">
     </div>
-    <button type="submit" class="btn btn-lg btn-primary formulario-guardar" tabindex="4"><i class="fas fa-save"></i></button>
-    <a href="/usuarios" class="btn btn-lg btn-secondary" tabindex="5"><i class="fas fa-reply-all"></i></a>
+    <button type="submit" class="btn btn-primary formulario-guardar" tabindex="4">Guardar  <i class="fas fa-save"></i></button>
+    <a href="/usuarios" class="btn btn-secondary" tabindex="5">Cancerlar  <i class="fas fa-reply-all"></i></a>
     </Form>
     </div>
     </div>
@@ -86,29 +91,32 @@
 <!-- FIN DEL MODAL DE USUARIOS -->
 
 <!-- CRUD DE USUARIOS -->
-<table id="usuarios" class="table table-responsive-md table-striped table-bordered shadow-lg mt-4" style="width:100%">
-<thead class="bg-info text-white">
+<!-- <img src="/vendor/adminlte/dist/img/Logo.png" class="img-fluid mb-2" width="150px" alt="Responsive imagen"> -->
+<div class="card shadow-lg">
+<div class="card-body">
+
+<table id="usuarios" class="table table-light table-bordered table-striped" style="width:100%">
+<thead class="">
     <tr>
-    <th scope="col">ID</th>
-        <th scope="col">ID de usuario</th>
-        <th scope="col">Nombres y apellidos</th>
+        <th scope="col">Identificación</th>
+        <th scope="col">Nombres</th>
         <th scope="col">Correo electronico</th>
+        <th scope="col">Foto</th>
         <th scope="col">Usuario</th>
         <th scope="col">Perfil</th>
-        <th scope="col">Ultima modificacion</th>
         <th scope="col">Acciones</th>
+
     </tr>
 </thead>
 <tbody>
     @foreach($users as $users)
     <tr>
-        <td>{{$users->id}}</td>
         <td>{{$users->id_usuario}}</td>
         <td>{{$users->name}}</td>
         <td>{{$users->email}}</td>
+        <td><img src="{{$users->foto}}" alt="" class="img-fluid img-thumbnail" width="45px"></td>
         <td>{{$users->usuario}}</td>
         <td>{{$users->perfil}}</td>
-        <td>{{$users->updated_at}}</td>
         <td>
         <form action="{{ route('usuarios.destroy',$users->id)}}" class="formulario-eliminar" method="POST">
         <a href="/usuarios/{{$users->id}}/edit" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
@@ -121,16 +129,21 @@
     @endforeach      
 </tbody>
 </table>
+</div>
+</div>
 @stop
 
 @section('css')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.8/css/responsive.bootstrap4.min.css">
 @stop
 
 @section('js')
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script> 
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script> 
+<script src="https://cdn.datatables.net/responsive/2.2.8/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.8/js/responsive.bootstrap4.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 @if(session('eliminar')=== 'ok')
@@ -167,7 +180,8 @@ if (result.isConfirmed) {
 <script>
 $(document).ready(function() {
 $('#usuarios').DataTable({
-"lengthMenu":[[5,10,50,-1], [5,10,50,"All"]]
+"lengthMenu":[[5,10,50,-1], [5,10,50,"Todos"]],
+responsive: true
 });
 } );
 </script>

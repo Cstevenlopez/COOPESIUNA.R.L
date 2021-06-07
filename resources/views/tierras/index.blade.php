@@ -111,15 +111,18 @@
         color:white;
         }
 </style> -->
-<table id="usuarios"  class="table table-responsive-md table-hover table-striped table-bordered shadow-lg mt-4" style="width:100%">
-<thead class="bg-info text-white">
+<div class="card shadow-lg">
+<div class="card-body">
+
+<table id="usuarios"  class="table table-light table-striped table-bordered" style="width:100%">
+<thead class="">
     <tr>
         <th scope="col">ID de Finca</th>
         <th scope="col">Area Total</th>
         <th scope="col">Bosque N°1</th>
         <th scope="col">Bosque N°2</th>
         <th scope="col">Cultivos anuales</th>
-        <th scope="col">Plant-Forestales</th>
+        <th scope="col">Plantaciones forestales</th>
         <th scope="col">Areas de pasto</th>
         <th scope="col">Áreas de Árboles</th>
         <th scope="col">Acciones</th>
@@ -149,17 +152,21 @@
     @endforeach      
 </tbody>
 </table>
+</div> 
+</div>
 @stop
 
 @section('css')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.8/css/responsive.bootstrap4.min.css">
 @stop
 
 @section('js')
-<script src="https://use.fontawesome.com/Your-Unique-Code.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script> 
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script> 
+<script src="https://cdn.datatables.net/responsive/2.2.8/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.8/js/responsive.bootstrap4.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 @if(session('eliminar')=== 'ok')
@@ -196,7 +203,8 @@ if (result.isConfirmed) {
 <script>
 $(document).ready(function() {
 $('#usuarios').DataTable({
-"lengthMenu":[[5,10,50,-1], [5,10,50,"All"]]
+"lengthMenu":[[5,10,50,-1], [5,10,50,"All"]],
+ responsive: true
 });
 } );
 </script>

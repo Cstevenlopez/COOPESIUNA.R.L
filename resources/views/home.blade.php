@@ -9,7 +9,7 @@
 @section('content')
 <div class="small-box bg-info w-25">
 <div class="inner">
-    <h3>1</h3>
+    <h4>Registros</h4>
     <p>Usuarios</p>
 </div>
 <div class="icon">

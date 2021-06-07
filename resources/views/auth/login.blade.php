@@ -10,13 +10,10 @@
         <div class="card-header card-header-primary text-center">
         <h4 class="card-title"><strong>{{ __('') }}</strong></h4>
         <div class="social-line">
-        <img class="imagen"src="vendor/adminlte/dist/img/Logo.png"</img>
+        <img  class="img-fluid" width="160"src="vendor/adminlte/dist/img/Logo.png"</img>
         </div>
         <style>
-        .imagen{
-            width: 160px;
-            height: 50px;
-        }
+
         </style>
         </div>
         <div class="card-body">
