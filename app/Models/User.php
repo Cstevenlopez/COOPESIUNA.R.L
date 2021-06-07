@@ -18,7 +18,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'id_usuario',
         'name',
+        'usuario',
+        'foto',
+        'perfil',
         'email',
         'password',
     ];
@@ -44,8 +48,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //Relacion uno a muchos
-    // public  function vitacora(){
-    //     return $this->hasMany('App/Models/Vitacora_asistencia');
-    // }
+    public function adminlte_image(){
+        return 'https://i1.sndcdn.com/artworks-000493810884-ythxh2-t500x500.jpg';
+    }
 }

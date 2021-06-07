@@ -3,12 +3,24 @@
 @section('title', 'Inicio')
 
 @section('content_header')
-    <h1>Inicio</h1>
+
 @stop
 
 @section('content')
+<div class="small-box bg-info w-25">
+<div class="inner">
+    <h4>Registros</h4>
+    <p>Usuarios</p>
+</div>
+<div class="icon">
+    <i class="fas fa-user-plus"></i>
+</div>
+<a href="/usuarios" class="small-box-footer">
+    Ver registros <i class="fas fa-arrow-circle-right"></i>
+</a>
+</div>
 
-    <p>Bienvenido.</p>
+
 @stop
 
 @section('css')

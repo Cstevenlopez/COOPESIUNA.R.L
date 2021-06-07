@@ -15,16 +15,24 @@ class CreateVitacoraAsistenciasTable extends Migration
     {
         Schema::create('vitacora_asistencias', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('productor_id')->constrained('productors');
-            $table->string('actividad',50);
-            $table->string('objetivo',50);
-            $table->string('temas_abordados',100);
-            $table->string('dificultades',100);
-            $table->string('soluciones',100);
-            $table->string('recomendaciones',100);
+
+            $table->string('id_vitacora')->unique();
+
+            $table->string('actividad');
+            $table->string('objetivo');
+            $table->string('temas_abordados');
+            $table->string('dificultades');
+            $table->string('soluciones');
+            $table->string('recomendaciones');
             $table->date('fecha');
             $table->date('siguiente_visita');
-            $table->foreignId('usuario_id')->constrained('users');           
+
+            $table->string('productorid');
+            $table->foreign('productorid')->references('id_productor')->on('productors');
+
+            $table->string('usuario_id');
+            $table->foreign('usuario_id')->references('id_usuario')->on('users');    
+            
             $table->timestamps();
         });
     }

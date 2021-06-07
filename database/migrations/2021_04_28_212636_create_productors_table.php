@@ -15,16 +15,17 @@ class CreateProductorsTable extends Migration
     {
         Schema::create('productors', function (Blueprint $table) {
             $table->id();
-            $table->string('finca_id');
-            $table->foreign('finca_id')->references('id_finca')->on('fincas');
-            $table->string('id_productor')->Unique();
-            $table->string('nombres',50);
-            $table->string('apellidos',50);
-            $table->string('numero_cedula',20);
-            $table->string('numero_telefono',50);
-            $table->string('foto');
-            $table->string('comunidad',50);
-            $table->string('municipio',50);
+            $table->string('id_productor')->unique();
+
+            $table->string('fincaid');
+            $table->foreign('fincaid')->references('finca_id')->on('uso_de_tierras');
+
+            $table->string('nombres');
+            $table->string('apellidos');
+            $table->string('numero_cedula');
+            $table->string('numero_telefono');
+            $table->string('comunidad');
+            $table->string('municipio');
             $table->timestamps();
         });
     }

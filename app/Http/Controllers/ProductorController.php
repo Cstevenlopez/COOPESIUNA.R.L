@@ -25,7 +25,7 @@ class ProductorController extends Controller
      */
     public function create()
     {
-        //
+        return \redirect('/productor.create');
     }
 
     /**
@@ -36,7 +36,28 @@ class ProductorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fincaid' => 'required',
+            'id_productor' => 'required',
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'numero_cedula' => 'required',
+            'numero_telefono' => 'required',
+            'comunidad' => 'required',
+            'municipio' => 'required'
+        ]);
+        $productor = new Productor();
+        $productor->fincaid = $request->get('fincaid');
+        $productor->id_productor = $request->get('id_productor');    
+        $productor->nombres = $request->get('nombres');
+        $productor->apellidos = $request->get('apellidos');
+        $productor->numero_cedula = $request->get('numero_cedula');
+        $productor->numero_telefono = $request->get('numero_telefono');
+        $productor->comunidad = $request->get('comunidad');
+        $productor->municipio = $request->get('municipio');
+        $productor->save();
+
+        return redirect('/productores');
     }
 
     /**
@@ -58,7 +79,8 @@ class ProductorController extends Controller
      */
     public function edit($id)
     {
-        //
+    $productor = Productor::find($id);
+    return view('productor.edit')->with('productors', $productor);
     }
 
     /**
@@ -70,7 +92,18 @@ class ProductorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $productor = Productor::find($id);
+        $productor->fincaid = $request->get('fincaid');
+        $productor->id_productor = $request->get('id_productor');    
+        $productor->nombres = $request->get('nombres');
+        $productor->apellidos = $request->get('apellidos');
+        $productor->numero_cedula = $request->get('numero_cedula');
+        $productor->numero_telefono = $request->get('numero_telefono');
+        $productor->comunidad = $request->get('comunidad');
+        $productor->municipio = $request->get('municipio');
+        $productor->save();
+
+        return redirect('/productores');
     }
 
     /**
@@ -81,6 +114,9 @@ class ProductorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $productor = Productor::find($id);
+        $productor->delete();
+
+        return redirect('/productores')->with('eliminar','ok');
     }
 }

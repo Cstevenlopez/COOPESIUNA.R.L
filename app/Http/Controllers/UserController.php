@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-      $this->middleware('auth');
+    $this->middleware('auth');
     }
     public function index()
     {
@@ -42,15 +42,26 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
+        $usuarios = new User();
+        if( $request->hasFile('foto')){
+        $file = $request->file('foto');
+        $destinationPath = 'img/users/';
+        $filename = time() . '-' . $file->getClientOriginalName();
+        $uploadSuccess = $request->file('foto')->move($destinationPath, $filename);
+        $usuarios->foto = $destinationPath . $filename;
+        }
+
         $request->validate([
             'id_usuario' => 'required',
             'name' => 'required',
+            'foto' => 'required',
             'email' => 'required',
             'password' => 'required',
             'usuario' => 'required',
             'perfil' => 'required'
         ]);
-        $usuarios = new User();
+
         $usuarios->id_usuario = $request->get('id_usuario');
         $usuarios->name = $request->get('name');    
         $usuarios->email = $request->get('email');
@@ -95,6 +106,8 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // https://es.stackoverflow.com/questions/247240/actualizar-foto-en-formulario-php-laravel
+        
         $usuarios = User::find($id);
         $usuarios->id_usuario = $request->get('id_usuario');
         $usuarios->name = $request->get('name');    

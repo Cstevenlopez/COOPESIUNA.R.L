@@ -8,7 +8,7 @@
 @section('content')
 <!-- ENTRADA PARA EL MODAL DE TIERRAS -->
 <div class="text-center">
-<a href="" class="btn bg-info btn-default btn-rounded" data-toggle="modal" data-target="#modalTierras">Nuevo registro  <i class="fas fa-clipboard"></i></a>
+<a href="" class="btn bg-info btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalTierras">Nuevo registro  <i class="fas fa-clipboard"></i></a>
 </div>
     <div class="modal fade" id="modalTierras" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -20,11 +20,15 @@
     </button>
     </div>
     <div class="modal-body">
+    
     <Form action="/tierras" method="POST">
     @csrf()
     <!-- SELECT PERFIL -->
     <div class="mb-3">
-        <label for="" class="form-label">Finca</label>
+        <label for="" class="form-label">Finca</label><br>
+        @error('finca_id')
+        <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+        @enderror
             <select name="finca_id" class="form-select form-control" tabindex="4" aria-label="Default select example" require>
                 <option>--Seleccione--</option>
                 @foreach(App\Models\Finca::get() as $fincas)
@@ -35,37 +39,58 @@
     <!-- FIN DEL SELECT -->
 
     <div class="mb-3">
-        <label for="" class="form-label">Area total</label>
+        <label for="" class="form-label">Area total</label><br>
+        @error('area_total')
+        <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+        @enderror
         <input type="text" id="area_total" name="area_total" class="form-control" tabindex="4" placeholder="Area total de la finca" require>
     </div>
 
     <div class="mb-3">
-        <label for="" class="form-label">Bosque primario</label>
+        <label for="" class="form-label">Bosque primario</label><br>
+        @error('boque_primario')
+        <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+        @enderror
         <input type="text" id="boque_primario" name="boque_primario" class="form-control" tabindex="4" placeholder="Área del bosque primario" require>
     </div>
 
     <div class="mb-3">
-    <label for="" class="form-label">Bosque secundario</label>
+    <label for="" class="form-label">Bosque secundario</label><br>
+    @error('bosque_secundario')
+        <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+        @enderror
     <input type="text" id="bosque_secundario" name="bosque_secundario" class="form-control" tabindex="4" placeholder="Área del bosque secundario" require>
     </div>
 
     <div class="mb-3">
-    <label for="" class="form-label">Cultivos anuales</label>
+    <label for="" class="form-label">Cultivos anuales</label><br>
+    @error('cultivos_anuales')
+        <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+        @enderror
     <input type="text" id="cultivos_anuales" name="cultivos_anuales" class="form-control" tabindex="4" placeholder="" require>
     </div>
 
     <div class="mb-3">
-    <label for="" class="form-label">Plantaciones forestales</label>
+    <label for="" class="form-label">Plantaciones forestales</label><br>
+    @error('plantaciones_forestales')
+        <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+        @enderror
     <input type="text" id="plantaciones_forestales" name="plantaciones_forestales" class="form-control" tabindex="4" placeholder="" require>
     </div>
 
     <div class="mb-3">
-    <label for="" class="form-label">Áreas de pasto abierto</label>
+    <label for="" class="form-label">Áreas de pasto abierto</label><br>
+    @error('areas_pasto_abierto')
+        <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+        @enderror
     <input type="text" id="areas_pasto_abierto" name="areas_pasto_abierto" class="form-control" tabindex="4" placeholder="" require>
     </div>
 
     <div class="mb-3">
-    <label for="" class="form-label">Áreas de pasto con árboles</label>
+    <label for="" class="form-label">Áreas de pasto con árboles</label><br>
+    @error('areas_pasto_arboles')
+        <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+        @enderror
     <input type="text" id="areas_pasto_arboles" name="areas_pasto_arboles" class="form-control" tabindex="4" placeholder="" require>
     </div>
 
@@ -86,17 +111,20 @@
         color:white;
         }
 </style> -->
-<table id="usuarios"  class="table table-hover table-striped table-bordered shadow-lg mt-4" style="width:100%">
-<thead class="bg-info text-white">
+<div class="card shadow-lg">
+<div class="card-body">
+
+<table id="usuarios"  class="table table-light table-striped table-bordered" style="width:100%">
+<thead class="">
     <tr>
-        <th scope="col">Finca</th>
-        <th scope="col">Area</th>
-        <th scope="col">Bosque.N°1</th>
-        <th scope="col">Bosque.N°2</th>
-        <th scope="col">Cult.Anuales</th>
-        <th scope="col">P-Forest</th>
-        <th scope="col">A.Pasto</th>
-        <th scope="col">A.Árboles</th>
+        <th scope="col">ID de Finca</th>
+        <th scope="col">Area Total</th>
+        <th scope="col">Bosque N°1</th>
+        <th scope="col">Bosque N°2</th>
+        <th scope="col">Cultivos anuales</th>
+        <th scope="col">Plantaciones forestales</th>
+        <th scope="col">Areas de pasto</th>
+        <th scope="col">Áreas de Árboles</th>
         <th scope="col">Acciones</th>
     </tr>
 </thead>
@@ -118,26 +146,27 @@
         @method('DELETE')
         <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-eraser"></i></button>
         </form>
-
-
-
 </div>
         </td>
     </tr>
     @endforeach      
 </tbody>
 </table>
+</div> 
+</div>
 @stop
 
 @section('css')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.8/css/responsive.bootstrap4.min.css">
 @stop
 
 @section('js')
-<script src="https://use.fontawesome.com/Your-Unique-Code.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script> 
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script> 
+<script src="https://cdn.datatables.net/responsive/2.2.8/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.8/js/responsive.bootstrap4.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 @if(session('eliminar')=== 'ok')
@@ -174,7 +203,8 @@ if (result.isConfirmed) {
 <script>
 $(document).ready(function() {
 $('#usuarios').DataTable({
-"lengthMenu":[[5,10,50,-1], [5,10,50,"All"]]
+"lengthMenu":[[5,10,50,-1], [5,10,50,"All"]],
+ responsive: true
 });
 } );
 </script>

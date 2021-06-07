@@ -1,66 +1,67 @@
-@extends('adminlte::page')
+    @extends('adminlte::page')
 
-@section('title', 'Editar usuarios')
+    @section('title', 'Editar usuarios')
 
-@section('content_header')
-    <h1>Editar usuarios</h1>
-@stop
-@section('content')
-<Form action="/usuarios/{{$users->id}}" method="POST">
-@csrf
-@method('PUT')
-<div class="form-row ml-5">
-    <div class="ml-5 col-md-3 mb-2">
-    <label class="text-info">ID de usuario</label>
-    <input type="text" style="height: 50px;" class="form-control shadow-lg p-3 mb-2 bg-white rounded" value="{{$users->id_usuario}}" name="id_usuario" id="id_usuario" placeholder=""required>
-    <div class="valid-feedback">
+    @section('content_header')
+    <div class="card">
+    <div class="card-body">
+    <img src="/vendor/adminlte/dist/img/Logo.png" class="img-fluid" width="250px" alt="Responsive imagen">
     </div>
     </div>
+    @stop
+    @section('content')
+    <div class="card shadow-lg">
+    <div class="card-body">
 
-    <div class="col-md-4 mb-3">
-    <label class="text-info">Nombres y apellidos</label>
-    <input type="text" style="height: 50px" class="form-control shadow-lg p-3 mb-4 bg-white rounded" value="{{$users->name}}" name="name" id="name" placeholder=""required>
-    <div class="valid-feedback">
-    </div>
+    <Form action="/usuarios/{{$users->id}}" method="POST" enctype="multipart/form-data">
+    @csrf
+    @method('PUT')
+    <div class="form-row">
+    <div class="form-group col-md-6">
+    <label>ID de usuario</label>
+    <input type="text" class="form-control p-3 bg-white shadow-sm rounded" readonly value="{{$users->id_usuario}}" name="id_usuario" id="id_usuario" required>
     </div>
 
-    <div class="col-md-3 mb-3">
-    <label class="text-info">Correo electronico</label>
-    <input type="text" style="height: 50px" class="form-control shadow-lg p-3 mb-4 bg-white rounded" value="{{$users->email}}" name="email" id="email" placeholder=""required>
-    <div class="valid-feedback">
-    </div>
-    </div>  
-
-    <div class="ml-5 col-md-3 mb-3">
-    <label class="text-info">Usuario</label>
-    <input type="text" style="height: 50px" class="form-control shadow-lg p-3 mb-4 bg-white rounded" value="{{$users->usuario}}" name="usuario" id="comunusuarioidad" placeholder=""required>
-    <div class="valid-feedback">
+    <div class="form-group col-md-6">
+    <label>Nombres y apellidos</label>
+    <input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$users->name}}" name="name" id="name" required>
     </div>
     </div>
 
-    <div class="col-md-4 mb-3">
-    <label class="text-info">Contraseña</label>
-    <input type="text" style="height: 50px" class="form-control shadow-lg p-3 mb-5 bg-white rounded" value="{{$users->password}}" name="password" id="password" placeholder=""required>
-    <div class="valid-feedback">
+    <div class="form-row">
+    <div class="form-group col-md-6">
+    <label>Correo electronico</label>
+    <input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$users->email}}" name="email" id="email" placeholder=""required>
     </div>
-    </div>
-    
-    <div class="col-md-3 mb-3">
-    <label class="text-info">Perfil de usuario</label>
-    <input type="text" style="height: 50px" class="form-control shadow-lg p-3 mb-5 bg-white rounded" value="{{$users->perfil}}" name="perfil" id="perfil" placeholder=""required>
-    <div class="valid-feedback">
-    </div>
-    </div>
-</div>
-<button type="submit" style="margin-left:100px;" class="btn btn-primary btn-lg">Editar <i class="fas fa-edit"></i></button>
-<a href="/users" class="btn btn-secondary btn-lg" tabindex="5">Cancelar <i class="fas fa-reply-all"></i></a>
-</Form>
-@stop
 
-@section('css')
+    <div class="form-group col-md-6">
+    <label>Contraseña</label>
+    <input type="password" class="form-control p-3 bg-white shadow-sm rounded" value="{{$users->password}}" name="password" id="password" required>
+    </div>
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+    <label>Usuario</label>
+    <input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$users->usuario}}" name="usuario" id="usuario" placeholder=""required>
+    </div>
+
+    <div class="form-group col-md-6">
+    <label>Perfil de usuario</label>
+    <input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$users->perfil}}" name="perfil" id="perfil"required>
+    </div>
+
+    </div>
+    <button type="submit" class="btn btn-success">Editar <i class="fas fa-edit"></i></button>
+    <a href="/usuarios" class="btn btn-danger" tabindex="5">Cancelar <i class="fas fa-reply-all"></i></a>
+    </Form>
+    </div>
+    </div>
+    @stop
+
+    @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
+    @stop
 
-@section('js')
+    @section('js')
     <script> console.log('Hi!'); </script>
-@stop
+    @stop
