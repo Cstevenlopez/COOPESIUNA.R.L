@@ -54,9 +54,10 @@ class UserController extends Controller
 
         $request->validate([
             'id_usuario' => 'required',
-            'name' => 'required',   
+            'name' => 'required',
             'email' => 'required',
             'password' => 'required',
+            'usuario' => 'required',
             'perfil' => 'required'
         ]);
 
@@ -64,6 +65,7 @@ class UserController extends Controller
         $usuarios->name = $request->get('name');    
         $usuarios->email = $request->get('email');
         $usuarios->password = Hash::make($request->get('password'));
+        $usuarios->usuario = $request->get('usuario');
         $usuarios->perfil = $request->get('perfil');
         $usuarios->save();
 
@@ -110,6 +112,7 @@ class UserController extends Controller
         $usuarios->name = $request->get('name');    
         $usuarios->email = $request->get('email');
         $usuarios->password = Hash::make($request->get('password'));
+        $usuarios->usuario = $request->get('usuario');
         $usuarios->perfil = $request->get('perfil');
         $usuarios->save();
 

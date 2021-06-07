@@ -40,6 +40,14 @@
     </div>
 
     <div class="mb-3">
+    <label for="" class="form-label">Usuario</label><br>
+    @error('usuario')
+    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
+    @enderror
+    <input type="text" value="{{old('usuario')}}" id="usuario" name="usuario" class="form-control" tabindex="4" placeholder="Juan01">
+    </div>
+
+    <div class="mb-3">
     <label for="" class="form-label">Foto</label><br>
     <input type="file" value="{{old('foto')}}" id="foto" name="foto" class="file">
     </div>
@@ -71,7 +79,7 @@
     @error('password')
     <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
     @enderror
-    <input type="password" value="{{old('password')}}" id="password" name="password" class="form-control" tabindex="4" placeholder="Ingrese una nueva contraseña">
+    <input type="password" value="{{old('password')}}" id="password" name="password" class="form-control" tabindex="4" placeholder="...">
     </div>
     <button type="submit" class="btn btn-primary formulario-guardar" tabindex="4">Guardar  <i class="fas fa-save"></i></button>
     <a href="/usuarios" class="btn btn-secondary" tabindex="5">Cancerlar  <i class="fas fa-reply-all"></i></a>
@@ -94,6 +102,7 @@
         <th scope="col">Nombres</th>
         <th scope="col">Correo electronico</th>
         <th scope="col">Foto</th>
+        <th scope="col">Usuario</th>
         <th scope="col">Perfil</th>
         <th scope="col">Acciones</th>
 
@@ -106,6 +115,7 @@
         <td>{{$users->name}}</td>
         <td>{{$users->email}}</td>
         <td><img src="{{$users->foto}}" alt="" class="img-fluid img-thumbnail" width="45px"></td>
+        <td>{{$users->usuario}}</td>
         <td>{{$users->perfil}}</td>
         <td>
         <form action="{{ route('usuarios.destroy',$users->id)}}" class="formulario-eliminar" method="POST">
