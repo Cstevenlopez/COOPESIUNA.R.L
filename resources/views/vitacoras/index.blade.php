@@ -141,9 +141,9 @@
 <!-- FIN DEL MODAL DE VITACORAS -->
 
 <!-- CRUD DE USUARIOS -->
+
 <div class="card bg-light shadow-lg">
 <div class="card-body">
-
 <table id="tabla-vitacoras" class="table table-striped tabla-xd" style="width:100%">
 <thead class="">
 <tr>

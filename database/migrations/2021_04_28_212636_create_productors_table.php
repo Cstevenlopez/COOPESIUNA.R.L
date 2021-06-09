@@ -22,6 +22,7 @@ class CreateProductorsTable extends Migration
 
             $table->string('nombres');
             $table->string('apellidos');
+            $table->string('foto')->nullable();
             $table->string('numero_cedula');
             $table->string('numero_telefono');
             $table->string('comunidad');

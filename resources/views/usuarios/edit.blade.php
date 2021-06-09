@@ -36,7 +36,13 @@
 
     <div class="form-group col-md-6">
     <label>Contraseña</label>
-    <input type="password" class="form-control p-3 bg-white shadow-sm rounded" value="{{$users->password}}" name="password" id="password" required>
+    <input type="password" class="form-control p-3 bg-white shadow-sm rounded" value="" name="password" id="password">
+    </div>
+
+    <div class="form-group col-md-6 mt-2 mb-5">
+    <label for="foto">Foto de usuario</label><br>
+    <input type="file" class="file btn btn-success w-100" value="{{$users->foto}}" name="foto" id="foto">
+
     </div>
     </div>
     <button type="submit" class="btn btn-success">Editar <i class="fas fa-edit"></i></button>

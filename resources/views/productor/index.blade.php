@@ -21,7 +21,7 @@
     </div>
 
     <div class="modal-body">
-    <Form action="/productores" method="POST">
+    <Form action="/productores" method="POST" enctype="multipart/form-data">
     @csrf()
 
     <div class="mb-3">
@@ -42,7 +42,7 @@
     @error('id_productor')
     <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
     @enderror
-    <input type="text" value="{{old('id_productor')}}" name="id_productor" class="form-control" tabindex="4" placeholder="Juan Benito Lopez Perez">
+    <input type="text" value="{{old('id_productor')}}" name="id_productor" class="form-control" tabindex="4" placeholder="CÓDIGO-01">
     </div>
 
     <div class="mb-3">
@@ -50,7 +50,7 @@
     @error('nombres')
     <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
     @enderror
-    <input type="text" value="{{old('nombres')}}" name="nombres" class="form-control" tabindex="4" placeholder="Juan01">
+    <input type="text" value="{{old('nombres')}}" name="nombres" class="form-control" tabindex="4" placeholder="Juan Benito">
     </div>
 
     <div class="mb-3">
@@ -58,7 +58,15 @@
     @error('apellidos')
     <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
     @enderror
-    <input type="text" value="{{old('apellidos')}}"  name="apellidos" class="form-control" tabindex="4" placeholder="...">
+    <input type="text" value="{{old('apellidos')}}"  name="apellidos" class="form-control" tabindex="4" placeholder="López Perez">
+    </div>
+
+    <div class="mb-3">
+    <label for="" class="form-label">Foto de productor</label><br>
+    @error('foto')
+    <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
+    @enderror
+    <input type="file" value="{{old('foto')}}" id="foto" name="foto" class="file">
     </div>
 
     <div class="mb-3">
@@ -66,7 +74,7 @@
     @error('numero_cedula')
     <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
     @enderror
-    <input type="text" value="{{old('numero_cedula')}}" name="numero_cedula" class="form-control" tabindex="4" placeholder="ejemplo@gmail.com">
+    <input type="text" value="{{old('numero_cedula')}}" name="numero_cedula" class="form-control" tabindex="4" placeholder="Ingrese su número de cedula">
     </div>
 
     <div class="mb-3">
@@ -74,7 +82,7 @@
     @error('numero_telefono')
     <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
     @enderror
-    <input type="text" value="{{old('numero_telefono')}}" name="numero_telefono" class="form-control" tabindex="4" placeholder="...">
+    <input type="text" value="{{old('numero_telefono')}}" name="numero_telefono" class="form-control" tabindex="4" placeholder="Ingrese su número de teléfono">
     </div>
 
     <div class="mb-3">
@@ -82,7 +90,7 @@
     @error('comunidad')
     <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
     @enderror
-    <input type="text" value="{{old('comunidad')}}" name="comunidad" class="form-control" tabindex="4" placeholder="...">
+    <input type="text" value="{{old('comunidad')}}" name="comunidad" class="form-control" tabindex="4" placeholder="Comunidad">
     </div>
 
     <div class="mb-3">
@@ -90,7 +98,7 @@
     @error('municipio')
     <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
     @enderror
-    <input type="text" value="{{old('municipio')}}" name="municipio" class="form-control" tabindex="4" placeholder="...">
+    <input type="text" value="{{old('municipio')}}" name="municipio" class="form-control" tabindex="4" placeholder="Municipio">
     </div>
 
     <button type="submit" class="btn btn-primary" tabindex="4">Guardar<i class="fas fa-save"></i></button>
@@ -112,6 +120,7 @@
         <th scope="col">ID del Productor</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
+        <th scope="col">Foto</th>
         <th scope="col">Cedula</th>
         <th scope="col">Teléfono</th>
         <th scope="col">Comunidad</th>
@@ -126,6 +135,7 @@
         <td>{{$productors->id_productor}}</td>
         <td>{{$productors->nombres}}</td>
         <td>{{$productors->apellidos}}</td>
+        <td><img src="{{$productors->foto}}" alt="foto" width="40px" class="img-fluid img-thumbnail"></td>
         <td>{{$productors->numero_cedula}}</td>
         <td>{{$productors->numero_telefono}}</td>
         <td>{{$productors->comunidad}}</td>
