@@ -173,7 +173,27 @@
 <script>
     Swal.fire(
     'Eliminado!',
-    'El usuario ha sido eliminado correctamente.',
+    'El registro ha sido eliminado correctamente.',
+    'success'
+)
+</script>
+@endif
+
+@if(session('guardar')=== 'ok')
+<script>
+    Swal.fire(
+    'Guardado!',
+    'El registro ha sido guardado correctamente.',
+    'success'
+)
+</script>
+@endif
+
+@if(session('editar')=== 'ok')
+<script>
+    Swal.fire(
+    'Modificado!',
+    'El registro ha sido modificado correctamente.',
     'success'
 )
 </script>

@@ -179,6 +179,26 @@
 </script>
 @endif
 
+@if(session('guardar')=== 'ok')
+<script>
+    Swal.fire(
+    'Guardado!',
+    'El registro ha sido guardado correctamente.',
+    'success'
+)
+</script>
+@endif
+
+@if(session('editar')=== 'ok')
+<script>
+    Swal.fire(
+    'Modificado!',
+    'El registro ha sido modificado correctamente.',
+    'success'
+)
+</script>
+@endif
+
 <script>
 $('.formulario-eliminar').submit(function(e){
     e.preventDefault();

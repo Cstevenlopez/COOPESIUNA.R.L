@@ -198,11 +198,31 @@
 <script src="https://cdn.datatables.net/responsive/2.2.8/js/responsive.bootstrap4.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-@if(session('eliminar')==='ok')
+@if(session('eliminar')=== 'ok')
 <script>
     Swal.fire(
     'Eliminado!',
     'El registro ha sido eliminado correctamente.',
+    'success'
+)
+</script>
+@endif
+
+@if(session('guardar')=== 'ok')
+<script>
+    Swal.fire(
+    'Guardado!',
+    'El registro ha sido guardado correctamente.',
+    'success'
+)
+</script>
+@endif
+
+@if(session('editar')=== 'ok')
+<script>
+    Swal.fire(
+    'Modificado!',
+    'El registro ha sido modificado correctamente.',
     'success'
 )
 </script>

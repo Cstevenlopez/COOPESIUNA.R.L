@@ -67,7 +67,7 @@ class vitacoraController extends Controller
         $vitacora->usuario_id   = $request->get('usuario_id');
         $vitacora->save();
 
-        return redirect('/vitacoras');
+        return redirect('/vitacoras')->with('guardar','ok');
     }
 
     /**
@@ -116,7 +116,7 @@ class vitacoraController extends Controller
         $vitacora->usuario_id   = $request->get('usuario_id');
         $vitacora->save();
 
-        return redirect('/vitacoras');
+        return redirect('/vitacoras')->with('editar','ok');
     }
 
     /**
