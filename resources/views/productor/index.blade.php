@@ -31,8 +31,8 @@
         @enderror
             <select  name="fincaid" class="form-select form-control" tabindex="4" aria-label="Default select example" require>
                 <option>--Seleccione--</option>
-                @foreach(App\Models\uso_de_tierra::get() as $uso_de_tierra)
-        <option value="{{$uso_de_tierra->finca_id}}">{{$uso_de_tierra->finca_id}}</option>
+                @foreach(App\Models\Finca::get() as $fincas)
+        <option value="{{$fincas->id_finca}}">{{$fincas->id_finca}}</option>
             @endforeach
         </select>
     </div>
