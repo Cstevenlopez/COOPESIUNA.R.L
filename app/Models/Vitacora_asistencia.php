@@ -8,6 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Vitacora_asistencia extends Model
 {
     use HasFactory;
+    protected $table='vitacora_asistencias';
+    protected $fillable=[
+        'id_vitacora',
+        'actividad',
+        'objetivo',
+        'temas_abordados',
+        'dificultades',
+        'soluciones',
+        'recomendaciones',
+        'fecha',
+        'siguiente_visita',
+        'productorid',
+        'usuario_id'
+    ];
 
     //Relacion uno a mucho (inversa)
     // public function user(){
