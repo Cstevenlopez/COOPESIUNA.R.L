@@ -42,35 +42,29 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
         $usuarios = new User();
-        if( $request->hasFile('foto')){
-        $file = $request->file('foto');
+        if( $request->hasfile('foto')){
+        $foto = $request->file('foto');
         $destinationPath = 'img/users/';
-        $filename = time() . '-' . $file->getClientOriginalName();
-        $uploadSuccess = $request->file('foto')->move($destinationPath, $filename);
-        $usuarios->foto = $destinationPath . $filename;
+        $fotoname = time() . '-' . $foto->getClientOriginalName();
+        $uploadSuccess = $request->file('foto')->move($destinationPath, $fotoname);
+        $usuarios->foto = $destinationPath . $fotoname;
         }
 
         $request->validate([
             'id_usuario' => 'required',
             'name' => 'required',
-            'foto' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'usuario' => 'required',
-            'perfil' => 'required'
         ]);
 
         $usuarios->id_usuario = $request->get('id_usuario');
         $usuarios->name = $request->get('name');    
         $usuarios->email = $request->get('email');
         $usuarios->password = Hash::make($request->get('password'));
-        $usuarios->usuario = $request->get('usuario');
-        $usuarios->perfil = $request->get('perfil');
         $usuarios->save();
 
-        return redirect('/usuarios');
+        return redirect('/usuarios')->with('guardar','ok');
     }
 
     /**
@@ -106,18 +100,21 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // https://es.stackoverflow.com/questions/247240/actualizar-foto-en-formulario-php-laravel
-        
-        $usuarios = User::find($id);
+        $usuarios=User::Find($id);
+        if ($request->hasfile('foto')){
+            $foto=$request->file('foto');
+            $destinationPath = 'img/users/';
+            $fotoname = time() . '-' . $foto->getClientOriginalName();
+            $uploadSuccess = $request->file('foto')->move($destinationPath, $fotoname);
+            $usuarios->foto = $destinationPath . $fotoname;
+        }
         $usuarios->id_usuario = $request->get('id_usuario');
         $usuarios->name = $request->get('name');    
         $usuarios->email = $request->get('email');
         $usuarios->password = Hash::make($request->get('password'));
-        $usuarios->usuario = $request->get('usuario');
-        $usuarios->perfil = $request->get('perfil');
         $usuarios->save();
 
-        return redirect('/usuarios');
+        return redirect('/usuarios')->with('editar','ok');
     }
 
     /**

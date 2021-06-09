@@ -40,11 +40,11 @@
     </div>
 
     <!-- <div class="mb-3">
-    <label for="" class="form-label">Usuario</label><br>
+    <label for="username" class="form-label">Usuario</label><br>
     @error('usuario')
     <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
     @enderror
-    <input type="text" value="{{old('usuario')}}" id="usuario" name="usuario" class="form-control" tabindex="4" placeholder="Juan01">
+    <input type="text" value="{{old('username')}}" id="username" name="username" class="form-control" tabindex="4" placeholder="Juan01">
     </div> -->
 
     <div class="mb-3">
@@ -97,7 +97,7 @@
 <div class="card-body">
 
 <table id="usuarios" class="table table-light table-bordered table-striped" style="width:100%">
-<thead class="">
+<thead class="bg-info">
     <tr>
         <th scope="col">Identificación</th>
         <th scope="col">Nombres y apellidos</th>
@@ -113,13 +113,14 @@
         <td>{{$users->id_usuario}}</td>
         <td>{{$users->name}}</td>
         <td>{{$users->email}}</td>
-        <td><img src="{{$users->foto}}" alt="" class="img-fluid img-thumbnail" width="45px"></td>
+        <td><img src="{{$users->foto}}" alt="" class="img-fluid img-thumbnail" style="height:45px;"></td>
         <td>
         <form action="{{ route('usuarios.destroy',$users->id)}}" class="formulario-eliminar" method="POST">
-        <a href="/usuarios/{{$users->id}}/edit" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
+        <a href="/usuarios/{{$users->id}}/edit" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-eraser"></i></button>
+        <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+        <!-- <a href="/usuarios/{{$users->id}}/edit" class="btn btn-sm btn-info"><i class="fas fa-user"></i></a> -->
         </form>
         </td>
     </tr>
@@ -148,6 +149,26 @@
     Swal.fire(
     'Eliminado!',
     'El usuario ha sido eliminado correctamente.',
+    'success'
+)
+</script>
+@endif
+
+@if(session('guardar')=== 'ok')
+<script>
+    Swal.fire(
+    'Guardado!',
+    'El usuario ha sido guardado correctamente.',
+    'success'
+)
+</script>
+@endif
+
+@if(session('editar')=== 'ok')
+<script>
+    Swal.fire(
+    'Modificado!',
+    'El usuario ha sido modificado correctamente.',
     'success'
 )
 </script>
