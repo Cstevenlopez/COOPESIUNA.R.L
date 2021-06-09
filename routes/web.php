@@ -28,4 +28,4 @@ Route::resource('/usuarios','App\Http\Controllers\UserController');
 Route::resource('/fincas','App\Http\Controllers\FincaController');
 Route::resource('/productores','App\Http\Controllers\ProductorController');
 Route::resource('/tierras','App\Http\Controllers\UsoTierraController');
-Route::resource('/vitacoras','App\Http\Controllers\vitacoraController');
+Route::resource('/vitacoras','App\Http\Controllers\VitacoraController');

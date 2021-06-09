@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Vitacora_asistencia;
 
-class vitacoraController extends Controller
+class VitacoraController extends Controller
 {
     /**
      * Display a listing of the resource.
