@@ -61,13 +61,13 @@
     <input type="text" value="{{old('apellidos')}}"  name="apellidos" class="form-control" tabindex="4" placeholder="López Perez">
     </div>
 
-    <div class="mb-3">
+    <!-- <div class="mb-3">
     <label for="" class="form-label">Foto de productor</label><br>
     @error('foto')
     <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
     @enderror
     <input type="file" value="{{old('foto')}}" id="foto" name="foto" class="file">
-    </div>
+    </div> -->
 
     <div class="mb-3">
     <label for="" class="form-label">Cedula</label><br>
