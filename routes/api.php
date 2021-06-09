@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\API\FincaController;
+use App\Http\Controllers\API\ProductorController;
+use App\Http\Controllers\API\VitacoraController;
 use App\Http\Controllers\API\UserController;
 
 use App\Models\User;
@@ -20,6 +22,9 @@ use Illuminate\Validation\ValidationException;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+
+
 Route::post('registro',[UsuarioController::class,'registro']);
 
 Route::post('acceso',[UsuarioController::class,'acceso']);
@@ -29,9 +34,23 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('fincas',[FincaController::class,'index']);
 Route::post('fincas',[FincaController::class,'store']);
-Route::put('fincas/{fincas}',[FincaController::class,'update']);
-Route::get('fincas/{fincas}',[FincaController::class,'show']);
-Route::delete('fincas/{fincas}',[FincaController::class,'destroy']);
+Route::put('fincas/{finca}',[FincaController::class,'update']);
+Route::get('fincas/{finca}',[FincaController::class,'show']);
+Route::delete('fincas/{finca}',[FincaController::class,'destroy']);
+
+Route::get('productores',[ProductorController::class,'index']);
+Route::post('productores',[ProductorController::class,'store']);
+Route::put('productores/{productor}',[ProductorController::class,'update']);
+Route::get('productores/{productor}',[ProductorController::class,'show']);
+Route::delete('productores/{productor}',[ProductorController::class,'destroy']);
+
+
+Route::get('vitacoras',[VitacoraController::class,'index']);
+Route::post('vitacoras',[VitacoraController::class,'store']);
+Route::put('vitacoras/{vitacora}',[VitacoraController::class,'update']);
+Route::get('vitacoras/{vitacora}',[VitacoraController::class,'show']);
+Route::delete('vitacoras/{vitacora}',[VitacoraController::class,'destroy']);
+
 
 
 
