@@ -45,7 +45,7 @@
 
     </div>
     </div>
-    <button type="submit" class="btn btn-success">Editar <i class="fas fa-edit"></i></button>
+    <button type="submit" class="btn btn-info">Editar <i class="fas fa-pencil-alt"></i></button>
     <a href="/usuarios" class="btn btn-danger" tabindex="5">Cancelar <i class="fas fa-reply-all"></i></a>
     </Form>
     </div>

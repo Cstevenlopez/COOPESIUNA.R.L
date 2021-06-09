@@ -97,7 +97,7 @@
 <div class="card-body">
 
 <table id="usuarios" class="table table-light table-bordered table-striped" style="width:100%">
-<thead class="bg-info">
+<thead class="">
     <tr>
         <th scope="col">Identificación</th>
         <th scope="col">Nombres y apellidos</th>

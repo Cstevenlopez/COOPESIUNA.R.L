@@ -177,7 +177,7 @@
         <td>{{$vitacora_asistencias->usuario_id}}</td>
         <td>
         <form class="eliminar" action="{{route('vitacoras.destroy',$vitacora_asistencias->id)}}" method="POST">
-        <a href="/vitacoras/{{$vitacora_asistencias->id}}/edit" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
+        <a href="/vitacoras/{{$vitacora_asistencias->id}}/edit" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
         @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-eraser"></i></button>

@@ -120,7 +120,7 @@
         <th scope="col">ID del Productor</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
-        <th scope="col">Foto</th>
+        <!-- <th scope="col">Foto</th> -->
         <th scope="col">Cedula</th>
         <th scope="col">Teléfono</th>
         <th scope="col">Comunidad</th>
@@ -135,17 +135,17 @@
         <td>{{$productors->id_productor}}</td>
         <td>{{$productors->nombres}}</td>
         <td>{{$productors->apellidos}}</td>
-        <td><img src="{{$productors->foto}}" alt="foto" width="40px" class="img-fluid img-thumbnail"></td>
+        <!-- <td><img src="{{asset($productors->foto)}}" width="50px" class="img-fluid img-thumbnail"></td> -->
         <td>{{$productors->numero_cedula}}</td>
         <td>{{$productors->numero_telefono}}</td>
         <td>{{$productors->comunidad}}</td>
         <td>{{$productors->municipio}}</td>
         <td>
         <form action="{{ route('productores.destroy',$productors->id)}}" class="formulario-eliminar" method="POST">
-        <a href="/productores/{{$productors->id}}/edit" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
+        <a href="/productores/{{$productors->id}}/edit" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-eraser"></i></button>
+        <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
         </form>
         </td>
     </tr>
