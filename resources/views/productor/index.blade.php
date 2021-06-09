@@ -61,13 +61,13 @@
     <input type="text" value="{{old('apellidos')}}"  name="apellidos" class="form-control" tabindex="4" placeholder="López Perez">
     </div>
 
-    <div class="mb-3">
+    <!-- <div class="mb-3">
     <label for="" class="form-label">Foto de productor</label><br>
     @error('foto')
     <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
     @enderror
     <input type="file" value="{{old('foto')}}" id="foto" name="foto" class="file">
-    </div>
+    </div> -->
 
     <div class="mb-3">
     <label for="" class="form-label">Cedula</label><br>
@@ -120,7 +120,7 @@
         <th scope="col">ID del Productor</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
-        <th scope="col">Foto</th>
+        <!-- <th scope="col">Foto</th> -->
         <th scope="col">Cedula</th>
         <th scope="col">Teléfono</th>
         <th scope="col">Comunidad</th>
@@ -135,17 +135,17 @@
         <td>{{$productors->id_productor}}</td>
         <td>{{$productors->nombres}}</td>
         <td>{{$productors->apellidos}}</td>
-        <td><img src="{{$productors->foto}}" alt="foto" width="40px" class="img-fluid img-thumbnail"></td>
+        <!-- <td><img src="{{asset($productors->foto)}}" width="50px" class="img-fluid img-thumbnail"></td> -->
         <td>{{$productors->numero_cedula}}</td>
         <td>{{$productors->numero_telefono}}</td>
         <td>{{$productors->comunidad}}</td>
         <td>{{$productors->municipio}}</td>
         <td>
         <form action="{{ route('productores.destroy',$productors->id)}}" class="formulario-eliminar" method="POST">
-        <a href="/productores/{{$productors->id}}/edit" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
+        <a href="/productores/{{$productors->id}}/edit" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-eraser"></i></button>
+        <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
         </form>
         </td>
     </tr>
@@ -173,7 +173,27 @@
 <script>
     Swal.fire(
     'Eliminado!',
-    'El usuario ha sido eliminado correctamente.',
+    'El registro ha sido eliminado correctamente.',
+    'success'
+)
+</script>
+@endif
+
+@if(session('guardar')=== 'ok')
+<script>
+    Swal.fire(
+    'Guardado!',
+    'El registro ha sido guardado correctamente.',
+    'success'
+)
+</script>
+@endif
+
+@if(session('editar')=== 'ok')
+<script>
+    Swal.fire(
+    'Modificado!',
+    'El registro ha sido modificado correctamente.',
     'success'
 )
 </script>

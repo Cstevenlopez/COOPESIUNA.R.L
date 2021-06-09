@@ -69,7 +69,7 @@ class FincaController extends Controller
         $fincas->disponibilidad_agua = $request->get('disponibilidad_agua');
         $fincas->save();
 
-        return redirect('/fincas');
+        return redirect('/fincas')->with('guardar','ok');
     }
 
     /**
@@ -116,7 +116,7 @@ class FincaController extends Controller
         $fincas->disponibilidad_agua = $request->get('disponibilidad_agua');
         $fincas->save();
 
-         return redirect('/fincas');
+         return redirect('/fincas')->with('editar','ok');
     }
 
     /**

@@ -64,7 +64,7 @@ class UsoTierraController extends Controller
         $Tierras->areas_pasto_arboles = $request->get('areas_pasto_arboles');
         $Tierras->save();
 
-        return redirect('/tierras');
+        return redirect('/tierras')->with('guardar','ok');
     }
 
     /**
@@ -110,7 +110,7 @@ class UsoTierraController extends Controller
         $Tierras->areas_pasto_arboles = $request->get('areas_pasto_arboles');
         $Tierras->save();
 
-        return redirect('/tierras');
+        return redirect('/tierras')->with('editar','ok');
     }
 
     /**

@@ -41,13 +41,13 @@ class ProductorController extends Controller
     public function store(Request $request)
     {
         $productor = new Productor();
-        if( $request->hasfile('foto')){
-        $foto = $request->file('foto');
-        $destinationPath = 'img/productors';
-        $fotoname = time() . '-' . $foto->getClientOriginalName();
-        $uploadSuccess = $request->file('foto')->move($destinationPath, $fotoname);
-        $productor->foto = $destinationPath . $fotoname;
-        }
+        // if( $request->hasfile('foto')){
+        // $foto = $request->file('foto');
+        // $destinationPath = 'img/productors';
+        // $fotoname = time() . '-' . $foto->getClientOriginalName();
+        // $uploadSuccess = $request->file('foto')->move($destinationPath, $fotoname);
+        // $productor->foto = $destinationPath . $fotoname;
+        // }
         $request->validate([
             'fincaid' => 'required',
             'id_productor' => 'required',
@@ -104,13 +104,13 @@ class ProductorController extends Controller
     public function update(Request $request, $id)
     {
         $productor=Productor::Find($id);
-        if ($request->hasfile('foto')){
-            $foto=$request->file('foto');
-            $destinationPath = 'img/productors/';
-            $fotoname = time() . '-' . $foto->getClientOriginalName();
-            $uploadSuccess = $request->file('foto')->move($destinationPath, $fotoname);
-            $productor->foto = $destinationPath . $fotoname;
-        }
+        // if ($request->hasfile('foto')){
+        //     $foto=$request->file('foto');
+        //     $destinationPath = 'img/productors/';
+        //     $fotoname = time() . '-' . $foto->getClientOriginalName();
+        //     $uploadSuccess = $request->file('foto')->move($destinationPath, $fotoname);
+        //     $productor->foto = $destinationPath . $fotoname;
+        // }
         $productor->fincaid = $request->get('fincaid');
         $productor->id_productor = $request->get('id_productor');    
         $productor->nombres = $request->get('nombres');

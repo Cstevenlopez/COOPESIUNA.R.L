@@ -161,10 +161,10 @@
             <td>{{$fincas->disponibilidad_agua}}</td>
             <td>
             <form action="{{ route('fincas.destroy',$fincas->id)}}" class="formulario-eliminar" method="POST">
-            <a href="/fincas/{{$fincas->id}}/edit" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
+            <a href="/fincas/{{$fincas->id}}/edit" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-eraser"></i></button>
+            <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
             </form>
             </td>
         </tr>    
@@ -192,7 +192,27 @@
 <script>
     Swal.fire(
     'Eliminado!',
-    'El usuario ha sido eliminado correctamente.',
+    'El registro ha sido eliminado correctamente.',
+    'success'
+)
+</script>
+@endif
+
+@if(session('guardar')=== 'ok')
+<script>
+    Swal.fire(
+    'Guardado!',
+    'El registro ha sido guardado correctamente.',
+    'success'
+)
+</script>
+@endif
+
+@if(session('editar')=== 'ok')
+<script>
+    Swal.fire(
+    'Modificado!',
+    'El registro ha sido modificado correctamente.',
     'success'
 )
 </script>
