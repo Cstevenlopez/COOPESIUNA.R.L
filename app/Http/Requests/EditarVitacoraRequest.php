@@ -24,7 +24,7 @@ class EditarVitacoraRequest extends FormRequest
     public function rules()
     {
         return [
-            "id_vitacora"=>"required|unique:vitacora_asistencias,id_vitacora,".$this->route('vitacora_asistencias')->id,
+            "id_vitacora"=>"required|unique:vitacora_asistencias,id_vitacora,".$this->route('vitacora')->id,
             "actividad"=>"required",
             "objetivo"=>"required",
             "temas_abordados"=>"required",
