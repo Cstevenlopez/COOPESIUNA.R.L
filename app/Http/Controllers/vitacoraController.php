@@ -89,7 +89,8 @@ class vitacoraController extends Controller
      */
     public function edit($id)
     {
-        return view('vitacoras.edit');
+        $vitacora = Vitacora_asistencia::find($id);
+        return view('vitacoras.edit')->with('Vitacora_asistencias',$vitacora);
     }
 
     /**
