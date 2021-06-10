@@ -259,13 +259,6 @@ return [
             'url'         => '/vitacoras',
             'icon'        => 'fas fa-calendar-alt',
         ],
-        [
-            'text'        => 'Reportes',
-            'url'         => '/',
-            'icon'        => 'far fa-calendar-check',
-            'label'       => 'report',
-            'label_color' => 'success',
-        ],
     ],
 
     /*

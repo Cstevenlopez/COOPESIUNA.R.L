@@ -144,6 +144,8 @@
 
 <div class="card bg-light shadow-lg">
 <div class="card-body">
+<a href="/download-pdf" class="btn float-right mb-4 btn-sm btn-info"> Descargar  <i class="fas fa-angle-double-down"></i></a>
+<a href="/get-all-logs" class="btn mb-4 btn-sm btn-info"> Ver documento  <i class="fas fa-address-book"></i></a>
 <table id="tabla-vitacoras" class="table table-striped tabla-xd" style="width:100%">
 <thead class="">
 <tr>
@@ -175,7 +177,7 @@
         <td>{{$vitacora_asistencias->siguiente_visita}}</td>
         <td>{{$vitacora_asistencias->productorid}}</td>
         <td>{{$vitacora_asistencias->usuario_id}}</td>
-        <td>
+        <td >
         <form class="eliminar" action="{{route('vitacoras.destroy',$vitacora_asistencias->id)}}" method="POST">
         <a href="/vitacoras/{{$vitacora_asistencias->id}}/edit" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
         @csrf
