@@ -45,12 +45,12 @@ Route::get('productores/{productor}',[ProductorController::class,'show']);
 Route::delete('productores/{productor}',[ProductorController::class,'destroy']);
 
 
-Route::get('vitacoras',[VitacoraController::class,'index']);
-Route::post('vitacoras',[VitacoraController::class,'store']);
-Route::put('vitacoras/{vitacora}',[VitacoraController::class,'update']);
-Route::get('vitacoras/{vitacora}',[VitacoraController::class,'show']);
-Route::delete('vitacoras/{vitacora}',[VitacoraController::class,'destroy']);
-
+Route::get('vitacoras',[vitacoraController::class,'index']);
+Route::post('vitacoras',[vitacoraController::class,'store']);
+Route::put('vitacoras/{vitacora}',[vitacoraController::class,'update']);
+Route::get('vitacoras/{vitacora}',[vitacoraController::class,'show']);
+Route::delete('vitacoras/{vitacora}',[vitacoraController::class,'destroy']);
+// HOLA
 
 
 
