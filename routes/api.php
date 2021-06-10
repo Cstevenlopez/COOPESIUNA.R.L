@@ -9,7 +9,7 @@ use App\Http\Controllers\API\UserController;
 
 use App\Http\Controllers\API\FincaController;
 use Illuminate\Validation\ValidationException;
-use App\Http\Controllers\API\VitacoraController;
+use App\Http\Controllers\API\vitacoraController;
 use App\Http\Controllers\API\ProductorController;
 
 /*
