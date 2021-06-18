@@ -1,12 +1,15 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\API\FincaController;
 use App\Http\Controllers\API\ProductorController;
 use App\Http\Controllers\API\VitacoraController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -44,6 +47,27 @@ Route::put('productores/{productor}',[ProductorController::class,'update']);
 Route::get('productores/{productor}',[ProductorController::class,'show']);
 Route::delete('productores/{productor}',[ProductorController::class,'destroy']);
 
+Route::post('login',[LoginController::class,'login']);
+Route::post('logout',[LoginController::class,'logout']);
+
+
+
+Route::get('/bitacoras/{usuario}',function($usuario){
+    $bitacoras = DB::table('vitacora_asistencias')
+    ->join('users','vitacora_asistencias.usuario_id','=','users.id_usuario')
+    ->select('vitacora_asistencias.*')
+    ->where('users.email',$usuario)
+    ->get();
+
+    return response()->json([
+        'data' => $bitacoras
+    ]);
+});
+
+
+
+
+
 
 Route::get('vitacoras',[VitacoraController::class,'index']);
 Route::post('vitacoras',[VitacoraController::class,'store']);
@@ -51,7 +75,7 @@ Route::put('vitacoras/{vitacora}',[VitacoraController::class,'update']);
 Route::get('vitacoras/{vitacora}',[VitacoraController::class,'show']);
 Route::delete('vitacoras/{vitacora}',[VitacoraController::class,'destroy']);
 
-
+Route::get('register',[RegisterController::class,'register']);
 
 
 
@@ -59,7 +83,7 @@ Route::post('/sanctum/token', function (Request $request) {
     $request->validate([
         'email' => 'required|email',
         'password' => 'required',
-        'device_name' => 'required',
+       // 'device_name' => 'required',
     ]);
 
     $user = User::where('email', $request->email)->first();
