@@ -92,7 +92,7 @@
 <!-- FIN DEL MODAL DE USUARIOS -->
 
 <!-- CRUD DE USUARIOS -->
-<!-- <img src="/vendor/adminlte/dist/img/Logo.png" class="img-fluid mb-2" width="150px" alt="Responsive imagen"> -->
+
 <div class="card shadow-lg">
 <div class="card-body">
 

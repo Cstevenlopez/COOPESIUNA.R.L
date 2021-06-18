@@ -18,7 +18,7 @@ class CreateProductorsTable extends Migration
             $table->string('id_productor')->unique();
 
             $table->string('fincaid');
-            $table->foreign('fincaid')->references('finca_id')->on('uso_de_tierras');
+            $table->foreign('fincaid')->references('id_finca')->on('fincas');
 
             $table->string('nombres');
             $table->string('apellidos');

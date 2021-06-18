@@ -1,19 +1,22 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
+=======
+use Illuminate\Support\Facades\Hash;
+>>>>>>> d8d45de93997e91588cc455c636ee34152484489
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
-use App\Http\Controllers\API\FincaController;
-use App\Http\Controllers\API\ProductorController;
-use App\Http\Controllers\API\VitacoraController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\API\FincaController;
 use Illuminate\Validation\ValidationException;
+use App\Http\Controllers\API\vitacoraController;
+use App\Http\Controllers\API\ProductorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +72,7 @@ Route::get('/bitacoras/{usuario}',function($usuario){
 
 
 
+<<<<<<< HEAD
 Route::get('vitacoras',[VitacoraController::class,'index']);
 Route::post('vitacoras',[VitacoraController::class,'store']);
 Route::put('vitacoras/{vitacora}',[VitacoraController::class,'update']);
@@ -76,6 +80,15 @@ Route::get('vitacoras/{vitacora}',[VitacoraController::class,'show']);
 Route::delete('vitacoras/{vitacora}',[VitacoraController::class,'destroy']);
 
 Route::get('register',[RegisterController::class,'register']);
+=======
+Route::get('vitacoras',[vitacoraController::class,'index']);
+Route::post('vitacoras',[vitacoraController::class,'store']);
+Route::put('vitacoras/{vitacora}',[vitacoraController::class,'update']);
+Route::get('vitacoras/{vitacora}',[vitacoraController::class,'show']);
+Route::delete('vitacoras/{vitacora}',[vitacoraController::class,'destroy']);
+// HOLA
+
+>>>>>>> d8d45de93997e91588cc455c636ee34152484489
 
 
 

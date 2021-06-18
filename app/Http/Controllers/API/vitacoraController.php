@@ -10,6 +10,7 @@ use App\Http\Requests\GuardarVitacoraRequest;
 
 class VitacoraController extends Controller
 {
+    // HOLA
     /**
      * Display a listing of the resource.
      *
