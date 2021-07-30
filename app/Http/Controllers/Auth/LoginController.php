@@ -56,7 +56,7 @@ class LoginController extends Controller
 
       //  return $this->sendFailedLoginResponse($request);
     }
-    public function logout(Request $request)
+ /*   public function logout(Request $request)
     {
     $user = Auth::guard('api')->user();
 
@@ -66,5 +66,5 @@ class LoginController extends Controller
     }
 
     return response()->json(['data' => 'User logged out.'], 200);
-    }
+    }*/
 }
