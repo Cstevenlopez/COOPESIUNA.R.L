@@ -8,7 +8,7 @@
 @section('content')
 <!-- ENTRADA PARA EL MODAL DE USUARIOS -->
 <div class="text-center">
-<a href="" class="btn bg-info shadow mb-3 btn-rounded" data-toggle="modal" data-target="#modalUsuarios">Nuevo usuario  <i class="fas fa-clipboard"></i></a>
+<a href="" class="btn bg-info shadow mb-3 mt-3 btn-rounded" data-toggle="modal" data-target="#modalUsuarios">Nuevo usuario  <i class="fas fa-clipboard"></i></a>
 </div>
     <div class="modal fade" id="modalUsuarios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -124,7 +124,7 @@
         </form>
         </td>
     </tr>
-    @endforeach      
+    @endforeach
 </tbody>
 </table>
 </div>
@@ -139,7 +139,7 @@
 
 @section('js')
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script> 
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.8/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.8/js/responsive.bootstrap4.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
