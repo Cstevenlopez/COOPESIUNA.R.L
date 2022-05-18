@@ -33,7 +33,7 @@ class UserController extends Controller
         return response()->json([
             'res'=>true,
             'mensaje'=>'Usuario guardado exitosamente'
-        ]);   
+        ]);
     }
     /**
      * Display the specified resource.
@@ -46,7 +46,7 @@ class UserController extends Controller
         return response()->json([
             'res'=>true,
             'data'=>$user
-        ]); 
+        ]);
     }
     /**
      * Update the specified resource in storage.
@@ -61,7 +61,7 @@ class UserController extends Controller
         return response()->json([
             'res'=>true,
             'mensaje'=>'Usuario actualizada exitosamente'
-        ],200); 
+        ],200);
 
     }
     /**

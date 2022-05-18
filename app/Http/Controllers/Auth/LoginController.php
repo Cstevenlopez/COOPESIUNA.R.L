@@ -43,16 +43,16 @@ class LoginController extends Controller
     {
         $this->validateLogin($request);
 
-        if ($this->attemptLogin($request)) {
-            $user = $this->guard()->user();
-            $user->generateToken(); 
+        // if ($this->attemptLogin($request)) {
+        //     $user = $this->guard()->user();
+        //     $user->generateToken();
 
-            return response()->json([
-                'res'=>true,
-                'data' => $user->toArray(),
-                'message'=>'usuario correcto'
-            ]);
-        }
+        //     return response()->json([
+        //         'res'=>true,
+        //         'data' => $user->toArray(),
+        //         'message'=>'usuario correcto'
+        //     ]);
+        // }
 
       //  return $this->sendFailedLoginResponse($request);
     }
