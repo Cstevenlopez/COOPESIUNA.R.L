@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 	<!-- Header -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -22,13 +22,15 @@
       </li>
     </ul>
 	<div class="text-center">
-	<a href="index.html">
+	<a href="/">
 	            <img src="./assets/img/logo.png" class="img-fluid mt-2 mb-1" width="150px" alt="Designlopers" class="img-fluid">
 	        </a>
 			</div>
   </div>
 </nav>
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+<!-- Carrusel -->
+<div style="" id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -36,24 +38,18 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="../assets/img/4.jpg" alt="First slide">
+      <img style="height: 500px" class="d-block w-100 img-fluid" src="../assets/img/4.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="../assets/img/10.jpg" alt="Second slide">
+      <img style="height: 500px" class="d-block w-100 img-fluid" src="../assets/img/10.jpg" alt="Second slide">
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="../assets/img/1.jpg" alt="Third slide">
+    <div class="carousel-item h-75">
+      <img style="height: 500px" class="d-block w-100 img-fluid" src="../assets/img/1.jpg" alt="Third slide">
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+
 </div>
+
 	<!-- Footer -->
 <section class="">
   <!-- Footer -->
