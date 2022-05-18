@@ -43,7 +43,7 @@
     <div class="carousel-item">
       <img style="height: 500px" class="d-block w-100 img-fluid" src="../assets/img/10.jpg" alt="Second slide">
     </div>
-    <div class="carousel-item h-75">
+    <div class="carousel-item">
       <img style="height: 500px" class="d-block w-100 img-fluid" src="../assets/img/1.jpg" alt="Third slide">
     </div>
   </div>
