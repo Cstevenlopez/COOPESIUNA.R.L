@@ -17,14 +17,14 @@
 @csrf
 @method('PUT')
 <div class="form-row">
-<div class="form-group col-md-6">
-<label>ID de la finca</label>
-<input type="text" class="form-control p-3 bg-white shadow-sm rounded" readonly value="{{$productors->fincaid}}" name="fincaid" id="fincaid" required>
-</div>
-
-<div class="form-group col-md-6">
-<label>ID del productor</label>
-<input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$productors->id_productor}}" name="id_productor" id="id_productor" required>
+<div class="form-group col-md-12">
+<label>Finca</label>
+<select name="finca_id" class="form-select form-control" tabindex="4" aria-label="Default select example" require>
+    <option>--Seleccione--</option>
+    @foreach(App\Models\Finca::get() as $finca)
+<option value="{{$finca->id}}">{{$finca->nombre}}</option>
+@endforeach
+</select>
 </div>
 </div>
 

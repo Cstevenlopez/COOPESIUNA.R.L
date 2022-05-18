@@ -17,12 +17,8 @@
 @csrf
 @method('PUT')
 <div class="form-row">
-<div class="form-group col-md-6">
-<label>ID de vitacora</label>
-<input type="text" class="form-control p-3 bg-white shadow-sm rounded" readonly value="{{$Vitacora_asistencias->id_vitacora}}" name="id_vitacora" id="id_vitacora" required>
-</div>
 
-<div class="form-group col-md-6">
+<div class="form-group col-md-12">
 <label>Actividad</label>
 <input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$Vitacora_asistencias->actividad}}" name="actividad" required>
 </div>
@@ -65,19 +61,21 @@
 </div>
 
 <div class="form-row">
-<div class="form-group col-md-6">
+<div class="form-group col-md-12">
 <label>Siguiente visita</label>
 <input type="date" class="form-control p-3 bg-white shadow-sm rounded" value="{{$Vitacora_asistencias->siguiente_visita}}" name="siguiente_visita" required>
 </div>
 
 <div class="form-group col-md-6">
-<label>ID de productor</label>
-<input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$Vitacora_asistencias->productorid }}" name="productorid" required>
+<label>Productor</label>
+<p>{{ $Vitacora_asistencias->productor->nombres }}</p>
+<input style="visibility: hidden;" type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$Vitacora_asistencias->productorid }}" name="productorid" required>
 </div>
 
 <div class="form-group col-md-6">
-<label>ID de usuario</label>
-<input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$Vitacora_asistencias->usuario_id  }}" name="usuario_id" required>
+<label>Usuario</label>
+    <p>{{ $Vitacora_asistencias->users->name }}</p>
+<input style="visibility: hidden;" type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$Vitacora_asistencias->usuario_id  }}" name="usuario_id" required>
 </div>
 </div>
 

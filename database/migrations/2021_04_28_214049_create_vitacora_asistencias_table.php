@@ -15,9 +15,6 @@ class CreateVitacoraAsistenciasTable extends Migration
     {
         Schema::create('vitacora_asistencias', function (Blueprint $table) {
             $table->id();
-
-            $table->string('id_vitacora')->unique();
-
             $table->string('actividad');
             $table->string('objetivo');
             $table->string('temas_abordados');
@@ -27,12 +24,12 @@ class CreateVitacoraAsistenciasTable extends Migration
             $table->date('fecha');
             $table->date('siguiente_visita');
 
-            $table->string('productorid');
-            $table->foreign('productorid')->references('id_productor')->on('productors');
+            $table->unsignedBigInteger('productorid');
+            $table->foreign('productorid')->references('id')->on('productors')->cascadeOnDelete()->cascadeOnUpdate();
 
-            $table->string('usuario_id');
-            $table->foreign('usuario_id')->references('id_usuario')->on('users');    
-            
+            $table->unsignedBigInteger('usuario_id');
+            $table->foreign('usuario_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
+
             $table->timestamps();
         });
     }

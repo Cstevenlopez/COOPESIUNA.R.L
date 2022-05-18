@@ -18,12 +18,8 @@
     @csrf
     @method('PUT')
     <div class="form-row">
-    <div class="form-group col-md-6">
-    <label>ID de finca</label>
-    <input type="text" class="form-control p-3 bg-white shadow-sm rounded" readonly value="{{$fincas->id_finca}}" name="id_finca" id="id_finca" required>
-    </div>
 
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
     <label>Nombre de la finca</label>
     <input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$fincas->nombre}}" name="nombre" id="nombre" required>
     </div>
@@ -64,7 +60,7 @@
     <input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$fincas->disponibilidad_energia}}" name="disponibilidad_energia" id="disponibilidad_energia"required>
     </div>
 
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
     <label>Disponibilidad de agua</label>
     <input type="text" class="form-control p-3 bg-white shadow-sm rounded" width="100%" value="{{$fincas->disponibilidad_agua}}" name="disponibilidad_agua" id="disponibilidad_agua"required>
     </div>

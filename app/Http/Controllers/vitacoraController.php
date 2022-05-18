@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vitacora_asistencia;
+use PDF;
 
 class VitacoraController extends Controller
 {
@@ -20,6 +21,21 @@ class VitacoraController extends Controller
     {
         $vitacora = Vitacora_asistencia::all();
         return view('vitacoras.index')->with('vitacora_asistencias', $vitacora);
+    }
+
+    public function detalle($id){
+
+        $vitacora = Vitacora_asistencia::find($id);
+        // dd($id);
+        return view('vitacoras.detalle', compact('vitacora'));
+    }
+
+    public function download($id){
+        $vitacora = Vitacora_asistencia::find($id);
+
+        $pdf = PDF::loadView('vitacoras.detalle', compact('vitacora'));
+
+        return $pdf->stream('vitacoras.detalle.pdf');
     }
 
     /**
@@ -54,7 +70,6 @@ class VitacoraController extends Controller
         //     'usuario_id' => 'required'
         // ]);
         $vitacora = new Vitacora_asistencia();
-        $vitacora->id_vitacora = $request->get('id_vitacora');
         $vitacora->actividad = $request->get('actividad');
         $vitacora->objetivo = $request->get('objetivo');
         $vitacora->temas_abordados = $request->get('temas_abordados');
@@ -103,7 +118,6 @@ class VitacoraController extends Controller
     public function update(Request $request, $id)
     {
         $vitacora = Vitacora_asistencia::find($id);
-        $vitacora->id_vitacora = $request->get('id_vitacora');
         $vitacora->actividad = $request->get('actividad');
         $vitacora->objetivo = $request->get('objetivo');
         $vitacora->temas_abordados = $request->get('temas_abordados');

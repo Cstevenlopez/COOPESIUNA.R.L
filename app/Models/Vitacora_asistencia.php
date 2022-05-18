@@ -10,7 +10,6 @@ class Vitacora_asistencia extends Model
     use HasFactory;
     protected $table='vitacora_asistencias';
     protected $fillable=[
-        'id_vitacora',
         'actividad',
         'objetivo',
         'temas_abordados',
@@ -24,12 +23,13 @@ class Vitacora_asistencia extends Model
     ];
 
     //Relacion uno a mucho (inversa)
-    // public function user(){
-    //     return $this->belongsTo('App/Models/User');
-    // }
+    public function users(){
+        return $this->belongsTo(User::class, 'usuario_id');
+    }
 
-    // public function productor(){
-    //     return $this->belongsTo('App/Models/Productor');
-    // }
+    public function productor(){
+        return $this->belongsTo(Productor::class, 'productorid');
+    }
+
 
 }

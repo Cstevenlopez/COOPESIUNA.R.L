@@ -10,8 +10,7 @@ class Productor extends Model
     use HasFactory;
     protected $table='productors';
     protected $fillable=[
-        'id_productor',
-        'fincaid',
+        'finca_id',
         'nombres',
         'apellidos',
         'numero_cedula',
@@ -22,8 +21,12 @@ class Productor extends Model
 
     //Relacion uno a muchos
 
-    // public function vitacora(){
-    //     return $this->hasMany('App/Models/Vitacora_asistencia');
-    // }
+    public function vitacora(){
+        return $this->hasMany(Vitacora_asistencia::class, 'id');
+    }
+
+    public function finca(){
+        return $this->belongsTo(Finca::class, 'finca_id');
+    }
 
 }

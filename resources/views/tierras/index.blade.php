@@ -8,7 +8,7 @@
 @section('content')
 <!-- ENTRADA PARA EL MODAL DE TIERRAS -->
 <div class="text-center">
-<a href="" class="btn bg-info btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalTierras">Nuevo registro  <i class="fas fa-clipboard"></i></a>
+<a href="" class="btn bg-info btn-default mt-3 btn-rounded mb-4" data-toggle="modal" data-target="#modalTierras">Nuevo registro  <i class="fas fa-clipboard"></i></a>
 </div>
     <div class="modal fade" id="modalTierras" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -20,19 +20,19 @@
     </button>
     </div>
     <div class="modal-body">
-    
+
     <Form action="/tierras" method="POST">
     @csrf()
     <!-- SELECT PERFIL -->
     <div class="mb-3">
-        <label for="" class="form-label">Finca</label><br>
+        <label for="" class="form-label">Seleccione la finca</label><br>
         @error('finca_id')
         <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
         @enderror
             <select name="finca_id" class="form-select form-control" tabindex="4" aria-label="Default select example" require>
                 <option>--Seleccione--</option>
                 @foreach(App\Models\Finca::get() as $fincas)
-        <option value="{{$fincas->id_finca}}">{{$fincas->nombre}}</option>
+        <option value="{{$fincas->id}}">{{$fincas->nombre}}</option>
             @endforeach
         </select>
     </div>
@@ -117,7 +117,7 @@
 <table id="usuarios"  class="table table-light table-striped table-bordered" style="width:100%">
 <thead class="">
     <tr>
-        <th scope="col">ID de Finca</th>
+        <th scope="col">Finca</th>
         <th scope="col">Area Total</th>
         <th scope="col">Bosque N°1</th>
         <th scope="col">Bosque N°2</th>
@@ -131,7 +131,7 @@
 <tbody>
     @foreach($uso_de_tierras as $uso_de_tierras)
     <tr>
-        <td>{{$uso_de_tierras->finca_id}}</td>
+        <td>{{ $uso_de_tierras->finca->nombre }}</td>
         <td>{{$uso_de_tierras->area_total}}</td>
         <td>{{$uso_de_tierras->boque_primario}}</td>
         <td>{{$uso_de_tierras->bosque_secundario}}</td>
@@ -149,10 +149,10 @@
 </div>
         </td>
     </tr>
-    @endforeach      
+    @endforeach
 </tbody>
 </table>
-</div> 
+</div>
 </div>
 @stop
 
@@ -164,7 +164,7 @@
 
 @section('js')
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script> 
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.8/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.8/js/responsive.bootstrap4.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -224,7 +224,8 @@ if (result.isConfirmed) {
 $(document).ready(function() {
 $('#usuarios').DataTable({
 "lengthMenu":[[5,10,50,-1], [5,10,50,"All"]],
- responsive: true
+ responsive: true,
+ autoWidth: false
 });
 } );
 </script>

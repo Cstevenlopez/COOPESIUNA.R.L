@@ -8,7 +8,7 @@
 @section('content')
 <!-- ENTRADA PARA EL MODAL DE USUARIOS -->
 <div class="text-center">
-<a href="" class="btn bg-info btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalUsuarios">Nuevo productor <i class="fas fa-clipboard"></i></a>
+<a href="" class="btn bg-info btn-default mt-3 btn-rounded mb-4" data-toggle="modal" data-target="#modalUsuarios">Nuevo productor <i class="fas fa-clipboard"></i></a>
 </div>
     <div class="modal fade" id="modalUsuarios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -26,23 +26,15 @@
 
     <div class="mb-3">
         <label for="" class="form-label">Finca</label><br>
-        @error('fincaid')
+        @error('finca_id')
             <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
         @enderror
-            <select  name="fincaid" class="form-select form-control" tabindex="4" aria-label="Default select example" require>
+            <select  name="finca_id" class="form-select form-control" tabindex="4" aria-label="Default select example" require>
                 <option>--Seleccione--</option>
                 @foreach(App\Models\Finca::get() as $fincas)
-        <option value="{{$fincas->id_finca}}">{{$fincas->id_finca}}</option>
+        <option value="{{$fincas->id}}">{{$fincas->nombre}}</option>
             @endforeach
         </select>
-    </div>
-
-    <div class="mb-3">
-    <label for="" class="form-label">ID del productor</label><br>
-    @error('id_productor')
-    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
-    @enderror
-    <input type="text" value="{{old('id_productor')}}" name="id_productor" class="form-control" tabindex="4" placeholder="CÓDIGO-01">
     </div>
 
     <div class="mb-3">
@@ -116,11 +108,9 @@
 <table id="table-productor" class="table table-light table-striped table-bordered" style="width:100%;">
 <thead class="">
     <tr>
-        <th scope="col">ID de la Finca</th>
-        <th scope="col">ID del Productor</th>
-        <th scope="col">Nombre</th>
+        <th scope="col">Nombre de la finca</th>
+        <th scope="col">Nombre del dueño</th>
         <th scope="col">Apellido</th>
-        <!-- <th scope="col">Foto</th> -->
         <th scope="col">Cedula</th>
         <th scope="col">Teléfono</th>
         <th scope="col">Comunidad</th>
@@ -131,11 +121,9 @@
 <tbody>
     @foreach($productors as $productors)
     <tr>
-        <td>{{$productors->fincaid}}</td>
-        <td>{{$productors->id_productor}}</td>
+        <td>{{$productors->finca->nombre}}</td>
         <td>{{$productors->nombres}}</td>
         <td>{{$productors->apellidos}}</td>
-        <!-- <td><img src="{{asset($productors->foto)}}" width="50px" class="img-fluid img-thumbnail"></td> -->
         <td>{{$productors->numero_cedula}}</td>
         <td>{{$productors->numero_telefono}}</td>
         <td>{{$productors->comunidad}}</td>
@@ -149,7 +137,7 @@
         </form>
         </td>
     </tr>
-    @endforeach      
+    @endforeach
 </tbody>
 </table>
 </div>
@@ -164,7 +152,7 @@
 
 @section('js')
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script> 
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.8/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.8/js/responsive.bootstrap4.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -17,22 +17,6 @@
           <div class="card-body ">
             <p class="card-description text-center">{{ __('Registrarse') }}</p>
 
-            <div class="bmd-form-group{{ $errors->has('id_usuario') ? ' has-danger' : '' }} mt-3">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="material-icons">credit_card</i>
-                  </span>
-                </div>
-                <input type="id_usuario" name="id_usuario" class="form-control" placeholder="{{ __('ID de usuario...') }}" value="{{ old('id_usuario') }}" required>
-              </div>
-              @if ($errors->has('id_usuario'))
-                <div id="id_usuario-error" class="error text-danger pl-3" for="id_usuario" style="display: block;">
-                  <strong>{{ $errors->first('id_usuario') }}</strong>
-                </div>
-              @endif
-            </div>
-
             <div class="bmd-form-group{{ $errors->has('name') ? ' has-danger' : '' }} mt-3">
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -48,7 +32,7 @@
                 </div>
               @endif
             </div>
-            
+
             <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }} mt-3">
               <div class="input-group">
                 <div class="input-group-prepend">

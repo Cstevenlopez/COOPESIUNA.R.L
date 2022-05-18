@@ -22,7 +22,7 @@ class UserController extends Controller
         $usuarios = User::all();
         return view('usuarios.index')->with('users',$usuarios);
     }
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -31,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('usuarios.create');
+        //
     }
 
     /**
@@ -52,14 +52,12 @@ class UserController extends Controller
         }
 
         $request->validate([
-            'id_usuario' => 'required',
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
         ]);
 
-        $usuarios->id_usuario = $request->get('id_usuario');
-        $usuarios->name = $request->get('name');    
+        $usuarios->name = $request->get('name');
         $usuarios->email = $request->get('email');
         $usuarios->password = Hash::make($request->get('password'));
         $usuarios->save();
@@ -108,8 +106,7 @@ class UserController extends Controller
             $uploadSuccess = $request->file('foto')->move($destinationPath, $fotoname);
             $usuarios->foto = $destinationPath . $fotoname;
         }
-        $usuarios->id_usuario = $request->get('id_usuario');
-        $usuarios->name = $request->get('name');    
+        $usuarios->name = $request->get('name');
         $usuarios->email = $request->get('email');
         $usuarios->password = Hash::make($request->get('password'));
         $usuarios->save();

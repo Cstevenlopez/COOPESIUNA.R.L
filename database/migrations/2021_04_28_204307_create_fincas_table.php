@@ -15,7 +15,6 @@ class CreateFincasTable extends Migration
     {
         Schema::create('fincas', function (Blueprint $table) {
             $table->id();
-            $table->string('id_finca')->unique();
             $table->string('nombre',50);
             $table->string('legalidad',50);
             $table->string('comunidad',50);

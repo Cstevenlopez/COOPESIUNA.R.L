@@ -23,6 +23,8 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.3",
-        "sweetalert2": "^10.16.9"
+        "sweetalert": "^2.1.2",
+        "sweetalert2": "^10.16.9",
+        "vue": "^3.2.33"
     }
 }

@@ -9,7 +9,7 @@
 
 <!-- ENTRADA PARA EL MODAL DE FINCAS -->
 <div class="text-center">
-<a href="" class="btn btn-default bg-info shadow btn-rounded mb-4" data-toggle="modal" data-target="#modalFincas">Nuevo registro  <i class="fas fa-clipboard"></i></a>
+<a href="" class="btn btn-default bg-info shadow mt-3 btn-rounded mb-4" data-toggle="modal" data-target="#modalFincas">Nuevo registro  <i class="fas fa-clipboard"></i></a>
 </div>
     <div class="modal fade" id="modalFincas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -23,14 +23,6 @@
     <div class="modal-body">
     <Form action="/fincas" method="POST">
     @csrf()
-
-    <div class="mb-3 ml-2">
-    <label for="" class="form-label">Codigo de finca</label><br>
-    @error('id_finca')
-    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
-    @enderror
-    <input type="text" id="id_finca" name="id_finca" class="form-control" tabindex="1" placeholder="CONTABILIDAD-01">
-    </div>
 
     <div class="mb-3 ml-2">
     <label for="" class="form-label">Nombre de la finca</label><br>
@@ -133,10 +125,9 @@
 <table id="fincas" class="table table-light table-bordered table-striped" style="width:100%">
     <thead class="">
         <tr>
-            <th></th>
-            <th scope="col">ID finca</th>
+            <th scope="col">ID</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Legalidad</th>  
+            <th scope="col">Legalidad</th>
             <th scope="col">Comunidad</th>
             <th scope="col">Municipio</th>
             <th scope="col">Departamento</th>
@@ -149,8 +140,7 @@
     <tbody>
         @foreach($fincas as $fincas)
         <tr>
-            <td></td>
-            <td>{{$fincas->id_finca}}</td>
+            <td>{{ $fincas->id }}</td>
             <td>{{$fincas->nombre}}</td>
             <td>{{$fincas->legalidad}}</td>
             <td>{{$fincas->comunidad}}</td>
@@ -167,7 +157,7 @@
             <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
             </form>
             </td>
-        </tr>    
+        </tr>
         @endforeach
     </tbody>
 </table>
@@ -183,7 +173,7 @@
 
 @section('js')
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script> 
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.8/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.8/js/responsive.bootstrap4.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -243,7 +233,8 @@ if (result.isConfirmed) {
 $(document).ready(function() {
     $('#fincas').DataTable({
         "lengthMenu":[[5,10,50,-1], [5,10,50,"All"]],
-        responsive: true
+        responsive: true,
+        autoWidth: false
     });
 } );
 </script>

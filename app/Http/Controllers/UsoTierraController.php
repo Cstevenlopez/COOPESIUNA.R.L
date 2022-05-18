@@ -55,7 +55,7 @@ class UsoTierraController extends Controller
 
         $Tierras = new Uso_de_tierra();
         $Tierras->finca_id = $request->get('finca_id');
-        $Tierras->area_total = $request->get('area_total');    
+        $Tierras->area_total = $request->get('area_total');
         $Tierras->boque_primario = $request->get('boque_primario');
         $Tierras->bosque_secundario = $request->get('bosque_secundario');
         $Tierras->cultivos_anuales = $request->get('cultivos_anuales');
@@ -101,7 +101,7 @@ class UsoTierraController extends Controller
     {
         $Tierras = Uso_de_tierra::find($id);
         $Tierras->finca_id = $request->get('finca_id');
-        $Tierras->area_total = $request->get('area_total');    
+        $Tierras->area_total = $request->get('area_total');
         $Tierras->boque_primario = $request->get('boque_primario');
         $Tierras->bosque_secundario = $request->get('bosque_secundario');
         $Tierras->cultivos_anuales = $request->get('cultivos_anuales');

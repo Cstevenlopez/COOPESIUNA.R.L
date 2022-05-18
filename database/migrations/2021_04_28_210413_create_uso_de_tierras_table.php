@@ -15,8 +15,9 @@ class CreateUsoDeTierrasTable extends Migration
     {
         Schema::create('uso_de_tierras', function (Blueprint $table) {
             $table->id();
-            $table->string('finca_id');
-            $table->foreign('finca_id')->references('id_finca')->on('fincas');
+            $table->unsignedBigInteger('finca_id');
+            $table->foreign('finca_id')->references('id')->on('fincas')->cascadeOnDelete()->cascadeOnUpdate();
+
             $table->string('area_total',50);
             $table->string('boque_primario',50);
             $table->string('bosque_secundario',50);

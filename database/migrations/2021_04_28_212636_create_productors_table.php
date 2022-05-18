@@ -15,14 +15,12 @@ class CreateProductorsTable extends Migration
     {
         Schema::create('productors', function (Blueprint $table) {
             $table->id();
-            $table->string('id_productor')->unique();
 
-            $table->string('fincaid');
-            $table->foreign('fincaid')->references('id_finca')->on('fincas');
+            $table->unsignedBigInteger('finca_id');
+            $table->foreign('finca_id')->references('id')->on('fincas')->cascadeOnDelete()->cascadeOnUpdate();
 
             $table->string('nombres');
             $table->string('apellidos');
-            // $table->string('foto')->nullable();
             $table->string('numero_cedula');
             $table->string('numero_telefono');
             $table->string('comunidad');

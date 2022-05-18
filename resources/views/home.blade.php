@@ -37,7 +37,7 @@
                             $count_productor = Productor::count();
                             @endphp
                             <h2 class="text-right"><i class="fab fa-product-hunt f-left"></i><span>{{$count_productor}}</span></h2>
-                            <p class="m-b-0 text-right"><a class="text-white" href="/comunidades">Ver más</a></p>
+                            <p class="m-b-0 text-right"><a class="text-white" href="/productores">Ver más</a></p>
                         </div>
                     </div>
                     </div>
@@ -51,7 +51,7 @@
                         $count_vitacoras = Vitacora_asistencia::count();
                         @endphp
                         <h2 class="text-right"><i class="fas fa-file-alt f-left"></i><span>{{$count_vitacoras}}</span></h2>
-                        <p class="m-b-0 text-right"><a class="text-white" href="/comunidades">Ver más</a></p>
+                        <p class="m-b-0 text-right"><a class="text-white" href="/vitacoras">Ver más</a></p>
                     </div>
                 </div>
                 </div>

@@ -29,7 +29,7 @@ class ProductorController extends Controller
      */
     public function create()
     {
-        return \redirect('/productor.create');
+
     }
 
     /**
@@ -49,8 +49,7 @@ class ProductorController extends Controller
         // $productor->foto = $destinationPath . $fotoname;
         // }
         $request->validate([
-            'fincaid' => 'required',
-            'id_productor' => 'required',
+            'finca_id' => 'required',
             'nombres' => 'required',
             'apellidos' => 'required',
             'numero_cedula' => 'required',
@@ -58,8 +57,7 @@ class ProductorController extends Controller
             'comunidad' => 'required',
             'municipio' => 'required'
         ]);
-        $productor->fincaid = $request->get('fincaid');
-        $productor->id_productor = $request->get('id_productor');    
+        $productor->finca_id = $request->get('finca_id');
         $productor->nombres = $request->get('nombres');
         $productor->apellidos = $request->get('apellidos');
         $productor->numero_cedula = $request->get('numero_cedula');
@@ -111,8 +109,7 @@ class ProductorController extends Controller
         //     $uploadSuccess = $request->file('foto')->move($destinationPath, $fotoname);
         //     $productor->foto = $destinationPath . $fotoname;
         // }
-        $productor->fincaid = $request->get('fincaid');
-        $productor->id_productor = $request->get('id_productor');    
+        $productor->finca_id = $request->get('finca_id');
         $productor->nombres = $request->get('nombres');
         $productor->apellidos = $request->get('apellidos');
         $productor->numero_cedula = $request->get('numero_cedula');

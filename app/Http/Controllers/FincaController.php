@@ -35,7 +35,7 @@ class FincaController extends Controller
      */
     public function create()
     {
-        return view('fincas.create');
+
     }
 
     /**
@@ -47,7 +47,7 @@ class FincaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_finca' => 'required',
+
             'nombre' => 'required',
             'legalidad' => 'required',
             'comunidad' => 'required',
@@ -58,7 +58,6 @@ class FincaController extends Controller
             'disponibilidad_agua' => 'required'
         ]);
         $fincas = new Finca();
-        $fincas->id_finca = $request->get('id_finca');
         $fincas->nombre = $request->get('nombre');
         $fincas->legalidad = $request->get('legalidad');
         $fincas->comunidad = $request->get('comunidad');
@@ -105,7 +104,7 @@ class FincaController extends Controller
     public function update(Request $request, $id)
     {
         $fincas = Finca::find($id);
-        $fincas->id_finca = $request->get('id_finca');
+
         $fincas->nombre = $request->get('nombre');
         $fincas->legalidad = $request->get('legalidad');
         $fincas->comunidad = $request->get('comunidad');

@@ -13,13 +13,16 @@ class User extends Authenticatable
 {
     use  HasFactory, HasApiTokens, Notifiable;
 
+    public function vitacoras(){
+        return $this->hasMany(Vitacora_asistencia::class,'id');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'id_usuario',
         'name',
         'email',
         'password',

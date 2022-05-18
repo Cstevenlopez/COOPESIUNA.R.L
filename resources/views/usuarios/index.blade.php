@@ -24,14 +24,6 @@
     @csrf()
 
     <div class="mb-3">
-    <label for="" class="form-label">ID de usuario</label><br>
-    @error('id_usuario')
-    <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
-    @enderror
-    <input type="text" value="{{old('id_usuario')}}" id="id_usuario" name="id_usuario" class="form-control" tabindex="1" placeholder="CONTABILIDAD-01 ">
-    </div>
-
-    <div class="mb-3">
     <label for="" class="form-label">Nombre</label><br>
     @error('name')
     <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
@@ -99,7 +91,7 @@
 <table id="usuarios" class="table table-light table-bordered table-striped" style="width:100%">
 <thead class="">
     <tr>
-        <th scope="col">Identificación</th>
+        <th scope="col">ID</th>
         <th scope="col">Nombres y apellidos</th>
         <th scope="col">Correo electronico</th>
         <th scope="col">Foto</th>
@@ -110,7 +102,7 @@
 <tbody>
     @foreach($users as $users)
     <tr>
-        <td>{{$users->id_usuario}}</td>
+        <td>{{$users->id}}</td>
         <td>{{$users->name}}</td>
         <td>{{$users->email}}</td>
         <td><img src="{{$users->foto}}" alt="" class="img-fluid img-thumbnail" style="height:45px;"></td>

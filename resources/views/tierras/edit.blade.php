@@ -18,12 +18,8 @@
     @csrf
     @method('PUT')
     <div class="form-row">
-    <div class="form-group col-md-6">
-    <label>ID de finca</label>
-    <input type="text" class="form-control p-3 bg-white shadow-sm rounded" readonly value="{{$uso_de_tierras->finca_id}}" name="finca_id" id="finca_id" required>
-    </div>
 
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
     <label>Área total de la finca</label>
     <input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$uso_de_tierras->area_total}}" name="area_total" id="area_total" required>
     </div>
