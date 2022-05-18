@@ -4,7 +4,7 @@ use App\Models\Uso_de_tierra;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VitController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\VitacoraController;
+use App\Http\Controllers\vitacoraController;
 
 /*
 |--------------------------------------------------------------------------
