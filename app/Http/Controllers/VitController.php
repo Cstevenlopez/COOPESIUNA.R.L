@@ -17,9 +17,7 @@ class VitController extends Controller
     public function downloadPDF(){
 
         $logs = Vitacora_asistencia::all();
-        $personalizado = array(0,0,567,283.80);
-        $pdf = PDF::loadView('vitacoras.detalle', compact('logs'))->setPaper($personalizado, 'portrait');
-
-        return $pdf->stream('logs.pdf');
+        $pdf = PDF::loadView('vitacoras.detalle', compact('logs'));
+        return $pdf->setPaper('Legal', 'landscape')->stream();
     }
 }

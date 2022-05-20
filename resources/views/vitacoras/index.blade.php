@@ -169,7 +169,7 @@
             <td >
             <form class="eliminar" action="{{route('vitacoras.destroy',$vitacora_asistencias->id)}}" method="POST">
                 <a class="btn btn-sm btn-warning" href="/vitacoras/{{ $vitacora_asistencias->id }}"><i class="fas fa-eye"></i></a>
-                <a  class="btn btn-sm btn-primary" href="/vitacoras-download/{{ $vitacora_asistencias->id }}"class="btn float-right mb-4 btn-sm btn-info"><i class="fas fa-download"></i></a>
+                <a  class="btn btn-sm btn-primary" href="/vitacoras-download/{{ $vitacora_asistencias->id }}"class="btn float-right mb-4 btn-sm btn-info"><i class="fas fa-print"></i></a>
             <a href="/vitacoras/{{$vitacora_asistencias->id}}/edit" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
             @csrf
             @method('DELETE')
