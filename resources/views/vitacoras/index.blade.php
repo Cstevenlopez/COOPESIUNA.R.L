@@ -36,7 +36,7 @@
         @error('actividad')
         <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
         @enderror
-        <input type="text" value="{{old('actividad')}}" name="actividad" class="form-control" tabindex="4" placeholder="Juan Benito Lopez Perez">
+        <input type="text" value="{{old('actividad')}}" name="actividad" class="form-control" tabindex="4" placeholder="">
         </div>
 
         <div class="mb-3">
@@ -44,7 +44,7 @@
         @error('objetivo')
         <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
         @enderror
-        <input type="text" value="{{old('objetivo')}}" name="objetivo" class="form-control" tabindex="4" placeholder="Juan01">
+        <input type="text" value="{{old('objetivo')}}" name="objetivo" class="form-control" tabindex="4" placeholder="">
         </div>
 
         <div class="mb-3">
@@ -52,7 +52,7 @@
         @error('temas_abordados')
         <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
         @enderror
-        <input type="text" value="{{old('temas_abordados')}}" name="temas_abordados" class="form-control" tabindex="4" placeholder="Juan01">
+        <input type="text" value="{{old('temas_abordados')}}" name="temas_abordados" class="form-control" tabindex="4" placeholder="">
         </div>
 
 
@@ -61,7 +61,7 @@
         @error('dificultades')
         <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
         @enderror
-        <input type="text" value="{{old('dificultades')}}" name="dificultades" class="form-control" tabindex="4" placeholder="ejemplo@gmail.com">
+        <input type="text" value="{{old('dificultades')}}" name="dificultades" class="form-control" tabindex="4" placeholder="">
         </div>
 
         <div class="mb-3">
@@ -69,7 +69,7 @@
         @error('soluciones')
         <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
         @enderror
-        <input type="text" value="{{old('soluciones')}}" name="soluciones" class="form-control" tabindex="4" placeholder="...">
+        <input type="text" value="{{old('soluciones')}}" name="soluciones" class="form-control" tabindex="4" placeholder="">
         </div>
 
         <div class="mb-3">
@@ -77,7 +77,7 @@
         @error('recomendaciones')
         <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
         @enderror
-        <input type="text" value="{{old('recomendaciones')}}" id="recomendaciones" name="recomendaciones" class="form-control" tabindex="4" placeholder="...">
+        <input type="text" value="{{old('recomendaciones')}}" id="recomendaciones" name="recomendaciones" class="form-control" tabindex="4" placeholder="">
         </div>
 
         <div class="mb-3">
@@ -85,7 +85,7 @@
         @error('fecha')
         <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
         @enderror
-        <input type="date" value="{{old('fecha')}}" id="fecha" name="fecha" class="form-control" tabindex="4" placeholder="...">
+        <input type="date" value="{{old('fecha')}}" id="fecha" name="fecha" class="form-control" tabindex="4" placeholder="">
         </div>
 
         <div class="mb-3">
@@ -93,7 +93,7 @@
         @error('siguiente_visita')
         <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
         @enderror
-        <input type="date" value="{{old('siguiente_visita')}}" name="siguiente_visita" class="form-control" tabindex="4" placeholder="...">
+        <input type="date" value="{{old('siguiente_visita')}}" name="siguiente_visita" class="form-control" tabindex="4" placeholder="">
         </div>
 
         <!-- SELECT PERFIL -->
