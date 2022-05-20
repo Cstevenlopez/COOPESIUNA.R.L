@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 	<!-- Header -->
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,17 +9,17 @@
   <div class="collapse navbar-collapse"  id="navbarTogglerDemo01">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 	<li class="nav-item">
-        <a class="nav-link text-white bold btn mr-1" href="/">Inicio  <i class="fas fa-home"></i></a>
+        <a class="nav-link text-black bold btn mr-1" href="/">Inicio  <i class="fas fa-home"></i></a>
       </li>
-	  <li class="nav-item">
+	  {{-- <li class="nav-item">
         <a class="nav-link text-white bold btn mr-1" href="/">Servicios <i class="fas fa-cog"></i></a>
-      </li>
+      </li> --}}
       <li class="nav-item">
-        <a class="nav-link text-white bold btn me-1" href="{{ route('home') }}">Login  <i class="fas fa-sign-in-alt"></i></a>
+        <a class="nav-link text-black bold btn me-1" href="{{ route('home') }}">Login  <i class="fas fa-sign-in-alt"></i></a>
       </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link text-white bold btn mr-1" href="{{ route('contacto') }}">Contacto  <i class="fas fa-address-card"></i></a>
-      </li>
+      </li> --}}
     </ul>
 	<div class="text-center">
 	<a href="/">
@@ -38,13 +38,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img style="height: 500px" class="d-block w-100 img-fluid" src="../assets/img/4.jpg" alt="First slide">
+      <img  class="d-block w-100 img-fluid vh-100" src="../assets/img/4.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img style="height: 500px" class="d-block w-100 img-fluid" src="../assets/img/10.jpg" alt="Second slide">
+      <img  class="d-block w-100 img-fluid vh-100" src="../assets/img/10.jpg" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img style="height: 500px" class="d-block w-100 img-fluid" src="../assets/img/1.jpg" alt="Third slide">
+      <img  class="d-block w-100 img-fluid vh-100" src="../assets/img/1.jpg" alt="Third slide">
     </div>
   </div>
 
@@ -53,7 +53,7 @@
 	<!-- Footer -->
 <section class="">
   <!-- Footer -->
-  <footer class="text-center text-white" style="background-color: #0a4275;">
+  <footer class="text-center text-white bg-success">
     <!-- Grid container -->
     <div class="container p-4 pb-0">
       <!-- Section: CTA -->
