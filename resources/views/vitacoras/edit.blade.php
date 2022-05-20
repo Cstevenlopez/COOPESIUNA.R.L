@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar vitacoras')
+@section('title', 'Editar Bitacoras')
 
 @section('content_header')
 <div class="card">

@@ -255,7 +255,7 @@ return [
             'icon'        => 'fab fa-product-hunt',
         ],
         [
-            'text'        => 'Vitacoras',
+            'text'        => 'Bitácoras',
             'url'         => '/vitacoras',
             'icon'        => 'fas fa-calendar-alt',
         ],

@@ -16,13 +16,13 @@
 <div style="font-family: 'Nunito Sans', sans-serif;">
     <!-- ENTRADA PARA EL MODAL DE VITACORAS -->
 <div class="text-center">
-    <a href="" class="btn bg-info btn-default mt-3 btn-rounded mb-3" data-toggle="modal" data-target="#modalobjetivos">Nueva vitacora  <i class="fas fa-clipboard"></i></a>
+    <a href="" class="btn bg-info btn-default mt-3 btn-rounded mb-3" data-toggle="modal" data-target="#modalobjetivos">Nueva Bitácora  <i class="fas fa-clipboard"></i></a>
     </div>
         <div class="modal fade" id="modalobjetivos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header bg-info">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar nueva vitacora</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar nueva Bitácora</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
