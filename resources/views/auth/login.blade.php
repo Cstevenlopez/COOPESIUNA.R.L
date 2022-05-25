@@ -7,17 +7,17 @@
     <form class="form" method="POST" action="{{ route('login') }}">
     @csrf
     <div class="card card-login card-hidden mb-3">
-        <div class="card-header card-header-primary text-center">
+        <div class="card-header card-header-primary border-1 shadow-lg text-center">
         <h4 class="card-title"><strong>{{ __('') }}</strong></h4>
         <div class="social-line">
-        <img  class="img-fluid w-100 vh-100" width="160"src="vendor/adminlte/dist/img/Logo.png"</img>
+        <img  class="img-fluid mt-2 w-100 vh-100" width="160"src="vendor/adminlte/dist/img/Logo.png"</img>
         </div>
         <style>
 
         </style>
         </div>
         <div class="card-body">
-        <p class="card-description text-center">{{ __('Iniciar sesión') }}</p>
+        {{-- <p class="card-description text-center">{{ __('Iniciar sesión') }}</p> --}}
         <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
             <div class="input-group">
             <div class="input-group-prepend">
@@ -48,17 +48,17 @@
             </div>
             @endif
         </div>
-        <div class="form-check mr-auto ml-3 mt-3">
+        {{-- <div class="form-check mr-auto ml-3 mt-3">
             <label class="form-check-label">
             <input class="form-check-input" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Recordar contraseña') }}
             <span class="form-check-sign">
                 <span class="check"></span>
             </span>
             </label>
-        </div>
+        </div> --}}
         </div>
         <div class="card-footer justify-content-center">
-        <button type="submit" class="btn btn-primary btn-link btn-lg">{{ __('Iniciar Sesión') }}</button>
+        <button type="submit" class="btn btn-info btn-link">{{ __('Iniciar Sesión') }}</button>
         </div>
     </div>
     </form>

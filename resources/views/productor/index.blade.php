@@ -105,7 +105,7 @@
 <!-- CRUD DE PRODUCTORES -->
 <div class="card shadow-lg">
 <div class="card-body">
-<table id="table-productor" class="table table-light table-striped table-bordered" style="width:100%;">
+<table id="table-productor" class="table table-light table-striped" style="width:100%;">
 <thead class="">
     <tr>
         <th scope="col">Nombre de la finca</th>

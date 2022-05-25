@@ -16,7 +16,7 @@
 <div style="font-family: 'Nunito Sans', sans-serif;">
     <!-- ENTRADA PARA EL MODAL DE VITACORAS -->
 <div class="text-center">
-    <a href="" class="btn bg-info btn-default mt-3 btn-rounded mb-3" data-toggle="modal" data-target="#modalobjetivos">Nueva Bitácora  <i class="fas fa-clipboard"></i></a>
+    <a href="" class="btn bg-primary btn-default mt-3 btn-rounded mb-3" data-toggle="modal" data-target="#modalobjetivos">Nueva Bitácora  <i class="fas fa-clipboard"></i></a>
     </div>
         <div class="modal fade" id="modalobjetivos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -135,10 +135,10 @@
 
     <!-- CRUD DE USUARIOS -->
 
-    <div class="card bg-light shadow-lg">
+    <div class="card">
     <div class="card-body">
-    <table id="tabla-vitacoras" class="table table-striped tabla-xd" style="width:100%">
-    <thead class="">
+    <table id="tabla-vitacoras" class="table" style="width:100%">
+    <thead class="bg-primary">
     <tr>
             <th scope="col">Actividad</th>
             <th scope="col">Objetivo</th>

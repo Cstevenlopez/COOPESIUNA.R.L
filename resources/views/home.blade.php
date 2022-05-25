@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="col-md-4 col-xl-4">
-                    <div class="card bg-c-pink order-card">
+                    <div class="card bg-c-green order-card">
                         <div class="card-block">
                             <h5>Productores</h5>
                             @php
@@ -62,10 +62,46 @@
     </div>
     </div>
 
+    <div class="card shadow">
+        <div class="card-header bg-light">
+            <h5>Últimas asistencias técnicas</h5>
+            <a class="btn  btn-link btn-sm " href="{{ route('vitacoras.index') }}">
+                <span><i class="fas fa-angle-double-right"></i> Ver todas las bitacoras</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <table class="table table-responsive-sm">
+                <thead class=" bg-c-blue text-white">
+                  <tr>
+                    <th>ID</th>
+                    <th >Nombre del productor</th>
+                    <th >Actividad</th>
+                    <th >fecha de visita</th>
+                    <th >Usuario</th>
+                  </tr>
+                </thead>
+                @foreach ($bitacoras as $bitacora)
+
+
+                <tbody>
+                  <tr>
+                      <td>{{ $bitacora->id }}</td>
+                    <td>{{ $bitacora->productor->nombres}}</td>
+                    <td>{{ $bitacora->actividad }}</td>
+                    <td>{{ $bitacora->fecha }}</td>
+                    <td>{{ $bitacora->users->name }}</td>
+                  </tr>
+                </tbody>
+                @endforeach
+              </table>
+        </div>
+    </div>
+
 @stop
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/card.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 @stop
 
 @section('js')

@@ -23,6 +23,14 @@ class VitacoraController extends Controller
         return view('vitacoras.index')->with('vitacora_asistencias', $vitacora);
     }
 
+    public function mostrarUltimoregistro(){
+        $vitacora = Vitacora_asistencia::latest()
+            ->take(2)
+            ->get();
+
+        return view('home', compact('vitacora'));
+    }
+
     public function detalle($id){
 
         $vitacora = Vitacora_asistencia::find($id);

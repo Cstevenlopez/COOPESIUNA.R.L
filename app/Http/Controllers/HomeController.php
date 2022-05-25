@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vitacora_asistencia;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $bitacoras = Vitacora_asistencia::latest()
+        ->take(3)
+        ->get();
+
+        return view('home', compact('bitacoras'));
     }
 }

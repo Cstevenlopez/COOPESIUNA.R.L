@@ -7,9 +7,9 @@
             </a>
             </li>
             <li>
-            <a href="https://creative-tim.com/presentation">
+            {{-- <a href="https://creative-tim.com/presentation">
                 {{ __('About Us') }}
-            </a>
+            </a> --}}
             </li>
             <li>
             <a href="http://blog.creative-tim.com">
@@ -21,12 +21,13 @@
             </li>
         </ul>
         </nav>
-        <div class="copyright float-right">
+        <div class="copyright float-left">
         &copy;
         <script>
             document.write(new Date().getFullYear())
-        </script> <i class="material-icons">favorite</i> by
-        <a href="https://www.creative-tim.com" target="_blank">Coopesiuna.R.L</a> Todos los derechos reservados.
+        </script>
+        <a class="text-white" href="" target="_blank">Coopesiuna.R.L</a> Todos los derechos reservados.
         </div>
     </div>
 </footer>
+

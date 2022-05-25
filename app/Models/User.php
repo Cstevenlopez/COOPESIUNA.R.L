@@ -50,7 +50,8 @@ class User extends Authenticatable
     ];
 
     public function adminlte_image(){
-        return 'https://i1.sndcdn.com/artworks-000493810884-ythxh2-t500x500.jpg';
+        return auth()->user()->foto;
+
     }
     public function generateToken()
     {
