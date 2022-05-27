@@ -7,25 +7,28 @@ use Illuminate\Http\Request;
 
 class FincaController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-fincas|crear-fincas|editar-fincas|borrar-fincas', ['only' =>'index']);
+        $this->middleware('permission:crear-fincas', ['only' =>'create','store']);
+        $this->middleware('permission:editar-fincas', ['only' =>'edit','update']);
+        $this->middleware('permission:borrar-fincas', ['only' =>'destroy']);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     public function index()
     {
         $fincas = Finca::all();
         return view('fincas.index')->with('fincas',$fincas);
 
-        $fincas = Finca::all();
-        return response()->json([
-            'res' => true,
-            'fincas' => $fincas
-        ]);
+        // $fincas = Finca::all();
+        // return response()->json([
+        //     'res' => true,
+        //     'fincas' => $fincas
+        // ]);
     }
 
     /**

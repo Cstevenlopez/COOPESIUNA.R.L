@@ -9,9 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Str;
 
+use Spatie\Permission\Traits\HasRoles;
+
 class User extends Authenticatable
 {
-    use  HasFactory, HasApiTokens, Notifiable;
+    use  HasFactory, HasApiTokens, Notifiable, HasRoles;
 
     public function vitacoras(){
         return $this->hasMany(Vitacora_asistencia::class,'id');
@@ -50,7 +52,8 @@ class User extends Authenticatable
     ];
 
     public function adminlte_image(){
-        return auth()->user()->foto;
+        // return auth()->user()->foto;
+        return 'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png';
 
     }
     public function generateToken()

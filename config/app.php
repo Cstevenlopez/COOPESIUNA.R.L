@@ -167,7 +167,7 @@ return [
 
 
          * Package Service Providers...
-        
+
          */
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
 
@@ -180,6 +180,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         // App\Providers\FortifyServiceProvider::class,
+
+        //Spatie
+        Spatie\Permission\PermissionServiceProvider::class,
 
     ],
 

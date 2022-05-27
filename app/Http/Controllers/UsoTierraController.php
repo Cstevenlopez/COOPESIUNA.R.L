@@ -8,15 +8,18 @@ use App\Models\Uso_de_tierra;
 
 class UsoTierraController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-tierras|crear-tierras|editar-tierras|borrar-tierras', ['only' =>'index']);
+        $this->middleware('permission:crear-tierras', ['only' =>'create','store']);
+        $this->middleware('permission:editar-tierras', ['only' =>'edit','update']);
+        $this->middleware('permission:borrar-tierras', ['only' =>'destroy']);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-    $this->middleware('auth');
-    }
     public function index()
     {
         $Tierras = Uso_de_tierra::all();

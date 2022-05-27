@@ -8,15 +8,18 @@ use PDF;
 
 class VitacoraController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-bitacora|crear-bitacora|editar-bitacora|borrar-bitacora', ['only' =>'index']);
+        $this->middleware('permission:crear-bitacora', ['only' =>'create','store']);
+        $this->middleware('permission:editar-bitacora', ['only' =>'edit','update']);
+        $this->middleware('permission:borrar-bitacora', ['only' =>'destroy']);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-    $this->middleware('auth');
-    }
     public function index()
     {
         $vitacora = Vitacora_asistencia::all();

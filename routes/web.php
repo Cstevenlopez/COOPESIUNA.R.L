@@ -1,21 +1,14 @@
 <?php
 
-use App\Models\Uso_de_tierra;
+use App\Http\Controllers\FincaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VitController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\vitacoraController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\UsoTierraController;
+use App\Http\Controllers\ProductorController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,22 +19,17 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/contacto', [App\Http\Controllers\ContactoController::class, 'index'])->name('contacto');
-
-Route::resource('/usuarios','App\Http\Controllers\UserController');
-Route::resource('/fincas','App\Http\Controllers\FincaController');
-Route::resource('/productores','App\Http\Controllers\ProductorController');
-Route::resource('/tierras','App\Http\Controllers\UsoTierraController');
-Route::resource('/vitacoras','App\Http\Controllers\vitacoraController');
+Route::group(['middleware' => ['auth']], function(){
+    Route::resource('/roles', RolController::class);
+    Route::resource('/usuarios', UserController::class);
+    Route::resource('/fincas', FincaController::class);
+    Route::resource('/productores',ProductorController::class);
+    Route::resource('/tierras',UsoTierraController::class);
+    Route::resource('/vitacoras',vitacoraController::class);
+});
 
 Route::get('/vitacoras/{vitacora}', [vitacoraController::class, 'detalle'])->name('vitacoras.detalle');
 Route::get('/vitacoras-download/{vitacora}', [vitacoraController::class, 'download'])->name('vitacoras.download');
 
 Route::get('/get-all-logs',[VitController::class,'getAllLogs']);
 Route::get('/download-pdf', [VitController::class, 'downloadPDF']);
-
-// Route::get('get-all-logs', function(){
-//     return view('logs');
-// });
-
-

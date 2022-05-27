@@ -7,15 +7,18 @@ use Illuminate\Http\Request;
 
 class ProductorController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:ver-productor|crear-productor|editar-productor|borrar-productor', ['only' =>'index']);
+        $this->middleware('permission:crear-productor', ['only' =>'create','store']);
+        $this->middleware('permission:editar-productor', ['only' =>'edit','update']);
+        $this->middleware('permission:borrar-productor', ['only' =>'destroy']);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-    $this->middleware('auth');
-    }
     public function index()
     {
         $productor = Productor::all();

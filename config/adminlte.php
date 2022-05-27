@@ -121,14 +121,14 @@ return [
     */
 
     'classes_body' => '',
-    'classes_brand' => 'bg-light',
+    'classes_brand' => 'bg-dark',
     'classes_brand_text' => '',
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-light-primary elevation-2',
+    'classes_sidebar' => 'sidebar-dark-primary elevation-2',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-light navbar-light',
+    'classes_topnav' => 'navbar-ligth navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -225,38 +225,44 @@ return [
 
     'menu' => [
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
             'text' => 'Inicio',
             'route'  => 'home',
             'icon' => 'fas fa-home',
         ],
         [
+            'text'        => 'Roles',
+            'url'         => '/roles',
+            'can' => 'ver-rol',
+            'icon'        => 'fas fa-user-lock',
+        ],
+        [
             'text'        => 'Usuarios',
             'url'         => '/usuarios',
-            'icon'        => 'fas fa-fw fa-user',
+            'can' => 'ver-usuarios',
+            'icon'        => 'fas fa-users',
         ],
         [
             'text'        => 'Fincas',
             'url'         => '/fincas',
+            'can' => 'ver-fincas',
             'icon'        => 'fas fa-horse-head',
         ],
         [
             'text'        => 'Uso de tierras',
             'url'         => '/tierras',
+            'can' => 'ver-tierras',
             'icon'        => 'fas fa-seedling',
         ],
         [
             'text'        => 'Productores',
             'url'         => '/productores',
+            'can' => 'ver-productor',
             'icon'        => 'fab fa-product-hunt',
         ],
         [
             'text'        => 'Bitácoras',
             'url'         => '/vitacoras',
+            'can' => 'ver-bitacora',
             'icon'        => 'fas fa-calendar-alt',
         ],
     ],

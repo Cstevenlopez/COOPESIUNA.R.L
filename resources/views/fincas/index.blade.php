@@ -3,13 +3,20 @@
 @section('title', 'Administrar fincas')
 
 @section('content_header')
+<div class="card">
+    <div class="card-body text-center">
+        <h4>Administrar fincas</h4>
+    </div>
+</div>
 @stop
 
 @section('content')
 
 <!-- ENTRADA PARA EL MODAL DE FINCAS -->
 <div class="text-center">
-<a href="" class="btn btn-default bg-info shadow mt-3 btn-rounded mb-4" data-toggle="modal" data-target="#modalFincas">Nuevo registro  <i class="fas fa-clipboard"></i></a>
+    @can('crear-fincas')
+    <a href="" class="btn btn-default bg-info shadow mt-3 btn-rounded mb-4" data-toggle="modal" data-target="#modalFincas">Nuevo registro  <i class="fas fa-clipboard"></i></a>
+    @endcan
 </div>
     <div class="modal fade" id="modalFincas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -119,7 +126,7 @@
 
 <!-- <a href="/fincas/create" class="btn btn-dark mb-4">Añadir otra finca</a> -->
 
-<div class="card shadow-lg">
+<div class="card shadow">
 <div class="card-body">
 
 <table id="fincas" class="table table-light table-bordered table-striped" style="width:100%">
@@ -150,12 +157,15 @@
             <td>{{$fincas->disponibilidad_energia}}</td>
             <td>{{$fincas->disponibilidad_agua}}</td>
             <td>
-            <form action="{{ route('fincas.destroy',$fincas->id)}}" class="formulario-eliminar" method="POST">
-            <a href="/fincas/{{$fincas->id}}/edit" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-            </form>
+                @can('editar-fincas')
+                <a href="/fincas/{{$fincas->id}}/edit" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                @endcan
+
+            @can('borrar-fincas')
+            {!! Form::open(['method' => 'DELETE', 'route' => ['fincas.destroy', $fincas->id],'class' =>'formulario-eliminar', 'style'=>'display:inline']) !!}
+            {!! Form::button('<i class="fas fa-trash"></i>', ['class' => 'btn btn-danger', 'type'=> 'submit']) !!}
+            {!! Form::close() !!}
+            @endcan
             </td>
         </tr>
         @endforeach

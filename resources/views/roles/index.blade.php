@@ -1,66 +1,67 @@
 @extends('adminlte::page')
 
-@section('title', 'Administrar usuarios')
+@section('title', 'Administrar roles')
 
 @section('content_header')
-<div class="card">
-    <div class="card-body justify-content-between">
-        <h1 style="float: left" class="text-gray">Administrar usuarios</h1>
-        <img style="float: right" src="/vendor/adminlte/dist/img/Logo.png" class="img-fluid" width="200px" alt="Responsive imagen">
+<div>
+    <div class="card">
+        <div class="card-body justify-content-between">
+            <h1 style="float: left" class="text-gray flex-wrap">Administrar roles</h1>
+            <img style="float: right" src="/vendor/adminlte/dist/img/Logo.png" class="img-fluid" width="200px" alt="Responsive imagen">
+        </div>
     </div>
 </div>
 @stop
 
 @section('content')
+    <div class="section-body">
+        <div class="row">
+    <div class="col-lg-12">
 
-<!-- CRUD DE USUARIOS -->
-
-<div class="card shadow">
+<div class="card">
     <div class="card-header">
-        <a href="{{ route('usuarios.create') }}" class="btn bg-primary">
-            <span><i class="fas fa-user-plus"></i> Agregar nuevo usuario</span>
+        @can('crear-rol')
+        <div>
+        <a href="{{ route('roles.create') }}" class="btn btn-primary">
+            <span><i class="fas fa-plus-square"></i> Agregar nuevo rol</span>
         </a>
+        </div>
+        @endcan
     </div>
-<div class="card-body">
-<table id="usuarios" class="table table-bordered" style="width:100%">
-<thead class="bg-primary">
-    <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nombres</th>
-        <th scope="col">Email</th>
-        <th scope="col">Rol</th>
-        {{-- <th scope="col">Foto</th> --}}
-        <th scope="col">Acciones</th>
-
-    </tr>
-</thead>
+    <div class="card-body">
+        <table id="mytable" class="table table-bordered" style="width:100%">
+    <thead class="bg-primary">
+        <tr>
+            <th>Rol</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
 <tbody>
-    @foreach($users as $user)
-    <tr>
-        <td>{{$user->id}}</td>
-        <td>{{$user->name}}</td>
-        <td>{{$user->email}}</td>
-        <td>
-            @if (!empty($user->getRoleNames()))
-                @foreach ($user->getRoleNames() as $rolName)
-                    <h5><span class="badge bg-success">{{ $rolName }}</span></h5>
-                @endforeach
-            @endif
-        </td>
-        {{-- <td><img src="{{$user->foto}}" alt="" class="img-fluid img-thumbnail" style="height:45px;"></td> --}}
-        <td>
-            <a class="btn btn-warning text-white" href="{{ route('usuarios.edit', $user->id) }}"><i class="fas fa-user-edit"></i></a>
+@foreach($roles as $role)
+<tr>
+    <td>{{$role->name}}</td>
+<td>
+    @can('editar-rol')
+    <a class="btn btn-warning text-white" href="{{ route('roles.edit', $role->id) }}"><i class="fas fa-edit"></i></a>
+    @endcan
 
-            {!! Form::open(['method' => 'DELETE', 'route' => ['usuarios.destroy', $user->id],'class' =>'formulario-eliminar', 'style'=>'display:inline']) !!}
-                {!! Form::button('<i class="fa fa-user-times"></i>', ['class' => 'btn btn-danger', 'type'=> 'submit']) !!}
-            {!! Form::close() !!}
-        </td>
-    </tr>
-    @endforeach
+    @can('borrar-rol')
+    {!! Form::open(['method' => 'DELETE', 'route' => ['roles.destroy', $role->id], 'style'=>'display:inline']) !!}
+        {!! Form::button('<i class="fa fa-trash"></i>', ['class' => 'btn btn-danger formulario-eliminar', 'type'=> 'submit']) !!}
+    {!! Form::close() !!}
+    @endcan
+</td>
+</tr>
+@endforeach
 </tbody>
 </table>
 </div>
 </div>
+</div>
+</div>
+</div>
+</section>
+
 @stop
 
 @section('css')
@@ -129,11 +130,12 @@ if (result.isConfirmed) {
 
 <script>
 $(document).ready(function() {
-$('#usuarios').DataTable({
+$('#mytable').DataTable({
 "lengthMenu":[[5,10,50,-1], [5,10,50,"Todos"]],
-responsive: true,
-autoWidth: false
+    responsive: true,
+    autoWidth: false
 });
 } );
 </script>
 @stop
+

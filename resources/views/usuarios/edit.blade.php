@@ -10,41 +10,72 @@
     </div>
     @stop
     @section('content')
-    <div class="card shadow-lg">
-    <div class="card-body">
+        <div class="section-body">
+        <div class="row">
+        <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
 
-    <Form action="/usuarios/{{$users->id}}" method="POST" enctype="multipart/form-data">
-    @csrf
-    @method('PUT')
-    <div class="form-row">
-    <div class="form-group col-md-12">
-    <label>Nombres y apellidos</label>
-    <input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$users->name}}" name="name" id="name" required>
-    </div>
-    </div>
+                @if($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>¡Revise los campos!</strong>
+                    @foreach($errors->all() as $error)
+                    <span class="badge badge-danger">{{$error}}</span>
+                    @endforeach
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
 
-    <div class="form-row">
-    <div class="form-group col-md-6">
-    <label>Correo electronico</label>
-    <input type="text" class="form-control p-3 bg-white shadow-sm rounded" value="{{$users->email}}" name="email" id="email" placeholder=""required>
-    </div>
+                {!! Form::model($user, ['method'=>'PUT','route'=>['usuarios.update', $user->id]]) !!}
 
-    <div class="form-group col-md-6">
-    <label>Contraseña</label>
-    <input type="password" class="form-control p-3 bg-white shadow-sm rounded" value="" name="password" id="password">
-    </div>
-
-    <div class="form-group col-md-6 mt-2 mb-5">
-    <label for="foto">Foto de usuario</label><br>
-    <input type="file" class="file btn btn-success w-100" value="{{$users->foto}}" name="foto" id="foto">
-
-    </div>
-    </div>
-    <button type="submit" class="btn btn-info">Editar <i class="fas fa-pencil-alt"></i></button>
-    <a href="/usuarios" class="btn btn-danger" tabindex="5">Cancelar <i class="fas fa-reply-all"></i></a>
-    </Form>
-    </div>
-    </div>
+                <div class="form-row">
+                <div class="col-xs-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="name">Nombre completo*</label>
+                            {!! Form::text('name', null, array('class'=>'form-control p-3 bg-white shadow-sm rounded'))!!}
+                        </div>
+                            </div>
+                        <div class="col-xs-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="email">E-mail*</label>
+                            {!! Form::email('email', null, array('class'=>'form-control p-3 bg-white shadow-sm rounded'))!!}
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-xs-3 col-md-3 col-sm-3">
+                        <div class="form-group">
+                            <label for="password">Contraseña*</label>
+                            {!! Form::password('password', array('class'=>'form-control p-3 bg-white shadow-sm rounded'))!!}
+                        </div>
+                        </div>
+                        <div class="col-xs-3 col-md-3 col-sm-3">
+                        <div class="form-group">
+                            <label for="confirm-password">Confirmar la contraseña*</label>
+                            {!! Form::password('confirm-password', array('class'=>'form-control p-3 bg-white shadow-sm rounded'))!!}
+                        </div>
+                        </div>
+                        <div class="col-xs-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="">Rol de usuario*</label>
+                            {!! Form::select('roles[]', $roles,[], array('class'=>'form-control bg-white shadow-sm rounded'))!!}
+                        </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <button type="submit" class="btn btn-info">
+                            <i class="fas fa-save"></i> Guardar
+                            </button>
+                            <a class="btn btn-secondary" href="/usuarios"><i class="fas fa-arrow-left"></i> Regresar</a>
+                        </div>
+                    </div>
+                {!! Form::close() !!}
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
     @stop
 
     @section('css')
