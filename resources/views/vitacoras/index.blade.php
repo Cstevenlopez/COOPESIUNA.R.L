@@ -162,7 +162,6 @@
             <th scope="col">Productor</th>
             <th scope="col">Usuario</th>
             <th scope="col">Acciones</th>
-            <th scope="col">Imprimir</th>
         </tr>
     </thead>
     <tbody class="">
@@ -180,19 +179,16 @@
             <td>{{$vitacora_asistencias->users->name}}</td>
             <td>
                 @can('editar-bitacora')
-                <a href="/vitacoras/{{$vitacora_asistencias->id}}/edit" class="btn btn-warning text-white"><i class="fas fa-edit"></i> Editar</a>
+                <a href="/vitacoras/{{$vitacora_asistencias->id}}/edit" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
                 @endcan
-
+                <a class="btn btn-info" href="/vitacoras/{{ $vitacora_asistencias->id }}"><i class="fas fa-file-pdf"></i></a>
+                <a  class="btn btn-primary" target="_blank" href="/vitacoras-print-pdf/{{ $vitacora_asistencias->id }}"class="btn btn-info"><i class="fas fa-print"></i></a>
                 @can('borrar-bitacora')
                     {!! Form::open(['method' => 'DELETE', 'route' => ['vitacoras.destroy', $vitacora_asistencias->id],'class' =>'formulario-eliminar', 'style'=>'display:inline']) !!}
-                    {!! Form::button('<i class="fas fa-trash"></i> Eliminar', ['class' => 'btn btn-danger eliminar', 'type'=> 'submit']) !!}
+                    {!! Form::button('<i class="fas fa-trash"></i>', ['class' => 'btn btn-danger eliminar', 'type'=> 'submit']) !!}
                     {!! Form::close() !!}
                 @endcan
 
-            </td>
-            <td>
-                <a class="btn btn-info" href="/vitacoras/{{ $vitacora_asistencias->id }}"><i class="fas fa-file-pdf"></i> Descargar</a>
-                <a  class="btn btn-primary" target="_blank" href="/vitacoras-print-pdf/{{ $vitacora_asistencias->id }}"class="btn btn-info"><i class="fas fa-print"></i> Imprimir</a>
             </td>
         </tr>
         @endforeach
