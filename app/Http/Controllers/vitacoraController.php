@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Productor;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Vitacora_asistencia;
 use PDF;
+use Spatie\Permission\Models\Role;
 
 class VitacoraController extends Controller
 {
@@ -23,8 +25,9 @@ class VitacoraController extends Controller
      */
     public function index()
     {
-        $vitacora = Vitacora_asistencia::all();
-        return view('vitacoras.index')->with('vitacora_asistencias', $vitacora);
+    $vitacora = Vitacora_asistencia::all();
+    return view('vitacoras.index')->with('vitacora_asistencias', $vitacora);
+
     }
 
     public function mostrarUltimoregistro(){
