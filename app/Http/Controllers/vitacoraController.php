@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Productor;
 use Illuminate\Http\Request;
 use App\Models\Vitacora_asistencia;
 use PDF;
@@ -42,11 +43,38 @@ class VitacoraController extends Controller
     }
 
     public function download($id){
-        $vitacora = Vitacora_asistencia::find($id);
 
-        $pdf = PDF::loadView('vitacoras.detalle', compact('vitacora'));
+        $vitacoras = Vitacora_asistencia::find($id);
+        $path = base_path(('/public/assets/img/CopesiunaLogo.jpg'));
+        $path2 = base_path(('/public/assets/img/procacao-logo.jpg'));
+        $path3 = base_path(('/public/assets/img/ONUDI_logo.jpg'));
+        $path4 = base_path(('/public/assets/img/LogoSchweizerischen.jpg'));
 
-        return $pdf->stream('vitacoras.detalle.pdf');
+
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $type = pathinfo($path2, PATHINFO_EXTENSION);
+        $type = pathinfo($path3, PATHINFO_EXTENSION);
+        $type = pathinfo($path4, PATHINFO_EXTENSION);
+
+        $data = file_get_contents($path);
+        $data2 = file_get_contents($path2);
+        $data3 = file_get_contents($path3);
+        $data4 = file_get_contents($path4);
+
+        $pic = 'data:image/'. $type .';base64,' . base64_encode($data);
+        $pic2 = 'data:image/'. $type .';base64,' . base64_encode($data2);
+        $pic3 = 'data:image/'. $type .';base64,' . base64_encode($data3);
+        $pic4 = 'data:image/'. $type .';base64,' . base64_encode($data4);
+
+        date_default_timezone_set('America/Managua');
+        $fecha = date('Y-m-d h:i:s a',time());
+        $fecha2 = date('Y-m-d');
+        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+                ->loadView('vitacoras.detalle', compact('vitacoras','pic','pic2','pic3','pic4', 'fecha'));
+
+        // $pdf->setPaper('a4', 'landscape');
+        return $pdf->stream('bitacora-reporte-' . $fecha2 . '.pdf');
+
     }
 
     /**

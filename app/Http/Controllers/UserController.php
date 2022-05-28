@@ -113,14 +113,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $usuarios=User::Find($id);
-        if ($request->hasfile('foto')){
-            $foto=$request->file('foto');
-            $destinationPath = 'img/users/';
-            $fotoname = time() . '-' . $foto->getClientOriginalName();
-            $uploadSuccess = $request->file('foto')->move($destinationPath, $fotoname);
-            $usuarios->foto = $destinationPath . $fotoname;
-        }
+        // $usuarios=User::Find($id);
+        // if ($request->hasfile('foto')){
+        //     $foto=$request->file('foto');
+        //     $destinationPath = 'img/users/';
+        //     $fotoname = time() . '-' . $foto->getClientOriginalName();
+        //     $uploadSuccess = $request->file('foto')->move($destinationPath, $fotoname);
+        //     $usuarios->foto = $destinationPath . $fotoname;
+        // }
 
         $this->validate($request, [
             'name' => 'required',
@@ -141,7 +141,7 @@ class UserController extends Controller
         Db::table('model_has_roles')->where('model_id', $id)->delete();
 
         $user->assignRole($request->input('roles'));
-        session()->flash('modified','Usuario editado correctamente');
+        session()->flash('editar','ok');
         return redirect()->route('usuarios.index');
     }
 

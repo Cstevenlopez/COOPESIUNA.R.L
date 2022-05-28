@@ -6,7 +6,7 @@
 <div class="card">
     <div class="card-body justify-content-between">
         <h1 style="float: left" class="text-gray">Administrar usuarios</h1>
-        <img style="float: right" src="/vendor/adminlte/dist/img/Logo.png" class="img-fluid" width="200px" alt="Responsive imagen">
+        <img style="float: right" src="/vendor/adminlte/dist/img/Logo.png" class="img-fluid mt-2" width="200px" alt="Responsive imagen">
     </div>
 </div>
 @stop
@@ -43,7 +43,7 @@
         <td>
             @if (!empty($user->getRoleNames()))
                 @foreach ($user->getRoleNames() as $rolName)
-                    <h5><span class="badge bg-success">{{ $rolName }}</span></h5>
+                    <h5><span class="badge bg-dark">{{ $rolName }}</span></h5>
                 @endforeach
             @endif
         </td>
@@ -76,6 +76,7 @@
 <script src="https://cdn.datatables.net/responsive/2.2.8/js/responsive.bootstrap4.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+{{-- Eliminar --}}
 @if(session('eliminar')=== 'ok')
 <script>
     Swal.fire(
@@ -86,6 +87,7 @@
 </script>
 @endif
 
+{{-- Guarda --}}
 @if(session('guardar')=== 'ok')
 <script>
     Swal.fire(
@@ -96,6 +98,7 @@
 </script>
 @endif
 
+{{-- Editar --}}
 @if(session('editar')=== 'ok')
 <script>
     Swal.fire(
@@ -106,8 +109,9 @@
 </script>
 @endif
 
+{{-- Mensaje de confirmacion para eliminar --}}
 <script>
-$('.formulario-eliminar').submit(function(e){
+$(document).on("click",'.formulario-eliminar', function(e){
     e.preventDefault();
 
     Swal.fire({

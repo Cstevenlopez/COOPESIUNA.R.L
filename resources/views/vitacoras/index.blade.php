@@ -122,6 +122,7 @@
                 @endforeach
             </select>
         </div>
+
         <!-- FIN DEL SELECT -->
 
         <button type="submit" class="btn btn-lg btn-primary formulario-guardar" tabindex="4"><i class="fas fa-save"></i></button>
