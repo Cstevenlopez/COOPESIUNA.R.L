@@ -8,27 +8,14 @@
     <title>Detalle bitácoras</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    {{--
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
-    --}}
 </head>
-{{-- <style>
-    * {
-        font-family: 'Nunito', sans-serif;
-    }
-</style> --}}
-
 <body>
     <header>
-        <p style="font-size: 12px;">Fecha:
-            <?php echo $fecha; ?>
-        </p>
-
         <div class="justify-content-between">
-            <img src="<?php echo $pic3; ?>" width="100px" height="50px" alt="Onudi_logo">
-            <img style="margin-left: 50px" src="<?php echo $pic2; ?>" width="125px" height="20px" alt="procacao_logo">
-            <img style="margin-left: 50px" src="<?php echo $pic; ?>" width="100px" height="30px" alt="copesiuna_logo">
-            <img style="margin-left: 60px" src="<?php echo $pic4; ?>" width="200px" height="90px" alt="logo">
+            <img src="<?php echo $pic3; ?>" width="130px" height="70px" alt="Onudi_logo">
+            <img style="margin-left: 30px" src="<?php echo $pic2; ?>" width="125px" height="20px" alt="procacao_logo">
+            <img style="margin-left: 30px" src="<?php echo $pic; ?>" width="130px" height="40px" alt="copesiuna_logo">
+            <img style="margin-left: 30px" src="<?php echo $pic4; ?>" width="200px" height="90px" alt="logo">
         </div>
         <div class="mt-2">
             <p style="font-weight: bold;" class="text-center">Proyecto: Mejoramiento de las capacidades organizativas y
@@ -70,7 +57,7 @@
         </section>
         <section class="mt-2">
             <p style="font-weight:bold" class="bg-info p-1 rounded text-white">Detalles de la asistencia</p>
-            <table class="table table-sm table-bordered table-striped table-borderless">
+            <table class="table table-sm table-bordered table-striped table-borderless text-left">
                 <thead></thead>
                 <tr>
                     <th>Actividad</th>
@@ -96,9 +83,17 @@
                     <th>Recomendaciones</th>
                     <td>{{ $vitacoras->recomendaciones }}</td>
                 </tr>
+                <tr>
+                    <th>Fecha de la visita</th>
+                    <td>{{ $vitacoras->fecha }}</td>
+                </tr>
+                <tr>
+                    <th>Siguiente visita</th>
+                    <td>{{ $vitacoras->siguiente_visita }}</td>
+                </tr>
             </table>
         </section>
-        <section class="mt-5">
+        {{-- <section class="mt-5">
             <div class="justify-content-between">
                 <div style="float: left;">
                     <p>Firma del Técnico</p>
@@ -111,8 +106,11 @@
                     <p>___________________</p>
                 </div>
             </div>
-        </section>
+        </section> --}}
     </main>
+    <p style="font-size: 12px; float: right">Fecha y hora:
+        <?php echo $fecha; ?>
+    </p>
 </body>
 
 </html>
