@@ -28,7 +28,14 @@ class UserController extends Controller
     public function index()
     {
         $usuarios = User::all();
-        // $usuarios = User::where('id', auth()->user()->id)->get();
+        return view('usuarios.index')->with('users', $usuarios);
+    }
+
+    public function usersOnline(){
+        $usuarios = User::select('*')
+        ->whereNotNull('last_seen')
+        ->orderBy('last_seen','DESC');
+
         return view('usuarios.index')->with('users', $usuarios);
     }
 

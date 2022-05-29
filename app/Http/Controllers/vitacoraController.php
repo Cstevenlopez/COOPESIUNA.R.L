@@ -38,7 +38,7 @@ class VitacoraController extends Controller
         return view('home', compact('vitacora'));
     }
 
-    public function detalle($id){
+    public function download($id){
 
         $vitacoras = Vitacora_asistencia::find($id);
         $path = base_path(('/public/assets/img/CopesiunaLogo.jpg'));
@@ -75,23 +75,22 @@ class VitacoraController extends Controller
     public function printPDF($id){
 
         $vitacoras = Vitacora_asistencia::find($id);
-        $path = base_path(('/public/assets/img/CopesiunaLogo.jpg'));
+        $path = base_path (('/public/assets/img/CopesiunaLogo.jpg'));
         $path2 = base_path(('/public/assets/img/procacao-logo.jpg'));
         $path3 = base_path(('/public/assets/img/ONUDI_logo.jpg'));
         $path4 = base_path(('/public/assets/img/LogoSchweizerischen.jpg'));
 
-
-        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $type = pathinfo($path,  PATHINFO_EXTENSION);
         $type = pathinfo($path2, PATHINFO_EXTENSION);
         $type = pathinfo($path3, PATHINFO_EXTENSION);
         $type = pathinfo($path4, PATHINFO_EXTENSION);
 
-        $data = file_get_contents($path);
+        $data = file_get_contents ($path);
         $data2 = file_get_contents($path2);
         $data3 = file_get_contents($path3);
         $data4 = file_get_contents($path4);
 
-        $pic = 'data:image/'. $type .';base64,' . base64_encode($data);
+        $pic =  'data:image/'. $type .';base64,' . base64_encode($data);
         $pic2 = 'data:image/'. $type .';base64,' . base64_encode($data2);
         $pic3 = 'data:image/'. $type .';base64,' . base64_encode($data3);
         $pic4 = 'data:image/'. $type .';base64,' . base64_encode($data4);

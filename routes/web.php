@@ -28,8 +28,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('/vitacoras',vitacoraController::class);
 });
 
-Route::get('/vitacoras/{vitacora}', [vitacoraController::class, 'detalle'])->name('vitacoras.detalle');
-Route::get('/vitacoras-print-pdf/{vitacora}', [vitacoraController::class, 'printPDF'])->name('vitacoras.download');
+Route::get('/vitacoras/{vitacora}', [vitacoraController::class, 'download'])->name('vitacoras.download');
+Route::get('/vitacoras-print-pdf/{vitacora}', [vitacoraController::class, 'printPDF'])->name('vitacoras.print');
+
+
+
 
 Route::get('/get-all-logs',[VitController::class,'getAllLogs']);
 Route::get('/download-pdf', [VitController::class, 'downloadPDF']);

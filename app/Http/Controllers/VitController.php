@@ -14,7 +14,7 @@ class VitController extends Controller
         return view('logs', compact('logs'));
     }
 
-    public function downloadPDF(){
+    public function detalle(){
 
         $logs = Vitacora_asistencia::all();
         $pdf = PDF::loadView('vitacoras.detalle', compact('logs'));
