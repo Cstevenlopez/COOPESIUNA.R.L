@@ -6,6 +6,7 @@ use App\Models\Productor;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Vitacora_asistencia;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 use Spatie\Permission\Models\Role;
 
@@ -25,11 +26,24 @@ class VitacoraController extends Controller
      */
     public function index()
     {
-    $vitacora = Vitacora_asistencia::all();
-    return view('vitacoras.index')->with('vitacora_asistencias', $vitacora);
+    date_default_timezone_set('America/Managua');
+    $fecha_actual = date('Y-m-d h:i:s a', time());
 
+    $users = Auth::user()->getRoleNames();
+        foreach($users as $roleName){
+            if($roleName == 'administrador'){
+                $vitacora_asistencias = Vitacora_asistencia::all();
+                return view('vitacoras.index', compact('vitacora_asistencias','fecha_actual'));
+
+            }else if($roleName == 'tecnico'){
+                $vitacora_asistencias = Vitacora_asistencia::where('usuario_id', auth()->user()->id)->get();
+                return view('vitacoras.index', compact('vitacora_asistencias','fecha_actual'));
+            }else{
+                $vitacora_asistencias = Vitacora_asistencia::where('usuario_id', auth()->user()->id)->get();
+                return view('vitacoras.index', compact('vitacora_asistencias','fecha_actual'));
+            }
+        }
     }
-
     public function mostrarUltimoregistro(){
         $vitacora = Vitacora_asistencia::latest()
             ->take(2)
@@ -124,19 +138,18 @@ class VitacoraController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'id_vitacora' => 'required',
-        //     'actividad' => 'required',
-        //     'objetivo' => 'required',
-        //     'temas_abordados' => 'required',
-        //     'dificultades' => 'required',
-        //     'soluciones' => 'required',
-        //     'recomendaciones' => 'required',
-        //     'fecha' => 'required',
-        //     'siguiente_visita' => 'required',
-        //     'productorid' => 'required',
-        //     'usuario_id' => 'required'
-        // ]);
+        $request->validate([
+            'actividad' => 'required',
+            'objetivo' => 'required',
+            'temas_abordados' => 'required',
+            'dificultades' => 'required',
+            'soluciones' => 'required',
+            'recomendaciones' => 'required',
+            'fecha' => 'required',
+            'siguiente_visita' => 'required',
+            'productorid' => 'required',
+            'usuario_id' => 'required'
+        ]);
         $vitacora = new Vitacora_asistencia();
         $vitacora->actividad = $request->get('actividad');
         $vitacora->objetivo = $request->get('objetivo');

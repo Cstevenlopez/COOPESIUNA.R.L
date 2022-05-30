@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Str;
-
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -64,4 +64,10 @@ class User extends Authenticatable
 
         return $this->api_token;
     }
+
+    // Relacion entre roles y usuarios
+
+    // public function roles(){
+    //     return $this->belongsToMany(Role::class)->withTimestamps();
+    // }
 }

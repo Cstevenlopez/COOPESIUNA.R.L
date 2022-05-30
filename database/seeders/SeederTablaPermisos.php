@@ -25,6 +25,7 @@ class SeederTablaPermisos extends Seeder
             'editar-rol',
             'borrar-rol',
             //tabla usuarios
+            'ver-perfil',
             'ver-usuarios',
             'crear-usuarios',
             'editar-usuarios',

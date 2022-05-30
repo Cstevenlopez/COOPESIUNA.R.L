@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsoTierraController;
 use App\Http\Controllers\ProductorController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,6 +28,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('/tierras',UsoTierraController::class);
     Route::resource('/vitacoras',vitacoraController::class);
 });
+
+// Route::get('/usuarios-perfil', [UserController::class, 'perfil']);
 
 Route::get('/vitacoras/{vitacora}', [vitacoraController::class, 'download'])->name('vitacoras.download');
 Route::get('/vitacoras-print-pdf/{vitacora}', [vitacoraController::class, 'printPDF'])->name('vitacoras.print');

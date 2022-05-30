@@ -224,10 +224,16 @@ return [
     */
 
     'menu' => [
+        // [
+        //     'text' => 'Perfil',
+        //     'url'  => '/usuarios-perfil',
+        //     'icon' => 'fas fa-user',
+            // 'can' => 'ver-perfil',
+        // ],
         [
-            'text' => 'Inicio',
+            'text' => 'Dashboard',
             'route'  => 'home',
-            'icon' => 'fas fa-home',
+            'icon' => 'fas fa-tachometer-alt',
         ],
         [
             'text'        => 'Roles',

@@ -9,12 +9,13 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:ver-usuarios|crear-usuarios|editar-usuarios|borrar-usuarios', ['only' =>'index']);
+        $this->middleware('permission:ver-usuarios|crear-usuarios|editar-usuarios|borrar-usuarios|ver-perfil', ['only' =>'index']);
         $this->middleware('permission:crear-usuarios', ['only' =>'create','store']);
         $this->middleware('permission:editar-usuarios', ['only' =>'edit','update']);
         $this->middleware('permission:borrar-usuarios', ['only' =>'destroy']);
@@ -31,6 +32,10 @@ class UserController extends Controller
         return view('usuarios.index')->with('users', $usuarios);
     }
 
+    public function perfil(){
+        // $users = Auth::user();
+        // return view('usuarios.perfil', compact('users'));
+    }
     public function usersOnline(){
         $usuarios = User::select('*')
         ->whereNotNull('last_seen')

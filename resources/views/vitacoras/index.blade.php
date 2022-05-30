@@ -94,7 +94,7 @@
                                 @error('fecha')
                                 <small style="background: #00ffff;"  class="text-danger">*{{$message}}</small>
                                 @enderror
-                                <input type="date" value="{{old('fecha')}}" id="fecha" name="fecha" class="form-control" tabindex="4" placeholder="">
+                                <input type="text" value="{{ $fecha_actual }}" id="fecha" name="fecha" class="form-control" tabindex="4" readonly>
                                 </div>
 
                                 <div class=" col mb-3">
@@ -108,12 +108,11 @@
 
                                 <!-- SELECT PERFIL -->
                                 <div class="mb-3">
-                                    <label for="" class="form-label">ID de productor</label><br>
+                                    <label for="" class="form-label">Seleccione el nombre del productor</label><br>
                                     @error('productorid ')
                                     <small style="background: #00ffff;" class="text-danger">*{{$message}}</small>
                                     @enderror
                                         <select name="productorid" class="form-select form-control" tabindex="4" aria-label="Default select example" require>
-                                            <option>--Seleccione--</option>
                                             @foreach(App\Models\Productor::get() as $productor)
                                     <option value="{{$productor->id}}">{{$productor->nombres}}</option>
                                         @endforeach
@@ -153,7 +152,7 @@
             @endcan
         </div>
     <div class="card-body">
-    <table id="tabla-vitacoras" class="table table-bordered">
+    <table id="tabla-vitacoras" class="table">
     <thead class="bg-primary">
     <tr>
             <th scope="col">Actividad</th>
@@ -161,9 +160,9 @@
             <th scope="col">Temas</th>
             <th scope="col">Didicultades</th>
             <th scope="col">Soluciones</th>
-            <th scope="col">Recomendaciones</th>
+            <th scope="col">Recom.</th>
             <th scope="col">Fecha</th>
-            <th scope="col">Siguiente visita</th>
+            <th scope="col">Sig. visita</th>
             <th scope="col">Productor</th>
             <th scope="col">Usuario</th>
             <th scope="col">Acciones</th>

@@ -31,28 +31,43 @@
             </div>
             @endif
             {!! Form::open(array('route'=>'roles.store', 'method'=>'POST')) !!}
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-xs-12 col-md-12 col-sm-12">
                         <div class="form-group">
                         <label for="name">Nombre del rol*</label>
                         {!! Form::text('name', null, array('class'=>'form-control'))!!}
                     </div>
+                </div> --}}
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                        <label for="name">Nombre del rol*</label>
+                        <select class="form-control" name="name">
+                            <option value="Admin">Admin</option>
+                            <option value="Tecnico">Técnico</option>
+                            <option value="visitante">Visitante</option>
+                        </select>
+                    </div>
                 </div>
+
 
                     <div class="col-xs-6 col-md-6 col-sm-6">
                     <div class="form-group">
                         <label for="">Permisos para este rol*</label>
                         <br>
                         @foreach($permission as $value)
-                            <label>{{ Form::checkbox('permission[]', $value->id, false, array('class'=>'name'))}}
+                            {{-- <label>{{ Form::checkbox('permission[]', $value->id, false, array('class'=>'name'))}}
                                 {{$value->name}}
-                            </label>
+                            </label> --}}
+                                <input type="checkbox" name="permission[]" value="{{ $value->id }}">
+                            <label class="text-primary">{{ $value->name }}</label>
                         <br/>
                         @endforeach
                     </div>
                 </div>
                 </div>
-                <button type="submit" class="btn btn-info">Guardar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
             {!! Form::close() !!}
         </div>
         </div>

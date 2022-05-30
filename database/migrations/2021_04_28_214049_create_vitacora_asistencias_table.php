@@ -21,7 +21,7 @@ class CreateVitacoraAsistenciasTable extends Migration
             $table->string('dificultades');
             $table->string('soluciones');
             $table->string('recomendaciones');
-            $table->date('fecha');
+            $table->string('fecha');
             $table->date('siguiente_visita');
 
             $table->unsignedBigInteger('productorid');
