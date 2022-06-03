@@ -65,15 +65,15 @@
     <div class="row">
         <div class="col-6">
             @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}" class="text-light">
+                {{-- <a href="{{ route('password.request') }}" class="text-light">
                     <small>{{ __('Olvidaste tu contraseña?') }}</small>
-                </a>
+                </a> --}}
             @endif
         </div>
         <div class="col-6 text-right">
-            <a href="{{ route('register') }}" class="text-light">
+            {{-- <a href="{{ route('register') }}" class="text-light">
                 <small>{{ __('Crear nueva cuenta') }}</small>
-            </a>
+            </a> --}}
         </div>
       </div>
 </div>

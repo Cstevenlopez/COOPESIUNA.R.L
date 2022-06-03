@@ -57,12 +57,12 @@
     <!-- Grid container -->
     <div class="container p-4 pb-0">
       <!-- Section: CTA -->
-      <section class="">
+      {{-- <section class="">
         <p class="d-flex justify-content-center align-items-center">
           <span class="me-3">Registrarse</span>
 		  <a class="btn btn-outline-light btn-rounded" href="{{ route('register') }}">Inscribirse</a>
         </p>
-      </section>
+      </section> --}}
       <!-- Section: CTA -->
     </div>
     <!-- Grid container -->
