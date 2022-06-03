@@ -148,7 +148,7 @@
     <div class="card shadow-lg">
     <div class="card-header">
         <div class="card-title">
-            <b class="text-dark">Productores | Listado</b>
+            <b class="text-dark">Bitácoras | Listado</b>
         </div>
         @can('crear-bitacora')
         <a style="float: right" href="" class="btn bg-primary" data-toggle="modal" data-target="#modalbitacoras">Nueva Bitácora  <i class="fas fa-plus-circle"></i></a>
