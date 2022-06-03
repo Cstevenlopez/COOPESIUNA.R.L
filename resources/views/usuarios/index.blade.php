@@ -18,9 +18,14 @@
 
     <div class="card shadow">
 <div class="card-header">
-<a href="{{ route('usuarios.create') }}" class="btn btn-primary">
-    <span><i class="fas fa-user-plus"></i> Agregar nuevo usuario</span>
-</a>
+    <div class="card-title">
+        <b>Usuarios | Listado</b>
+    </div>
+    @can('crear-usuarios')
+    <a style="float: right" href="{{ route('usuarios.create') }}" class="btn btn-primary">
+        <span><i class="fas fa-user-plus"></i> Agregar nuevo usuario</span>
+    </a>
+    @endcan
 </div>
 <div class="card-body">
 <table id="usuarios" class="table" style="width:100%">
@@ -60,13 +65,17 @@
                     @endif
                 </td>
                 {{-- <td><img src="{{$user->foto}}" alt="" class="img-fluid img-thumbnail" style="height:45px;"></td> --}}
-                <td>
-                    <a class="btn btn-sm btn-warning text-white"
-                        href="{{ route('usuarios.edit', $user->id) }}"><i class="fas fa-user-edit"></i></a>
+                <td style="width: 15%">
+                    @can('editar-usuarios')
+                    <a class="btn btn-warning text-white"
+                    href="{{ route('usuarios.edit', $user->id) }}"><i class="fas fa-user-edit"></i></a>
+                    @endcan
 
+                    @can('borrar-usuarios')
                     {!! Form::open(['method' => 'DELETE', 'route' => ['usuarios.destroy', $user->id], 'class' => 'formulario-eliminar', 'style' => 'display:inline']) !!}
-                    {!! Form::button('<i class="fa fa-user-times"></i>', ['class' => 'btn btn-sm btn-danger', 'type' => 'submit']) !!}
+                    {!! Form::button('<i class="fa fa-user-times"></i>', ['class' => 'btn btn-danger', 'type' => 'submit']) !!}
                     {!! Form::close() !!}
+                    @endcan
                 </td>
             </tr>
         @endforeach

@@ -130,8 +130,11 @@
 
 <div class="card">
     <div class="card-header">
+        <div class="card-title">
+            <b>Fincas | Listado</b>
+        </div>
         @can('crear-fincas')
-        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#modalFincas">
+        <a style="float: right" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalFincas">
             <span><i class="fas fa-plus-circle"></i> Nueva finca</span>
         </a>
         @endcan
@@ -163,14 +166,14 @@
             <td>{{$fincas->pais}}</td>
             <td>{{$fincas->disponibilidad_energia}}</td>
             <td>{{$fincas->disponibilidad_agua}}</td>
-            <td>
+            <td style="width: 15%;">
                 @can('editar-fincas')
-                <a href="/fincas/{{$fincas->id}}/edit" class="btn btn-warning btn-sm text-white"><i class="fas fa-edit"></i></a>
+                <a href="/fincas/{{$fincas->id}}/edit" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
                 @endcan
 
             @can('borrar-fincas')
             {!! Form::open(['method' => 'DELETE', 'route' => ['fincas.destroy', $fincas->id],'class' =>'formulario-eliminar', 'style'=>'display:inline']) !!}
-            {!! Form::button('<i class="fas fa-trash"></i>', ['class' => 'btn btn-danger btn-sm', 'type'=> 'submit']) !!}
+            {!! Form::button('<i class="fas fa-trash"></i>', ['class' => 'btn btn-danger', 'type'=> 'submit']) !!}
             {!! Form::close() !!}
             @endcan
             </td>

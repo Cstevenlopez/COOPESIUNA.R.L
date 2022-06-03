@@ -3,13 +3,16 @@
 @section('title', 'Administrar productores')
 
 @section('content_header')
+<div class="card">
+    <div class="card-body justify-content-between">
+        <h1 style="float: left" class="text-gray">Administrar productores</h1>
+        <img style="float: right" src="/vendor/adminlte/dist/img/Logo.png" class="img-fluid mt-2" width="200px" alt="Responsive imagen">
+    </div>
+</div>
 @stop
 
 @section('content')
 <!-- ENTRADA PARA EL MODAL DE USUARIOS -->
-<div class="text-center">
-<a href="" class="btn bg-info btn-default mt-3 btn-rounded mb-4" data-toggle="modal" data-target="#modalUsuarios">Nuevo productor <i class="fas fa-clipboard"></i></a>
-</div>
     <div class="modal fade" id="modalUsuarios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -104,15 +107,24 @@
 
 <!-- CRUD DE PRODUCTORES -->
 <div class="card shadow-lg">
+
+    <div class="card-header">
+        <div class="card-title">
+            <b class="text-dark">Productores | Listado</b>
+        </div>
+        @can('crear-productor')
+        <a style="float: right" href="javascript:void(0)" class="btn bg-primary" data-toggle="modal" data-target="#modalUsuarios">Nuevo productor <i class="fas fa-clipboard"></i></a>
+        @endcan
+    </div>
 <div class="card-body">
 <table id="table-productor" class="table table-light table-striped" style="width:100%;">
-<thead class="">
+<thead class="bg-primary">
     <tr>
         <th scope="col">Nombre de la finca</th>
-        <th scope="col">Nombre del dueño</th>
-        <th scope="col">Apellido</th>
-        <th scope="col">Cedula</th>
-        <th scope="col">Teléfono</th>
+        <th scope="col">Dueño de la finca</th>
+        <th scope="col">Apellido del dueño</th>
+        <th scope="col">Numero de cédula</th>
+        <th scope="col">Número de teléfono</th>
         <th scope="col">Comunidad</th>
         <th scope="col">Municipio</th>
         <th scope="col">Acciones</th>
@@ -128,13 +140,17 @@
         <td>{{$productors->numero_telefono}}</td>
         <td>{{$productors->comunidad}}</td>
         <td>{{$productors->municipio}}</td>
-        <td>
-        <form action="{{ route('productores.destroy',$productors->id)}}" class="formulario-eliminar" method="POST">
-        <a href="/productores/{{$productors->id}}/edit" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-        </form>
+        <td style="width: 15%; text-center" class="">
+
+            @can('editar-productor')
+            <a href="/productores/{{$productors->id}}/edit" class="btn btn-warning text-white"><i class="fas fa-edit mb-1"></i></a>
+            @endcan
+
+        @can('borrar-productor')
+        {!! Form::open(['method' => 'DELETE', 'route' => ['productores.destroy', $productors->id],'class' =>'formulario-eliminar', 'style'=>'display:inline']) !!}
+        {!! Form::button('<i class="fas fa-trash"></i>', ['class' => 'btn btn-danger eliminar', 'type'=> 'submit']) !!}
+        {!! Form::close() !!}
+        @endcan
         </td>
     </tr>
     @endforeach

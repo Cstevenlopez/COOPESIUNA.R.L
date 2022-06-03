@@ -20,7 +20,7 @@
 @section('content')
 
     <!-- ENTRADA PARA EL MODAL DE VITACORAS -->
-    <div class="modal fade bd-example-modal-lg" id="modalobjetivos" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal fade bd-example-modal-lg" id="modalbitacoras" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -145,12 +145,15 @@
     <!-- FIN DEL MODAL DE VITACORAS -->
 
     <!-- CRUD DE USUARIOS -->
-    <div class="card">
-        <div class="card-header">
-            @can('crear-bitacora')
-            <a href="" class="btn bg-primary btn-default mt-3 btn-rounded mb-3" data-toggle="modal" data-target="#modalobjetivos">Nueva Bitácora  <i class="fas fa-clipboard"></i></a>
-            @endcan
+    <div class="card shadow-lg">
+    <div class="card-header">
+        <div class="card-title">
+            <b class="text-dark">Productores | Listado</b>
         </div>
+        @can('crear-bitacora')
+        <a style="float: right" href="" class="btn bg-primary" data-toggle="modal" data-target="#modalbitacoras">Nueva Bitácora  <i class="fas fa-clipboard"></i></a>
+        @endcan
+    </div>
     <div class="card-body">
     <table id="tabla-vitacoras" class="table">
     <thead class="bg-primary">

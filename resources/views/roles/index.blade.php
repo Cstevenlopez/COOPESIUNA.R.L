@@ -20,9 +20,12 @@
 
 <div class="card">
     <div class="card-header">
+        <div class="card-title">
+            <b>Roles | Listado</b>
+        </div>
         @can('crear-rol')
         <div>
-        <a href="{{ route('roles.create') }}" class="btn btn-primary">
+        <a style="float: right" href="{{ route('roles.create') }}" class="btn btn-primary">
             <span><i class="fas fa-plus-square"></i> Agregar nuevo rol</span>
         </a>
         </div>

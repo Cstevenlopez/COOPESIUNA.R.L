@@ -3,13 +3,17 @@
 @section('title', 'Uso de tierras')
 
 @section('content_header')
+<div class="card">
+    <div class="card-body justify-content-between">
+        <h1 style="float: left" class="text-gray">Administrar tierras</h1>
+        <img style="float: right" src="/vendor/adminlte/dist/img/Logo.png" class="img-fluid mt-2" width="200px" alt="Responsive imagen">
+    </div>
+</div>
 @stop
 
 @section('content')
 <!-- ENTRADA PARA EL MODAL DE TIERRAS -->
-<div class="text-center">
-<a href="" class="btn bg-info btn-default mt-3 btn-rounded mb-4" data-toggle="modal" data-target="#modalTierras">Nuevo registro  <i class="fas fa-clipboard"></i></a>
-</div>
+
     <div class="modal fade" id="modalTierras" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -101,21 +105,19 @@
     </div>
     </div>
     </div>
-<!-- FIN DEL MODAL DE TIERRAS -->
 
-<!-- CRUD DE TIERRAS -->
-
-<!-- <style>
-        tr:hover {
-        background-color: DodgerBlue;
-        color:white;
-        }
-</style> -->
 <div class="card shadow-lg">
+    <div class="card-header">
+        <div class="card-title">
+            <b>Uso de tierras | Listado</b>
+        </div>
+        @can('crear-tierras')
+        <a style="float: right" href="" class="btn bg-primary" data-toggle="modal" data-target="#modalTierras">Nuevo registro  <i class="fas fa-clipboard"></i></a>
+        @endcan
+    </div>
 <div class="card-body">
-
-<table id="usuarios"  class="table table-light table-striped table-bordered" style="width:100%">
-<thead class="">
+<table id="usuarios"  class="table table-striped" style="width:100%">
+<thead class="bg-primary">
     <tr>
         <th scope="col">Finca</th>
         <th scope="col">Area Total</th>
@@ -139,13 +141,18 @@
         <td>{{$uso_de_tierras->plantaciones_forestales}}</td>
         <td>{{$uso_de_tierras->areas_pasto_abierto}}</td>
         <td>{{$uso_de_tierras->areas_pasto_arboles}}</td>
-        <td>
-        <form action="{{ route('tierras.destroy',$uso_de_tierras->id)}}" class="formulario-eliminar" method="POST">
-        <a href="/tierras/{{$uso_de_tierras->id}}/edit" class="btn btn-sm btn-info"><i class="fas fa-pencil-alt"></i></a>
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-        </form>
+        <td style="width: 15%">
+
+        @can('editar-tierras')
+        <a href="/tierras/{{$uso_de_tierras->id}}/edit" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
+        @endcan
+
+        @can('borrar-tierras')
+        {!! Form::open(['method' => 'DELETE', 'route' => ['tierras.destroy', $uso_de_tierras->id],'class' =>'formulario-eliminar', 'style'=>'display:inline']) !!}
+        {!! Form::button('<i class="fas fa-trash"></i>', ['class' => 'btn btn-danger eliminar', 'type'=> 'submit']) !!}
+        {!! Form::close() !!}
+        @endcan
+
 </div>
         </td>
     </tr>
