@@ -44,9 +44,8 @@
                         <div class="form-group">
                         <label for="name">Nombre del rol*</label>
                         <select class="form-control" name="name">
-                            <option value="Admin">Admin</option>
-                            <option value="Tecnico">Técnico</option>
-                            <option value="visitante">Visitante</option>
+                            <option value="administrador">Administrador</option>
+                            <option value="tecnico">Técnico</option>
                         </select>
                     </div>
                 </div>

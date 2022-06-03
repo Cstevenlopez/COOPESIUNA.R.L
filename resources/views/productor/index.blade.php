@@ -113,7 +113,7 @@
             <b class="text-dark">Productores | Listado</b>
         </div>
         @can('crear-productor')
-        <a style="float: right" href="javascript:void(0)" class="btn bg-primary" data-toggle="modal" data-target="#modalUsuarios">Nuevo productor <i class="fas fa-clipboard"></i></a>
+        <a style="float: right" href="javascript:void(0)" class="btn bg-primary" data-toggle="modal" data-target="#modalUsuarios">Nuevo productor <i class="fas fa-plus-circle"></i></a>
         @endcan
     </div>
 <div class="card-body">

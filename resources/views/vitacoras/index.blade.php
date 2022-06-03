@@ -151,7 +151,7 @@
             <b class="text-dark">Productores | Listado</b>
         </div>
         @can('crear-bitacora')
-        <a style="float: right" href="" class="btn bg-primary" data-toggle="modal" data-target="#modalbitacoras">Nueva Bitácora  <i class="fas fa-clipboard"></i></a>
+        <a style="float: right" href="" class="btn bg-primary" data-toggle="modal" data-target="#modalbitacoras">Nueva Bitácora  <i class="fas fa-plus-circle"></i></a>
         @endcan
     </div>
     <div class="card-body">
