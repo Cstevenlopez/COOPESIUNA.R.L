@@ -1,5 +1,7 @@
 @extends('layouts.plantillabase')
 
+
+
 	<!-- Header -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,64 +75,20 @@
       <a
         class="btn btn-primary m-1"
         style="background-color: #3b5998;"
-        href="#!"
+        href="https://www.facebook.com/Copesiuna-R-L-111428190613088"
         role="button"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-
-      <!-- Twitter -->
-      <a
-        class="btn btn-primary m-1"
-        style="background-color: #55acee;"
-        href="#!"
-        role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
-
-      <!-- Google -->
-      <a
-        class="btn btn-primary m-1"
-        style="background-color: #dd4b39;"
-        href="#!"
-        role="button"
-        ><i class="fab fa-google"></i
-      ></a>
-
-      <!-- Instagram -->
-      <a
-        class="btn btn-primary m-1"
-        style="background-color: #ac2bac;"
-        href="#!"
-        role="button"
-        ><i class="fab fa-instagram"></i
-      ></a>
-
-      <!-- Linkedin -->
-      <a
-        class="btn btn-primary m-1"
-        style="background-color: #0082ca;"
-        href="#!"
-        role="button"
-        ><i class="fab fa-linkedin-in"></i
-      ></a>
-      <!-- Github -->
-      <a
-        class="btn btn-primary m-1"
-        style="background-color: #333333;"
-        href="#!"
-        role="button"
-        ><i class="fab fa-github"></i
-      ></a>
+        >Encuentranos en facebook   <i class="fab fa-facebook-f"></i>
+    </a>
     </section>
     <!-- Section: Social media -->
 
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Ver los reportes climatologicos
+            Ver los reportes climatologicos <i class="fas fa-cloud-rain"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="https://ambientweather.net/">Busca la ubicación</a>
-          <a class="dropdown-item" href="https://ambientweather.net/dashboard/a46cf81c8c9c23c82af90073d6f9418d">Siuna</a>
+        <a class="dropdown-item" href="https://ambientweather.net/">Busca la ubicación   <i class="fas fa-search"></i></a>
+          <a class="dropdown-item" href="">Siuna </a>
           <a class="dropdown-item" href="https://ambientweather.net/dashboard/641ad895d38c0da9260472417dc828fe">Rosita</a>
           <a class="dropdown-item" href="https://ambientweather.net/dashboard/115bfe1e4930ac5754c99f8065a3f26f">Bonanza</a>
           <a class="dropdown-item" href="https://ambientweather.net/dashboard/ed0d9a87d9f133957b64282390de3c1d">Waslala</a>
