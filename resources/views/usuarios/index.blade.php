@@ -92,6 +92,19 @@
 @stop
 
 @section('js')
+
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+    let sr = ScrollReveal({
+    duration: 2500,
+    distance: "60px",
+});
+
+// sr.reveal(".navbar",{delay: 600});
+sr.reveal(".card",{origin: "left", delay: 200});
+
+</script>
+
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.8/js/dataTables.responsive.min.js"></script>

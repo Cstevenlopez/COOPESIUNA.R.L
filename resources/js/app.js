@@ -1,15 +1,12 @@
 require('./bootstrap');
 window.Swal = require('sweetalert2')
 
-import Vue from 'vue';
+/* ---------- Reveal animación ----------------- */
 
-const app = new Vue({
-
-    el: '#app',
-
-    methods:{
-      printme(){
-        window.print()
-      }
-    }
+let sr = ScrollReveal({
+    duration: 2500,
+    distance: "60px",
 });
+
+sr.reveal(".showcase-info",{delay: 600});
+sr.reveal(".showcase-image",{origin: "top", delay: 700});

@@ -30,7 +30,7 @@
 </nav>
 
 <!-- Carrusel -->
-<div style="" id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -123,6 +123,19 @@
       ></a>
     </section>
     <!-- Section: Social media -->
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Ver los reportes climatologicos
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="https://ambientweather.net/">Busca la ubicación</a>
+          <a class="dropdown-item" href="https://ambientweather.net/dashboard/a46cf81c8c9c23c82af90073d6f9418d">Siuna</a>
+          <a class="dropdown-item" href="https://ambientweather.net/dashboard/641ad895d38c0da9260472417dc828fe">Rosita</a>
+          <a class="dropdown-item" href="https://ambientweather.net/dashboard/115bfe1e4930ac5754c99f8065a3f26f">Bonanza</a>
+          <a class="dropdown-item" href="https://ambientweather.net/dashboard/ed0d9a87d9f133957b64282390de3c1d">Waslala</a>
+        </div>
+      </div>
   </div>
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
