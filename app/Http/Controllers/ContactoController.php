@@ -15,6 +15,7 @@ class ContactoController extends Controller
      */
     public function __construct()
     {
+        auth();
     }
 
     /**
